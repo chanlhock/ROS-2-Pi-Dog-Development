@@ -417,7 +417,7 @@ Regardless of your approach, these Docker flags are mandatory:
 ## :floppy_disk: Software Development:
 I have tested on Raspberry Pi 5 running VSCode.
     
-Project Structure
+### Project Structure
 
 ```
 ros2_ws/
@@ -455,8 +455,41 @@ ros2_ws/
 │           ├── SpeakCommand.srv
 │           └── EnableSoundDirection.srv
 ```
+### Rebuild with Clean Slate
 
-Some useful information:
+```bash
+cd /ros2_ws
+
+# Complete clean
+rm -rf build/ install/ log/
+rm -rf src/pidog_ros2/__pycache__/
+rm -rf src/pidog_ros2/pidog_ros2/__pycache__/
+
+# Build with verbose output
+colcon build --packages-select pidog_ros2 --event-handlers console_direct+
+
+# Source the workspace
+source install/setup.bash
+
+# Launch file 
+ros2 launch pidog_ros2 pidog_autonomous.launch.py
+
+# or Run with debug output
+ros2 launch pidog_ros2 pidog_autonomous.launch.py debug:=true
+```
+### Check Logs if Issues Occur
+
+```bash
+# View all logs
+tail -f /ros2_ws/logs/*.log
+
+# Check specific node logs
+cat /ros2_ws/logs/movement.log
+cat /ros2_ws/logs/camera.log
+cat /ros2_ws/logs/autonomous.log
+```
+
+### Some useful information:
 ``` 
 Servos Order
                      4,
