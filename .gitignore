@@ -1,0 +1,27 @@
+# ROS 2 build files
+build/
+install/
+log/
+backup/
+
+# Core dumps
+core.*
+
+# Large model files
+*.mdl
+vosk-model-*/
+woofer/vosk-model-*/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Backup files
+*.bak
+*.swp
+*~
+
+# IDE files
+.vscode/
+.idea/
