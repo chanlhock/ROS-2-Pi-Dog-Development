@@ -1,6 +1,6 @@
 # 
 
-# :mouse: ROS 2 Development on Raspberry Pi 5
+# :mouse: ROS 2 Pi Dog Development on Raspberry Pi 5
 
 <p align="center">
  <img src="resource/ros2-woofer-logo.jpg" width="250">
@@ -417,6 +417,45 @@ Regardless of your approach, these Docker flags are mandatory:
 ## :floppy_disk: Software Development:
 I have tested on Raspberry Pi 5 running VSCode.
     
+Project Structure
+
+```
+ros2_ws/
+├── src/
+│   └── pidog_ros2/
+│       ├── pidog_ros2/
+│       │   ├── __init__.py
+│       │   ├── ros2_autonomous_pidog.py
+│       │   ├── pidog_movement_node.py
+│       │   ├── pidog_distance_node.py
+│       │   ├── pidog_camera_node.py
+│       │   ├── pidog_imu_node.py
+│       │   ├── pidog_dual_touch_node.py
+│       │   ├── pidog_direction_sensor_node.py
+│       │   ├── pidog_tts_speaks_node.py
+│       │   └── pidog_stt_voice_command_node.py
+│       ├── launch/
+│       │   └── pidog_autonomous.launch.py
+│       ├── config/
+│       │   └── pidog_params.yaml
+│       ├── setup.py
+│       ├── setup.cfg
+│       ├── package.xml
+│       ├── resource/
+│       │   └── pidog_ros2
+│       ├── msg/
+│       │   ├── Distance.msg
+│       │   ├── IMUData.msg
+│       │   ├── TouchData.msg
+│       │   ├── SoundDirection.msg
+│       │   ├── FaceDetection.msg
+│       │   └── CommandStatus.msg
+│       └── srv/
+│           ├── MoveCommand.srv
+│           ├── SpeakCommand.srv
+│           └── EnableSoundDirection.srv
+```
+
 Some useful information:
 ``` 
 Servos Order
