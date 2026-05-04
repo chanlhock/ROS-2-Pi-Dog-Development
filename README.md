@@ -552,7 +552,26 @@ so that it can be loaded back when  Docker is running back.
 - 30th Apr 2026: Managed to install robot-hat and pidog into Docker with  Ubuntu 22.04. 
 However still facing some problem with Vilib installation. Couldn't get the camera to be working.
 Installation of robot-hat and pidog not so straightforward and need to manually install some of the dependencies files in order for it to work.
+- 4th May 2026: After some attempts, finally gotten vilib camera to work properly in Ubuntu 22.04.
+Once the code autonomous_dog1_ubuntu.py is tested fully functioning, I attached this file to the DeepSeek prompt as follows:
+```
+I have a Pi Dog platform on Raspberry Pi 5 running a Docker of Ubuntu 22.04 with ROS 2. The ROS 2 workspace is at ros2_ws and package name of pidog_ros2.
 
+Please generate reference Python code for the following:
+- Main program called ros2_autonomous_pidog.py which gets topics and parameters from various nodes to inform node to move Pi Dog, makes Pi Dog sound, recognise a voice command
+- Node for pidog_movement_node.py which gets command from main program for Pi Dog to move
+- - Node pidog_distance_node.py that post topics for Pi Dog ultrasonic distance sensor measurement
+- Node pidog_camera_node.py which post available image capture by Pi Dog camera to the main program 
+- - Node pidog_imu_node.py for posting Pi Dog IMU data topic for main program to read.
+- Node pidog_dual_touch_node.py for posting touch sensor data to main program whenever Pi Dog touch sensor is touched.
+- Node pidog_direction_sensor_node.py to post direction of sound when enabled to detect sound direction from main program. When enable it would send interrupt to main program to do certain actions.
+- Node pidog_tts_speaks_node.py which generates Pi Dog voice through Vosk TTS when send text message from main program.
+- Node pidog_stt_voice_command_node.py which STT voice input and convert to command to send to main program for action to move Pi Dog legs, head, emotions, sound, etc.
+
+Please generate the code needed to implement above and also provide steps on how to build and run these ROS 2 main program together with its nodes program 
+
+Can you refer to the code attached for Pi Dog functions that you can use in your generated code.
+```
 
 ## :coffee: Buy Me a Coffee
 If you appreciate my work, do support me by...<br>
