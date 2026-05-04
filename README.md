@@ -415,7 +415,8 @@ Regardless of your approach, these Docker flags are mandatory:
 ```
 
 ## :floppy_disk: Software Development:
-I have tested on Raspberry Pi 5 running VSCode.
+I have tested on Raspberry Pi 5 Debian 13 Trixie OS with Docker running ROS 2 Humble on Ubuntu 22.04.
+Pi Dog modules, robot-hat, vilib and pidog are installed and tested working in Docker Ubuntu 22.04.
     
 ### Project Structure
 
