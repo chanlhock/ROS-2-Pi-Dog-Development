@@ -1,0 +1,60 @@
+# PiDog ROS 2 Configuration Parameters
+
+/**:
+  ros__parameters:
+    # Movement parameters
+    forward_speed: 98
+    turn_speed: 98
+    obstacle_distance: 30
+    backward_time: 1.0
+    turn_time: 0.6
+    forward_interval: 0.2
+    
+    # Distance sensor parameters
+    publish_frequency: 10.0
+    distance_timeout: 2.0
+    moving_average_window: 5
+    
+    # Camera parameters
+    camera_device: 0
+    image_width: 640
+    image_height: 480
+    fps: 15
+    enable_face_detection: true
+    save_photos: false
+    photo_save_path: "/home/ros/Pictures/pidog/"
+    
+    # IMU parameters
+    simulate_imu: true
+    use_hardware_imu: false
+    
+    # Touch sensor parameters
+    touch_threshold: 0.8
+    debounce_ms: 100
+    simulate_touch: true
+    
+    # Sound direction parameters
+    sound_enabled: true
+    sample_rate: 16000
+    chunk_size: 1024
+    sound_energy_threshold: 500
+    simulate_sound: true
+    
+    # TTS parameters
+    tts_model: "en_US-ryan-low"
+    voice_volume: 0.8
+    speak_rate: 1.0
+    use_piper: true
+    use_espeak: false
+    
+    # STT parameters
+    stt_enabled: true
+    model_path: "/pidog/woofer/vosk-model-small-en-us-0.15"
+    silence_timeout: 2.0
+    speech_timeout: 10.0
+    
+    # Behavior parameters
+    emotion_interval: 30
+    mse_threshold: 20
+    stuck_distance: 10
+    start_turn_distance: 80

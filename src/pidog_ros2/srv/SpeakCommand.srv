@@ -1,0 +1,5 @@
+string text
+bool use_emotion  # whether to add emotional expression
+---
+bool success
+string message

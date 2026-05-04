@@ -1,0 +1,8 @@
+---
+string command      # forward, backward, turn_left, turn_right, sit, stand, etc.
+int32 step_count    # number of steps for walking actions
+int32 speed         # speed percentage (0-100)
+bool wait_for_completion
+---
+bool success
+string message
