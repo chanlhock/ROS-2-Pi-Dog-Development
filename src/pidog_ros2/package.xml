@@ -4,7 +4,7 @@
   <name>pidog_ros2</name>
   <version>1.0.0</version>
   <description>ROS 2 package for autonomous Pi Dog robot control</description>
-  <maintainer email="user@example.com">PiDog User</maintainer>
+  <maintainer email="chanlhock@gmail.com">Bernard Chan</maintainer>
   <license>GPL-3.0</license>
   
   <buildtool_depend>ament_python</buildtool_depend>

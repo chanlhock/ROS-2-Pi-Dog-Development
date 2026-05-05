@@ -19,11 +19,11 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Your Name',
-    maintainer_email='your_email@example.com',
+    maintainer='Bernard Chan',
+    maintainer_email='chanlhock@gmail.com',
     description='ROS 2 package for autonomous Pi Dog robot control',
     license='GPL-3.0',
-    tests_require=['pytest'],
+   # tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'ros2_autonomous_pidog = pidog_ros2.ros2_autonomous_pidog:main',

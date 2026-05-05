@@ -9,7 +9,7 @@ import rclpy
 from rclpy.node import Node
 from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
-from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy , ReliabilityPolicy, HistoryPolicy
 
 # Standard ROS 2 imports instead of custom ones
 from std_msgs.msg import String, Float32, Bool
@@ -74,12 +74,34 @@ class Ros2AutonomousPiDog(Node):
         self.emergency_stop = False
         self.voice_command_waiting = False
         
+        # After existing parameters, add:
+        self.declare_parameter('enable_head_scanning', False)
+        self.declare_parameter('enable_sound_turning', True)
+        self.declare_parameter('enable_face_interaction', True)
+        self.declare_parameter('personality_actions', True)
+
+        self.enable_head_scanning = self.get_parameter('enable_head_scanning').value
+        self.enable_sound_turning = self.get_parameter('enable_sound_turning').value
+        self.enable_face_interaction = self.get_parameter('enable_face_interaction').value
+        self.personality_actions = self.get_parameter('personality_actions').value
+
         # ROS 2 Publishers
+        #qos_profile = QoSProfile(
+        #    reliability=ReliabilityPolicy.RELIABLE,
+        #    history=HistoryPolicy.KEEP_LAST,
+        #    depth=10
+        #)
         qos_profile = QoSProfile(
-            reliability=ReliabilityPolicy.RELIABLE,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,  # Change from RELIABLE
             history=HistoryPolicy.KEEP_LAST,
             depth=10
-        )
+       )
+        
+        qos_profile_reliable = QoSProfile(
+            reliability=ReliabilityPolicy.RELIABLE,  # Change back to RELIABLE
+            history=HistoryPolicy.KEEP_LAST,
+            depth=10
+      )
         
         # Status publisher using String
         self.status_pub = self.create_publisher(
@@ -153,17 +175,31 @@ class Ros2AutonomousPiDog(Node):
         # Movement command publisher (instead of service)
         self.move_pub = self.create_publisher(
             String,
-            'movement_command',
-            qos_profile
+            'command',  # Change from 'movement_command' to 'command'
+            qos_profile_reliable
         )
         
         # Speech command publisher
+        #self.speak_pub = self.create_publisher(
+        #    String,
+        #    'speak_command',
+        #    qos_profile
+        #)
+        
+        # To (add both publishers):
         self.speak_pub = self.create_publisher(
+            String,
+            'speak_text',  # Match the TTS node's topic
+            qos_profile
+        )
+
+        # Also keep speak_command for compatibility
+        self.speak_command_pub = self.create_publisher(
             String,
             'speak_command',
             qos_profile
-        )
-        
+       )
+
         # Start autonomous behavior thread
         self.autonomous_thread = threading.Thread(target=self.autonomous_behavior_loop, daemon=True)
         self.autonomous_thread.start()
@@ -242,11 +278,40 @@ class Ros2AutonomousPiDog(Node):
         except Exception as e:
             self.get_logger().debug(f"Face detection parse error: {e}")
     
-    def voice_command_callback(self, msg):
-        """Handle voice commands"""
-        self.get_logger().info(f"Voice command received: {msg.data}")
-        self.handle_voice_command(msg.data)
+    #def voice_command_callback(self, msg):
+    #    """Handle voice commands"""
+    #    self.get_logger().info(f"Voice command received: {msg.data}")
+    #    self.handle_voice_command(msg.data)
     
+    # In voice_command_callback, add:
+    def voice_command_callback(self, msg):
+        command = msg.data.lower().strip()
+    
+        # List of valid commands
+        valid_commands = ['sit', 'stand', 'walk', 'forward', 'back', 'backward', 
+                          'left', 'right', 'stop', 'resume', 'shutdown', 'sleep',
+                          'stretch', 'hand shake', 'high five', 'scratch', 'howl']
+    
+        # Check if command matches any valid command
+        matched = False
+        matched_command = None
+        for valid in valid_commands:
+            if valid in command:
+                matched_command = valid
+                matched = True
+                break
+        # Also check for single words that are valid
+        simple_commands = ['sit', 'stand', 'walk', 'stop', 'howl']
+        if command in simple_commands:
+            matched_command = command
+            matched = True
+
+        if matched and len(command) < 20 and len(command) > 2:  # Ignore long false positives
+            self.get_logger().info(f"Voice command received: {matched_command}")
+            self.handle_voice_command(matched_command)
+        elif len(command) > 2:
+            self.get_logger().debug(f"Ignoring unrecognized command: {command}")
+
     def publish_status(self):
         """Publish robot status periodically"""
         status_str = f"state:{self.state.value}:emotion:{self.emotion.value}:distance:{self.current_distance:.1f}:emergency:{self.emergency_stop}"
@@ -362,15 +427,47 @@ class Ros2AutonomousPiDog(Node):
         
         self.voice_command_waiting = False
     
+    #def send_move_command(self, command, step_count=0, speed=70):
+    #    """Send movement command to movement node via topic"""
+    #    # Format: "command:step_count:speed"
+    #    cmd_str = f"{command}:{step_count}:{speed}"
+    #    msg = String()
+    #    msg.data = cmd_str
+    #    self.move_pub.publish(msg)
+    #    self.get_logger().info(f"Sent move command: {command}")
+    
+    # Replace lines 256-264 (send_move_command method):
+    #def send_move_command(self, command, step_count=0, speed=70):
+    #    """Send movement command to movement node via topic"""
+    #    # The movement node expects format: "command:step_count:speed"
+    #    # But it also accepts plain strings without colon
+    #    if step_count > 0:
+    #        cmd_str = f"{command}:{step_count}:{speed}"
+    #    else:
+    #        cmd_str = command  # For commands like 'sit', 'stand' that don't need step_count
+   # 
+    #    msg = String()
+    #    msg.data = cmd_str
+    #    self.move_pub.publish(msg)
+    #    self.get_logger().info(f"Sent move command: {command}")
+
     def send_move_command(self, command, step_count=0, speed=70):
         """Send movement command to movement node via topic"""
-        # Format: "command:step_count:speed"
-        cmd_str = f"{command}:{step_count}:{speed}"
+        # The movement node expects different formats for different commands
+        # For commands that are just strings (sit, stand, stop)
+        if command in ['sit', 'stand', 'stop', 'stretch', 'push_up', 
+                       'hand_shake', 'scratch', 'high_five', 'shake_head', 
+                       'bark', 'howling', 'startle', 'wag_tail', 'look_around']:
+            cmd_str = command
+        else:
+            # For movement commands that need step count
+            cmd_str = f"{command}:{step_count}:{speed}"
+    
         msg = String()
         msg.data = cmd_str
         self.move_pub.publish(msg)
-        self.get_logger().info(f"Sent move command: {command}")
-    
+        self.get_logger().info(f"Sent move command: {cmd_str}")
+
     def speak(self, text, use_emotion=False):
         """Send speech command to TTS node via topic"""
         # Format: "text:use_emotion"
@@ -384,6 +481,15 @@ class Ros2AutonomousPiDog(Node):
         """Get current distance from sensor"""
         return self.current_distance if self.current_distance < 999 else None
     
+    # In ros2_autonomous_pidog.py:
+    #def get_distance(self):
+        """Get current distance from sensor"""
+    #    if self.distance_node_available:
+    #        return self.current_distance if self.current_distance < 999 else None
+    #    else:
+    #        # Simulate distance for testing
+    #        return random.uniform(100, 300)  # Random distance
+
     def smart_turn(self):
         """Intelligent turning based on turn history"""
         # Alternate turns if we've been turning same direction too much
@@ -477,7 +583,8 @@ class Ros2AutonomousPiDog(Node):
                     else:
                         # Move forward normally
                         self.send_move_command("forward", step_count=2, speed=FORWARD_SPEED)
-                        
+                        time.sleep(0.5)  # Add delay instead of 0.3 to give time to complete movement
+
                         # Random personality actions occasionally
                         if random.random() < 0.05:  # 5% chance
                             self.random_personality_action()
@@ -535,7 +642,8 @@ def main(args=None):
         node.get_logger().info("Shutting down autonomous Pi Dog node")
     finally:
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():  # Check if already shutdown
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':

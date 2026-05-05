@@ -50,21 +50,66 @@ class PiDogMovementNode(Node):
         self.is_moving = False
         self.current_action = None
         
+        # After existing parameters, add:
+        self.declare_parameter('enable_hardware', True)
+        self.declare_parameter('use_simulation', False)
+        self.declare_parameter('enable_sensors', True)
+
+        self.enable_hardware = self.get_parameter('enable_hardware').value
+        self.use_simulation = self.get_parameter('use_simulation').value
+        self.enable_sensors = self.get_parameter('enable_sensors').value
+
+        self.get_logger().info(f"Movement Node Config: hardware={self.enable_hardware}, simulation={self.use_simulation}, sensors={self.enable_sensors}")
+
+        #if PIDOG_AVAILABLE:
+        #    try:
+        #        self.dog = Pidog()
+        #        self.get_logger().info("PiDog hardware initialized successfully")
+                
+                # Initialize servos to safe position
+        #        self.dog.do_action('sit', speed=50)
+        #        self.dog.wait_all_done()
+                
+        #    except Exception as e:
+        #        self.get_logger().error(f"Failed to initialize PiDog: {e}")
+        #        self.dog = None
+        #else:
+        #    self.get_logger().warning("Running in simulation mode - no hardware control")
+        
+        # Replace lines 40-50 (around the PiDog initialization):
         if PIDOG_AVAILABLE:
             try:
+                # Initialize Pidog with sensors disabled to avoid GPIO conflicts
+                # Note: Pidog class might need modification, but we can work around
                 self.dog = Pidog()
-                self.get_logger().info("PiDog hardware initialized successfully")
-                
+        
+                # Try to disable sensor threads if possible
+                # This is a workaround - the real fix is modifying the Pidog library
+                if hasattr(self.dog, 'sensory_thread'):
+                    self.dog.sensory_thread_running = False
+            
+                self.get_logger().info("PiDog hardware initialized successfully (movement only)")
+        
                 # Initialize servos to safe position
                 self.dog.do_action('sit', speed=50)
                 self.dog.wait_all_done()
-                
+        
             except Exception as e:
                 self.get_logger().error(f"Failed to initialize PiDog: {e}")
                 self.dog = None
-        else:
-            self.get_logger().warning("Running in simulation mode - no hardware control")
+
+            if self.dog:
+                # Try to prevent sensor initialization
+                try:
+                    # Disable the sensory thread if it exists
+                    if hasattr(self.dog, 'sensory_thread_running'):
+                        self.dog.sensory_thread_running = False
         
+                    # Also try to avoid initializing sensors by not calling read methods
+                    self.get_logger().info("Movement node configured for movement only (sensors disabled)")
+                except Exception as e:
+                    self.get_logger().debug(f"Could not disable sensors: {e}")
+
         # ROS 2 Services using standard Trigger type
         # Each command gets its own service
         self.sit_srv = self.create_service(Trigger, 'sit', self.make_service_callback('sit'))
@@ -115,21 +160,46 @@ class PiDogMovementNode(Node):
             return response
         return callback
     
+    #def command_callback(self, msg):
+    #    """Handle string commands from topic"""
+    #    self.get_logger().info(f"Received command on /command topic: '{msg.data}'")  # Add this line
+    #    cmd = msg.data.lower().strip()
+    #    self.get_logger().info(f"Command via topic: {cmd}")
+        
+    #    # Parse command (could include parameters like "forward 10" for step count)
+    #    parts = cmd.split()
+    #    action = parts[0]
+    #    step_count = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 5
+        
+    #    if action in AVAILABLE_ACTIONS or action == 'stop':
+    #        self.execute_movement(action, step_count=step_count, speed=70, wait=False)
+    #    else:
+    #        self.get_logger().warning(f"Unknown command: {cmd}")
+    
     def command_callback(self, msg):
         """Handle string commands from topic"""
+        self.get_logger().info(f"Received command on /command topic: '{msg.data}'")
         cmd = msg.data.lower().strip()
-        self.get_logger().info(f"Command via topic: {cmd}")
-        
-        # Parse command (could include parameters like "forward 10" for step count)
-        parts = cmd.split()
-        action = parts[0]
-        step_count = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 5
-        
+    
+        # Check if command has colon format (command:step:speed)
+        if ':' in cmd:
+            parts = cmd.split(':')
+            action = parts[0]
+            step_count = int(parts[1]) if len(parts) > 1 and parts[1].isdigit() else 5
+            speed = int(parts[2]) if len(parts) > 2 and parts[2].isdigit() else 70
+        else:
+            action = cmd
+            step_count = 5
+            speed = 70
+    
+        self.get_logger().info(f"Parsed command: action={action}, step={step_count}, speed={speed}")
+    
         if action in AVAILABLE_ACTIONS or action == 'stop':
-            self.execute_movement(action, step_count=step_count, speed=70, wait=False)
+            self.execute_movement(action, step_count=step_count, speed=speed, wait=False)
         else:
             self.get_logger().warning(f"Unknown command: {cmd}")
-    
+
+
     def execute_movement(self, command, step_count=5, speed=70, wait=True):
         """Execute the actual movement on PiDog"""
         if self.dog is None:
@@ -275,7 +345,8 @@ def main(args=None):
     finally:
         node.shutdown()
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():  # Check if already shutdown
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':

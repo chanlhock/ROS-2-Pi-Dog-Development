@@ -18,7 +18,15 @@ import time
 import threading
 import random
 from collections import deque
-
+# Add this after the imports, before the PiDogDistanceNode class:
+# Try to import PiDog library
+try:
+    sys.path.append('/usr/local/lib/python3.10/dist-packages')
+    from pidog import Pidog
+    PIDOG_AVAILABLE = True
+except ImportError:
+    PIDOG_AVAILABLE = False
+    print("Warning: PiDog library not available. Running in simulation mode.")
 
 class PiDogDistanceNode(Node):
     def __init__(self):
@@ -28,13 +36,31 @@ class PiDogDistanceNode(Node):
         self.declare_parameter('publish_frequency', 10.0)  # Hz
         self.declare_parameter('distance_timeout', 2.0)  # seconds
         self.declare_parameter('moving_average_window', 5)
-        self.declare_parameter('enable_head_scanning', False)  # Disabled by default
+        #self.declare_parameter('enable_head_scanning', False)  # Disabled by default
         
         self.publish_freq = self.get_parameter('publish_frequency').value
         self.distance_timeout = self.get_parameter('distance_timeout').value
         self.moving_window = self.get_parameter('moving_average_window').value
         self.enable_head_scanning = self.get_parameter('enable_head_scanning').value
         
+        # Add after line 38 (around the parameter declarations)
+        #self.declare_parameter('enable_hardware', True)  # Add this line
+        #self.enable_hardware = self.get_parameter('enable_hardware').value
+
+        # After the existing parameter declarations, add:
+        self.declare_parameter('enable_hardware', True)
+        self.declare_parameter('enable_head_scanning', False)
+        self.declare_parameter('use_simulation', False)
+        
+        if not self.has_parameter('enable_head_scanning'):
+            self.declare_parameter('enable_head_scanning', False)
+
+        self.enable_hardware = self.get_parameter('enable_hardware').value
+        self.enable_head_scanning = self.get_parameter('enable_head_scanning').value
+        self.use_simulation = self.get_parameter('use_simulation').value
+
+        self.get_logger().info(f"Distance Node Config: hardware={self.enable_hardware}, head_scanning={self.enable_head_scanning}, simulation={self.use_simulation}")
+
         # Distance buffer for moving average
         self.distance_buffer = deque(maxlen=self.moving_window)
         
@@ -60,15 +86,28 @@ class PiDogDistanceNode(Node):
         )
         
         # Try to import PiDog
-        self.dog = None
-        try:
-            sys.path.append('/usr/local/lib/python3.10/dist-packages')
-            from pidog import Pidog
-            self.dog = Pidog()
-            self.get_logger().info("Distance sensor initialized successfully")
-        except ImportError:
-            self.get_logger().warning("PiDog library not available - running in simulation")
+        #self.dog = None
+        #try:
+        #    sys.path.append('/usr/local/lib/python3.10/dist-packages')
+        #    from pidog import Pidog
+        #    self.dog = Pidog()
+        #    self.get_logger().info("Distance sensor initialized successfully")
+        #except ImportError:
+        #    self.get_logger().warning("PiDog library not available - running in simulation")
         
+        # Modify the PiDog initialization section (lines 46-55):
+        if PIDOG_AVAILABLE and self.enable_hardware:
+            try:
+                self.dog = Pidog()
+                self.get_logger().info("Distance sensor initialized successfully")
+            except Exception as e:
+                self.get_logger().warning(f"Failed to initialize hardware: {e}")
+                self.get_logger().warning("Falling back to simulation mode")
+                self.dog = None
+        else:
+            self.get_logger().info("Running in simulation mode - no hardware control")
+            self.dog = None
+
         # Timer for publishing
         timer_period = 1.0 / self.publish_freq
         self.timer = self.create_timer(timer_period, self.publish_distance)
@@ -232,16 +271,34 @@ class PiDogDistanceNode(Node):
         self.scanning = False
         
         if self.scan_thread and self.scan_thread.is_alive():
-            self.scan_thread.join(timeout=2.0)
+            self.scan_thread.join(timeout=1.0)  # Reduced from 2.0
         
+        #if self.dog:
+        #    try:
+        #        # Return head to center
+        #        self.dog.head_move([(0, 0, 0)], immediately=True, speed=50)
+        #        self.get_logger().info("Head returned to center")
+        #    except Exception as e:
+        #        self.get_logger().debug(f"Error returning head to center: {e}")
         if self.dog:
             try:
-                # Return head to center
-                self.dog.head_move([(0, 0, 0)], immediately=True, speed=50)
-                self.get_logger().info("Head returned to center")
+                # Only attempt head movement if we're not in emergency
+                # and if actually using hardware (not simulation)
+                if self.enable_hardware:
+                    # Return head to center with shorter timeout
+                    self.dog.head_move([(0, 0, 0)], immediately=True, speed=50)
+                    self.get_logger().info("Head returned to center")
+                    time.sleep(0.1)  # Reduced sleep
             except Exception as e:
                 self.get_logger().debug(f"Error returning head to center: {e}")
-        
+    
+        # Close dog connection if exists
+        if self.dog:
+            try:
+                self.dog.close()
+            except:
+                pass
+
         self.get_logger().info("Distance node shutdown complete")
 
 
@@ -257,7 +314,8 @@ def main(args=None):
     finally:
         node.shutdown()
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():  # Check if already shutdown
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':

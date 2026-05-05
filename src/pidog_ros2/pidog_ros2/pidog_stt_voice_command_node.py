@@ -111,11 +111,14 @@ class PiDogSTTNode(Node):
                     if dev_info['maxInputChannels'] > 0:
                         self.get_logger().info(f"  Device {i}: {dev_info['name']}")
             
+            self.chunk_size = 4096  # 128ms at 16kHz, reduced for lower memory usage
+            self.RATE = 16000
             # Open audio stream
             self.audio_stream = self.pyaudio.open(
                 format=pyaudio.paInt16,
                 channels=1,
-                rate=self.sample_rate,
+                #rate=self.sample_rate,
+                rate=self.RATE,
                 input=True,
                 frames_per_buffer=self.chunk_size
             )
@@ -322,7 +325,8 @@ def main(args=None):
     finally:
         node.shutdown()
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():  # Check if already shutdown
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':

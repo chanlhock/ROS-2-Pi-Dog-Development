@@ -7,7 +7,7 @@ Uses standard ROS 2 message types (no custom imports required)
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, ReliabilityPolicy, HistoryPolicy
 
 # Standard ROS 2 imports instead of custom ones
 from sensor_msgs.msg import Image
@@ -52,6 +52,7 @@ class PiDogCameraNode(Node):
         # ROS 2 Publishers
         qos_profile = QoSProfile(
             reliability=ReliabilityPolicy.BEST_EFFORT,
+           # reliability=QoSReliabilityPolicy.BEST_EFFORT,  # Change from RELIABLE
             history=HistoryPolicy.KEEP_LAST,
             depth=10
         )
@@ -61,12 +62,17 @@ class PiDogCameraNode(Node):
             'camera/image_raw',
             qos_profile
         )
+
+        qos_profile_best_effort = QoSProfile(
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            depth=10
+        )
         
         # Face detection publisher using String (format: "count:x1,y1,w1,h1:x2,y2,w2,h2...")
         self.face_pub = self.create_publisher(
             String,
             'face_detection',
-            qos_profile
+            qos_profile_best_effort  # Change from RELIABLE to BEST_EFFORT
         )
         
         # Initialize camera
@@ -100,7 +106,11 @@ class PiDogCameraNode(Node):
             try:
                 from vilib import Vilib
                 self.use_vilib = True
-                Vilib.camera_start(vflip=False, hflip=False)
+                #Vilib.camera_start(vflip=False, hflip=False)
+                Vilib.camera_start(vflip=False, hflip=False, size=(1280, 720))
+                Vilib.show_fps()
+                Vilib.display(local=False,web=True)
+                time.sleep(1)  # give camera time to warm up
                 if self.enable_face_detection:
                     Vilib.face_detect_switch(True)
                 self.get_logger().info("Camera initialized with Vilib")
@@ -280,7 +290,8 @@ def main(args=None):
     finally:
         node.shutdown()
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():  # Check if already shutdown
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':

@@ -7,7 +7,7 @@ Uses standard ROS 2 message types (no custom imports required)
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, HistoryPolicy
 
 # Standard ROS 2 imports instead of custom ones
 from std_msgs.msg import String
@@ -48,13 +48,20 @@ class PiDogTTSNode(Node):
             self.speak_callback
         )
         
+        # For the speak_text subscriber:
+        qos_profile_best_effort = QoSProfile(
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
+            depth=10
+        )
+
         # Topic for text to speak (with optional emotion flag)
         # Format: "text" or "text:emotion"
         self.speak_sub = self.create_subscription(
             String,
             'speak_text',
-            self.speak_text_callback,
-            10
+            #self.speak_callback,
+            self.speak_text_callback,  # Change from 'speak_callback' to 'speak_text_callback'
+            qos_profile_best_effort  # Use BEST_EFFORT instead of RELIABLE
         )
         
         # Initialize TTS engine
@@ -161,31 +168,66 @@ class PiDogTTSNode(Node):
             self.get_logger().error(f"eSpeak error: {e}")
             return False
     
+    #def speak_text_callback(self, msg):
+    #    """Callback for simple text topic"""
+    #    data = msg.data
+    #    use_emotion = False
+        
+    #    # Check if emotion flag is included (format: "text:emotion")
+    #    if ':' in data:
+    #        parts = data.split(':', 1)
+    #        text = parts[0]
+    #        emotion_flag = parts[1].lower()
+    #        use_emotion = emotion_flag in ['true', 'yes', '1', 'emotion']
+    #    else:
+    #        text = data
+        
+    #    self.add_to_speech_queue(text, use_emotion)
+    
     def speak_text_callback(self, msg):
-        """Callback for simple text topic"""
-        data = msg.data
-        use_emotion = False
-        
-        # Check if emotion flag is included (format: "text:emotion")
-        if ':' in data:
-            parts = data.split(':', 1)
-            text = parts[0]
-            emotion_flag = parts[1].lower()
-            use_emotion = emotion_flag in ['true', 'yes', '1', 'emotion']
+        """Handle text to speak from topic"""
+        self.get_logger().info(f"Speak topic received: {msg.data}")
+        # Add to queue or speak directly
+        if hasattr(self, 'speech_queue'):
+            self.speech_queue.append(msg.data)
         else:
-            text = data
-        
-        self.add_to_speech_queue(text, use_emotion)
+            self.speak_text(msg.data)
+
+
+    #def speak_callback(self, request, response):
+    #    """Service callback for speech commands"""
+    #    # The Trigger service doesn't carry text, so we need a different approach
+    #    # For now, return error indicating to use topic
+    #    response.success = False
+    #    response.message = "Please use /speak_text topic with String message containing text to speak"
+    #    self.get_logger().warning("Trigger service called. Use /speak_text topic instead.")
+    #   return response
     
+    #def speak_callback(self, request, response):  # Correct for ROS2 service
+    #    self.get_logger().info(f"Speak service called: {request.data}")
+    #    # Add speech to queue
+    #    self.add_to_speech_queue(request.data)
+    #    response.success = True
+    #    response.message = "Speech added to queue"
+    #    return response
+
     def speak_callback(self, request, response):
-        """Service callback for speech commands"""
-        # The Trigger service doesn't carry text, so we need a different approach
-        # For now, return error indicating to use topic
-        response.success = False
-        response.message = "Please use /speak_text topic with String message containing text to speak"
-        self.get_logger().warning("Trigger service called. Use /speak_text topic instead.")
-        return response
+        """Service callback for speaking"""
+        self.get_logger().info(f"Speak service called with: {request.data}")
     
+        # Add to queue
+        if hasattr(self, 'speech_queue'):
+            self.speech_queue.append(request.data)
+            response.success = True
+            response.message = "Speech added to queue"
+        else:
+            # Direct speak
+            self.speak_text(request.data)
+            response.success = True
+            response.message = "Speech completed"
+    
+        return response
+
     def add_to_speech_queue(self, text, use_emotion=False):
         """Add text to speech queue"""
         if not text or len(text.strip()) == 0:
@@ -291,7 +333,8 @@ def main(args=None):
     finally:
         node.shutdown()
         node.destroy_node()
-        rclpy.shutdown()
+        if rclpy.ok():  # Check if already shutdown
+            rclpy.shutdown()
 
 
 if __name__ == '__main__':
