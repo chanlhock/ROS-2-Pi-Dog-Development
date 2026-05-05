@@ -309,6 +309,8 @@ Here is your simplified workflow for future sessions:
    ```bash
    docker commit ros2_dev ros2_humble:pi5
    ```
+A good reference at website: How To Install ROS2 Humble Base On Raspberry Pi 4B (FULL INSTALL)
+(https://robocre8.gitbook.io/robocre8/tutorials/how-to-install-ros2-humble-base-on-raspberry-pi-4b-full-install)
 
 ### For Pi Dog Specific Recommended Install Inside Container
 
