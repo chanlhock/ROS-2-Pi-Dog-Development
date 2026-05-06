@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ROS 2 TTS (Text-to-Speech) Node for Pi Dog
-Generates voice output using Piper TTS or eSpeak
+Generates voice output using Piper TTS from pidog.tts module
 Uses standard ROS 2 message types (no custom imports required)
 """
 
@@ -15,9 +15,7 @@ from std_srvs.srv import Trigger
 
 import time
 import threading
-import os
 import subprocess
-import random
 
 
 class PiDogTTSNode(Node):
@@ -59,9 +57,8 @@ class PiDogTTSNode(Node):
         self.speak_sub = self.create_subscription(
             String,
             'speak_text',
-            #self.speak_callback,
-            self.speak_text_callback,  # Change from 'speak_callback' to 'speak_text_callback'
-            qos_profile_best_effort  # Use BEST_EFFORT instead of RELIABLE
+            self.speak_text_callback,
+            qos_profile_best_effort
         )
         
         # Initialize TTS engine
@@ -76,49 +73,36 @@ class PiDogTTSNode(Node):
         self.get_logger().info("Or publish to /speak_text topic")
     
     def init_tts_engine(self):
-        """Initialize TTS engine"""
-        self.piper_process = None
-        self.play_process = None
+        """Initialize TTS engine using pidog.tts.Piper"""
+        self.tts_engine = None
         
         if self.use_piper:
             try:
-                # Check if piper is available
-                result = subprocess.run(['which', 'piper'], capture_output=True, text=True)
-                if result.returncode == 0:
-                    self.get_logger().info("Piper TTS found")
-                    
-                    # Check if model exists
-                    model_path = f"/usr/share/piper/models/{self.tts_model}.onnx"
-                    if not os.path.exists(model_path):
-                        self.get_logger().warning(f"Model not found: {model_path}")
-                        self.get_logger().info("Using default model or falling back to espeak")
-                        self.use_piper = False
-                        self.use_espeak = True
-                    else:
-                        # Start piper in a subprocess
-                        self.piper_process = subprocess.Popen(
-                            ['piper', '--model', model_path, '--output-raw'],
-                            stdin=subprocess.PIPE,
-                            stdout=subprocess.PIPE,
-                            stderr=subprocess.PIPE
-                        )
-                        
-                        # Play audio using aplay
-                        self.play_process = subprocess.Popen(
-                            ['aplay', '-r', '22050', '-f', 'S16_LE', '-t', 'raw'],
-                            stdin=self.piper_process.stdout,
-                            stdout=subprocess.DEVNULL,
-                            stderr=subprocess.DEVNULL
-                        )
-                        self.get_logger().info("Piper TTS initialized successfully")
-                else:
-                    self.get_logger().warning("Piper not found, falling back to espeak")
-                    self.use_piper = False
-                    self.use_espeak = True
-            except Exception as e:
-                self.get_logger().error(f"Failed to initialize Piper: {e}")
+                # Import the Piper class from pidog.tts
+                from pidog.tts import Piper
+                
+                # Create Piper instance
+                self.tts_engine = Piper()
+                
+                # List available models for debugging
+                #self.get_logger().info("Available countries: " + str(self.tts_engine.available_countrys()))
+                #self.get_logger().info("Available models for en_us: " + str(self.tts_engine.available_models('en_us')))
+                
+                # Set the voice model (auto-downloads if not present)
+                self.tts_engine.set_model(self.tts_model)
+                self.get_logger().info(f"Piper TTS initialized successfully with model: {self.tts_model}")
+                
+            except ImportError as e:
+                self.get_logger().error(f"Failed to import pidog.tts.Piper: {e}")
+                self.get_logger().error("Please ensure pidog is installed correctly")
                 self.use_piper = False
                 self.use_espeak = True
+                self.tts_engine = None
+            except Exception as e:
+                self.get_logger().error(f"Failed to initialize Piper TTS: {e}")
+                self.use_piper = False
+                self.use_espeak = True
+                self.tts_engine = None
         
         if self.use_espeak:
             try:
@@ -136,14 +120,13 @@ class PiDogTTSNode(Node):
             self.get_logger().warning("No TTS engine available. Speech will be logged only.")
     
     def speak_piper(self, text):
-        """Speak text using Piper TTS"""
-        if self.piper_process is None or self.piper_process.poll() is not None:
+        """Speak text using Piper TTS via pidog.tts.Piper"""
+        if self.tts_engine is None:
             return False
         
         try:
-            # Send text to piper
-            self.piper_process.stdin.write((text + '\n').encode('utf-8'))
-            self.piper_process.stdin.flush()
+            # Use the simple say() method from pidog.tts.Piper
+            self.tts_engine.say(text)
             return True
         except Exception as e:
             self.get_logger().error(f"Piper speak error: {e}")
@@ -168,22 +151,6 @@ class PiDogTTSNode(Node):
             self.get_logger().error(f"eSpeak error: {e}")
             return False
     
-    #def speak_text_callback(self, msg):
-    #    """Callback for simple text topic"""
-    #    data = msg.data
-    #    use_emotion = False
-        
-    #    # Check if emotion flag is included (format: "text:emotion")
-    #    if ':' in data:
-    #        parts = data.split(':', 1)
-    #        text = parts[0]
-    #        emotion_flag = parts[1].lower()
-    #        use_emotion = emotion_flag in ['true', 'yes', '1', 'emotion']
-    #    else:
-    #        text = data
-        
-    #    self.add_to_speech_queue(text, use_emotion)
-    
     def speak_text_callback(self, msg):
         """Handle text to speak from topic"""
         self.get_logger().info(f"Speak topic received: {msg.data}")
@@ -192,25 +159,7 @@ class PiDogTTSNode(Node):
             self.speech_queue.append(msg.data)
         else:
             self.speak_text(msg.data)
-
-
-    #def speak_callback(self, request, response):
-    #    """Service callback for speech commands"""
-    #    # The Trigger service doesn't carry text, so we need a different approach
-    #    # For now, return error indicating to use topic
-    #    response.success = False
-    #    response.message = "Please use /speak_text topic with String message containing text to speak"
-    #    self.get_logger().warning("Trigger service called. Use /speak_text topic instead.")
-    #   return response
     
-    #def speak_callback(self, request, response):  # Correct for ROS2 service
-    #    self.get_logger().info(f"Speak service called: {request.data}")
-    #    # Add speech to queue
-    #    self.add_to_speech_queue(request.data)
-    #    response.success = True
-    #    response.message = "Speech added to queue"
-    #    return response
-
     def speak_callback(self, request, response):
         """Service callback for speaking"""
         self.get_logger().info(f"Speak service called with: {request.data}")
@@ -233,29 +182,18 @@ class PiDogTTSNode(Node):
         if not text or len(text.strip()) == 0:
             return
         
-        # Add emotional fluff if requested
+        # Add emotional fluff if requested (simplified - no random for now)
         if use_emotion:
-            emotions = {
-                "happy": ["Yay!", "Woof woof!", "I'm so happy!", "Great!"],
-                "curious": ["Hmm?", "What's that?", "Interesting!", "Oh?"],
-                "startled": ["Oh!", "Wow!", "That surprised me!", "Whoa!"],
-                "sad": ["Aww...", "Oh dear...", "That's too bad..."]
-            }
-            
             # Simple emotion detection based on keywords
             text_lower = text.lower()
             if any(word in text_lower for word in ["happy", "love", "great", "good"]):
-                prefix = random.choice(emotions['happy'])
-                text = f"{prefix} {text}"
+                text = f"Yay! {text}"
             elif any(word in text_lower for word in ["what", "where", "who", "why", "how", "hmm", "curious"]):
-                prefix = random.choice(emotions['curious'])
-                text = f"{prefix} {text}"
+                text = f"Hmm? {text}"
             elif any(word in text_lower for word in ["scared", "startled", "surprise", "oh", "wow"]):
-                prefix = random.choice(emotions['startled'])
-                text = f"{prefix} {text}"
+                text = f"Oh! {text}"
             elif any(word in text_lower for word in ["sad", "sorry", "unfortunate"]):
-                prefix = random.choice(emotions['sad'])
-                text = f"{prefix} {text}"
+                text = f"Aww... {text}"
         
         self.speech_queue.append(text)
         self.get_logger().info(f"Added to speech queue: {text[:50]}...")
@@ -270,7 +208,7 @@ class PiDogTTSNode(Node):
                 try:
                     self.get_logger().info(f"🔊 Speaking: {text}")
                     
-                    if self.use_piper:
+                    if self.use_piper and self.tts_engine:
                         success = self.speak_piper(text)
                     elif self.use_espeak:
                         success = self.speak_espeak(text)
@@ -299,24 +237,15 @@ class PiDogTTSNode(Node):
         # Clear queue
         self.speech_queue.clear()
         
-        # Kill subprocesses
-        if self.piper_process:
+        # Clean up Piper TTS engine if needed
+        if self.tts_engine:
             try:
-                self.piper_process.stdin.close()
-                self.piper_process.terminate()
-                self.piper_process.wait(timeout=2)
+                # The Piper class might have resources to clean up
+                # If it has a close/cleanup method, call it here
+                if hasattr(self.tts_engine, 'cleanup'):
+                    self.tts_engine.cleanup()
             except Exception as e:
-                self.get_logger().debug(f"Error terminating piper: {e}")
-                try:
-                    self.piper_process.kill()
-                except:
-                    pass
-        
-        if self.play_process:
-            try:
-                self.play_process.terminate()
-            except:
-                pass
+                self.get_logger().debug(f"Error cleaning up TTS engine: {e}")
         
         self.get_logger().info("TTS node shutdown complete")
 

@@ -31,7 +31,7 @@
     # Touch sensor parameters
     touch_threshold: 0.8
     debounce_ms: 100
-    simulate_touch: true
+    simulate_touch: false
     
     # Sound direction parameters
     sound_enabled: true
@@ -80,8 +80,8 @@ pidog_movement_node:
     turn_speed: 98
     
     # NEW: Hardware control settings
-    enable_hardware: true            # Movement node controls the hardware
-    use_simulation: false            # Use real hardware
+    enable_hardware: false            # Movement node controls the hardware
+    use_simulation: true            # Use real hardware
     #enable_sensors: false            # Don't initialize sensors (to avoid conflicts) 
 
 # Node-specific parameters for Autonomous Node
@@ -103,8 +103,8 @@ ros2_autonomous_pidog:
 # Node-specific parameters for IMU Node (if exists)
 pidog_imu_node:
   ros__parameters:
-    simulate_imu: true
-    use_hardware_imu: false
+    simulate_imu: false
+    use_hardware_imu: true
 
 # Node-specific parameters for Dual Touch Node
 pidog_dual_touch_node:
@@ -137,8 +137,8 @@ pidog_tts_speaks_node:
     tts_model: "en_US-ryan-low"
     voice_volume: 0.8
     speak_rate: 1.0
-    use_piper: false                 # Set to false since model not found
-    use_espeak: true                 # Use espeak as fallback
+    use_piper: true                 # Set to false since model not found
+    use_espeak: false                 # Use espeak as fallback
     
 # Node-specific parameters for STT Node
 pidog_stt_voice_command_node:
