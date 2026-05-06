@@ -576,6 +576,12 @@ Please generate the code needed to implement above and also provide steps on how
 
 Can you refer to the code attached for Pi Dog functions that you can use in your generated code.
 ```
+- 6th May 2026: Some great progress today. Currently all the nodes are working. 
+Start up initialisation of PiDog class is only done by main program ros2_autonomous_pidog.py.
+All the sensors data are read by main program and published to topic for other nodes to access.
+Although it works but moving forward i think it would be better for each node to read its related sensor.
+The nodes then publish to topic for main program to access else there is no meaning to have the nodes.
+
 
 ## :coffee: Buy Me a Coffee
 If you appreciate my work, do support me by...<br>
