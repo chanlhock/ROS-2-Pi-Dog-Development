@@ -6,6 +6,7 @@ THIS IS THE ONLY NODE THAT INITIALIZES PIDOG HARDWARE
 
 import rclpy
 from rclpy.node import Node
+from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, ReliabilityPolicy, HistoryPolicy
 
@@ -14,182 +15,172 @@ from geometry_msgs.msg import Twist
 
 import threading
 import time
-import sys
-import os
+import random
+from collections import deque
+from enum import Enum
 
-# Import PiDog Manager (only here!)
-sys.path.append('/ros2_ws/src/pidog_ros2/pidog_ros2')
-from pidog_manager import get_pidog_manager
+# Import PiDog Manager (local import - same directory)
+from .pidog_manager import get_pidog_manager
+
+# Constants
+OBSTACLE_DISTANCE_CM = 30
+FORWARD_SPEED = 98
+TURN_SPEED = 98
+BACKWARD_TIME = 1.0
+TURN_TIME = 0.6
+
+
+class RobotState(Enum):
+    IDLE = "idle"
+    WANDERING = "wandering"
+    AVOIDING = "avoiding"
+    FOLLOWING = "following"
+    INTERACTING = "interacting"
+    SLEEPING = "sleeping"
+    EMERGENCY_STOP = "emergency_stop"
+
+
+class Emotion(Enum):
+    HAPPY = "happy"
+    CURIOUS = "curious"
+    STARTLED = "startled"
+    BORED = "bored"
+    LONELY = "lonely"
 
 
 class Ros2AutonomousPiDog(Node):
     def __init__(self):
         super().__init__('ros2_autonomous_pidog')
         
-        # Initialize PiDog hardware (ONLY HERE!)
+        # ============================================================
+        # INITIALIZE PIDOG HARDWARE (ONLY HERE!)
+        # ============================================================
+        self.get_logger().info("=" * 60)
         self.get_logger().info("Initializing PiDog hardware...")
+        
         self.pidog_manager = get_pidog_manager()
         
         if self.pidog_manager.initialize(disable_sensors=True):
             self.dog = self.pidog_manager.get_pidog()
-            self.get_logger().info("PiDog hardware available - movement enabled")
+            self.get_logger().info("✓ PiDog hardware available - movement enabled")
             
-            # Test movement to verify hardware
+            # Test hardware
             try:
-                self.get_logger().info("Testing hardware...")
+                self.get_logger().info("Testing hardware (sit/stand)...")
                 self.dog.do_action('sit', speed=50)
                 self.dog.wait_all_done()
                 time.sleep(1)
                 self.dog.do_action('stand', speed=50)
                 self.dog.wait_all_done()
-                self.get_logger().info("PiDog hardware test successful")
+                self.get_logger().info("✓ Hardware test successful!")
             except Exception as e:
                 self.get_logger().error(f"Hardware test failed: {e}")
                 return
         else:
             self.dog = None
-            self.get_logger().error("PiDog hardware NOT available - exiting")
+            self.get_logger().error("✗ PiDog hardware NOT available!")
+            self.get_logger().error("Make sure PiDog is connected and powered on.")
             return
         
-        # QoS profiles
-        qos_profile = QoSProfile(
-            reliability=QoSReliabilityPolicy.RELIABLE,
-            history=HistoryPolicy.KEEP_LAST,
-            depth=10
-        )
+        # ============================================================
+        # STATE MANAGEMENT
+        # ============================================================
+        self.state = RobotState.WANDERING
+        self.emotion = Emotion.HAPPY
+        self.last_emotion_time = time.time()
+        self.emotion_interval = 30
         
-        # Publishers (for other nodes to subscribe to)
-        self.distance_pub = self.create_publisher(Float32, 'distance', qos_profile)
-        self.imu_pub = self.create_publisher(String, 'imu', qos_profile)
-        self.touch_pub = self.create_publisher(String, 'touch', qos_profile)
-        self.sound_direction_pub = self.create_publisher(String, 'sound_direction', qos_profile)
-        self.status_pub = self.create_publisher(String, 'status', qos_profile)
+        # Sensor data
+        self.current_distance = 999.0
+        self.sound_direction_angle = -1.0
+        self.sound_direction_text = "unknown"
+        self.face_count = 0
+        self.last_touch = False
         
-        # Subscriber for movement commands
-        self.cmd_vel_sub = self.create_subscription(
-            Twist, 'cmd_vel',
-            self.cmd_vel_callback,
-            qos_profile
-        )
+        # Behavior tracking
+        self.turn_history = deque(maxlen=5)
+        self.emergency_stop = False
+        self.voice_command_waiting = False
         
-        self.command_sub = self.create_subscription(
-            String, 'command',
-            self.command_callback,
-            qos_profile
-        )
+        # Parameters
+        self.enable_sound_turning = True
+        self.enable_face_interaction = True
+        self.personality_actions = True
         
-        # Start threads
-        self.sensor_thread = threading.Thread(target=self.sensor_reading_loop, daemon=True)
+        # ============================================================
+        # ROS 2 PUBLISHERS & SUBSCRIBERS
+        # ============================================================
+        qos_best = QoSProfile(reliability=QoSReliabilityPolicy.BEST_EFFORT, depth=10)
+        qos_rel = QoSProfile(reliability=ReliabilityPolicy.RELIABLE, depth=10)
+        
+        # Publishers
+        self.distance_pub = self.create_publisher(Float32, 'distance', qos_best)
+        self.imu_pub = self.create_publisher(String, 'imu', qos_best)
+        self.touch_pub = self.create_publisher(String, 'touch', qos_best)
+        self.sound_pub = self.create_publisher(String, 'sound_direction', qos_best)
+        self.status_pub = self.create_publisher(String, 'status', qos_best)
+        self.speak_pub = self.create_publisher(String, 'speak_text', qos_rel)
+        
+        # Subscribers
+        self.voice_sub = self.create_subscription(String, 'voice_command', self.voice_callback, qos_best)
+        self.cmd_sub = self.create_subscription(String, 'command', self.command_callback, qos_rel)
+        
+        # ============================================================
+        # START THREADS
+        # ============================================================
+        self.sensor_thread = threading.Thread(target=self.sensor_loop, daemon=True)
         self.sensor_thread.start()
+        
+        self.behavior_thread = threading.Thread(target=self.behavior_loop, daemon=True)
+        self.behavior_thread.start()
         
         self.status_timer = self.create_timer(1.0, self.publish_status)
         
-        self.get_logger().info("ROS 2 Autonomous Pi Dog Node Ready")
-        self.get_logger().info("Publishing: distance, imu, touch, sound_direction")
-        self.get_logger().info("Subscribing to: cmd_vel, command")
-        
-        # Publish initial status
-        self.status_pub.publish(String(data="node:started"))
+        self.get_logger().info("=" * 60)
+        self.get_logger().info("ROS 2 Autonomous PiDog Node Ready!")
+        self.get_logger().info("Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands")
+        self.get_logger().info("Say: sit, stand, walk, stop, turn left, turn right")
+        self.get_logger().info("=" * 60)
     
-    def sensor_reading_loop(self):
-        """Read sensors and publish data"""
-        self.get_logger().info("Starting sensor reading loop")
+    # ============================================================
+    # SENSOR LOOP
+    # ============================================================
+    def sensor_loop(self):
+        """Read sensors directly from hardware"""
+        self.get_logger().info("Sensor reading thread started")
         
-        # Give hardware time to initialize
-        time.sleep(2)
-        
-        loop_count = 0
-        while rclpy.ok() and self.dog is not None:
+        while rclpy.ok() and self.dog:
             try:
-                loop_count += 1
-                
-                # Publish heartbeat every 50 loops
-                if loop_count % 50 == 0:
-                    self.get_logger().info(f"Sensor loop active (count: {loop_count})")
-                    self.status_pub.publish(String(data=f"heartbeat:{loop_count}"))
-                
-                # Read distance sensor
-                try:
-                    if hasattr(self.dog, 'ultrasonic'):
-                        distance = self.dog.ultrasonic.read_distance()
-                        if distance and 2 <= distance <= 400:
-                            self.distance_pub.publish(Float32(data=float(distance)))
-                            if loop_count % 20 == 0:  # Log every 2 seconds
-                                self.get_logger().info(f"Distance: {distance:.1f} cm")
-                except Exception as e:
-                    self.get_logger().debug(f"Distance read error: {e}")
-                
-                # Read touch sensors
-                try:
-                    if hasattr(self.dog, 'dual_touch'):
-                        for i in range(4):
-                            if hasattr(self.dog.dual_touch, 'read'):
-                                touched = self.dog.dual_touch.read(i)
-                                if touched:
-                                    self.touch_pub.publish(String(data=f"touched:{i}"))
-                                    self.get_logger().info(f"Touch detected on sensor {i}")
-                except Exception as e:
-                    self.get_logger().debug(f"Touch read error: {e}")
+                # Read distance
+                if hasattr(self.dog, 'ultrasonic') and hasattr(self.dog.ultrasonic, 'read_distance'):
+                    dist = self.dog.ultrasonic.read_distance()
+                    if dist and 2 <= dist <= 400:
+                        self.current_distance = float(dist)
+                        self.distance_pub.publish(Float32(data=self.current_distance))
                 
                 # Read sound direction
-                try:
-                    if hasattr(self.dog, 'ears'):
-                        if hasattr(self.dog.ears, 'isdetected') and self.dog.ears.isdetected():
-                            if hasattr(self.dog.ears, 'read'):
-                                angle = self.dog.ears.read()
-                                if angle is not None and angle >= 0:
-                                    self.sound_direction_pub.publish(String(data=f"{angle:.1f}:detected"))
-                                    if loop_count % 20 == 0:
-                                        self.get_logger().info(f"Sound direction: {angle:.1f}°")
-                except Exception as e:
-                    self.get_logger().debug(f"Sound direction error: {e}")
+                if hasattr(self.dog, 'ears') and hasattr(self.dog.ears, 'isdetected'):
+                    if self.dog.ears.isdetected() and hasattr(self.dog.ears, 'read'):
+                        angle = self.dog.ears.read()
+                        if angle is not None and 0 <= angle <= 360:
+                            self.sound_direction_angle = angle
+                            self.sound_pub.publish(String(data=f"{angle:.1f}:detected"))
                 
-                # For IMU, publish a simple test message if no real data
-                # This ensures the topic is active
-                if loop_count % 10 == 0:  # Every 1 second
-                    test_imu = String()
-                    test_imu.data = f"0.0,0.0,{loop_count % 360}"
-                    self.imu_pub.publish(test_imu)
-                
-                time.sleep(0.1)  # 10Hz reading
-                
+                time.sleep(0.1)
             except Exception as e:
-                self.get_logger().error(f"Sensor loop error: {e}")
-                time.sleep(1.0)
-        
-        self.get_logger().warning("Sensor reading loop ended")
+                self.get_logger().debug(f"Sensor error: {e}")
+                time.sleep(0.5)
     
-    def cmd_vel_callback(self, msg: Twist):
-        """Handle velocity commands"""
-        linear = msg.linear.x
-        angular = msg.angular.z
-        
-        if linear > 0:
-            self.execute_movement('forward', step_count=int(linear * 10), speed=70)
-        elif linear < 0:
-            self.execute_movement('backward', step_count=int(abs(linear) * 10), speed=70)
-        elif angular > 0:
-            self.execute_movement('turn_right', step_count=int(angular * 10), speed=70)
-        elif angular < 0:
-            self.execute_movement('turn_left', step_count=int(abs(angular) * 10), speed=70)
-    
-    def command_callback(self, msg: String):
-        """Handle command strings"""
-        self.get_logger().info(f"Command received: {msg.data}")
-        parts = msg.data.lower().split(':')
-        command = parts[0]
-        step_count = int(parts[1]) if len(parts) > 1 else 5
-        speed = int(parts[2]) if len(parts) > 2 else 70
-        self.execute_movement(command, step_count, speed)
-    
-    def execute_movement(self, command, step_count=5, speed=70):
-        """Execute movement on hardware"""
+    # ============================================================
+    # MOVEMENT EXECUTION
+    # ============================================================
+    def move(self, command, steps=5, speed=70):
+        """Execute movement directly on hardware"""
         if self.dog is None:
-            self.get_logger().warn(f"Cannot execute {command} - no hardware")
             return
         
         try:
-            self.get_logger().info(f"Executing: {command} (steps={step_count}, speed={speed})")
+            self.get_logger().info(f"➡️ {command}")
             
             if command == 'stop':
                 self.dog.body_stop()
@@ -198,25 +189,157 @@ class Ros2AutonomousPiDog(Node):
                 self.dog.do_action(command, speed=speed)
                 self.dog.wait_all_done()
             else:
-                self.dog.do_action(command, step_count=step_count, speed=speed)
+                self.dog.do_action(command, step_count=max(1, steps), speed=speed)
                 self.dog.wait_all_done()
-                
         except Exception as e:
             self.get_logger().error(f"Movement error: {e}")
     
+    # ============================================================
+    # VOICE COMMAND HANDLING
+    # ============================================================
+    def voice_callback(self, msg):
+        """Handle voice commands"""
+        text = msg.data.lower().strip()
+        self.get_logger().info(f"🎤 Voice: '{text}'")
+        
+        # Command mapping
+        if 'sit' in text or text == 'sit':
+            self.move('sit')
+            self.speak("Sitting down")
+        elif 'stand' in text or text == 'stand':
+            self.move('stand')
+            self.speak("Standing up")
+        elif 'walk' in text or text == 'walk' or 'forward' in text:
+            self.move('forward', steps=6, speed=80)
+        elif 'back' in text:
+            self.move('backward', steps=4, speed=80)
+        elif 'left' in text:
+            self.move('turn_left', steps=4, speed=70)
+        elif 'right' in text:
+            self.move('turn_right', steps=4, speed=70)
+        elif 'stop' in text:
+            self.move('stop')
+            self.speak("Stopping")
+    
+    def command_callback(self, msg):
+        """Handle external commands"""
+        self.get_logger().info(f"Command: {msg.data}")
+        parts = msg.data.lower().split(':')
+        cmd = parts[0]
+        steps = int(parts[1]) if len(parts) > 1 else 5
+        speed = int(parts[2]) if len(parts) > 2 else 70
+        self.move(cmd, steps, speed)
+    
+    def speak(self, text):
+        """Publish speech"""
+        msg = String()
+        msg.data = f"{text}:0"
+        self.speak_pub.publish(msg)
+    
+    # ============================================================
+    # AUTONOMOUS BEHAVIORS
+    # ============================================================
     def publish_status(self):
-        """Publish node status"""
-        status_msg = String()
-        status_msg.data = f"state:running:hardware:{self.dog is not None}"
-        self.status_pub.publish(status_msg)
+        """Publish status"""
+        status = f"state:{self.state.value}:distance:{self.current_distance:.1f}:emergency:{self.emergency_stop}"
+        self.status_pub.publish(String(data=status))
+    
+    def smart_turn(self):
+        """Intelligent turn"""
+        if self.turn_history.count("left") >= 3:
+            direction = "right"
+        elif self.turn_history.count("right") >= 3:
+            direction = "left"
+        else:
+            direction = "left" if random.random() > 0.5 else "right"
+        
+        self.move(f"turn_{direction}", steps=5, speed=TURN_SPEED)
+        self.turn_history.append(direction)
+        time.sleep(TURN_TIME)
+    
+    def obstacle_avoidance(self):
+        """Handle obstacle avoidance"""
+        if self.emergency_stop:
+            return
+        
+        self.state = RobotState.AVOIDING
+        self.get_logger().info("🚧 Obstacle detected!")
+        
+        self.move("stop")
+        time.sleep(0.3)
+        
+        self.move("backward", steps=5, speed=FORWARD_SPEED)
+        time.sleep(BACKWARD_TIME)
+        
+        self.smart_turn()
+        self.state = RobotState.WANDERING
+    
+    def play_emotion(self, emotion):
+        """Express emotion"""
+        emotions = {
+            Emotion.HAPPY: "Happy bark!",
+            Emotion.CURIOUS: "Hmm? What's that?",
+            Emotion.STARTLED: "Woof! That scared me!",
+            Emotion.BORED: "Sigh... I'm bored",
+            Emotion.LONELY: "Awooo... anyone there?"
+        }
+        if emotion in emotions:
+            self.speak(emotions[emotion])
+    
+    def random_personality(self):
+        """Random personality action"""
+        actions = ["shake_head", "wag_tail", "look_around", "scratch"]
+        action = random.choice(actions)
+        self.get_logger().info(f"🎭 Random personality: {action}")
+        self.move(action, steps=3, speed=70)
+    
+    def behavior_loop(self):
+        """Main autonomous behavior loop"""
+        self.get_logger().info("Behavior loop started")
+        time.sleep(2)
+        
+        self.move("stand")
+        time.sleep(1)
+        
+        while rclpy.ok():
+            try:
+                if self.emergency_stop:
+                    time.sleep(0.5)
+                    continue
+                
+                if self.state == RobotState.WANDERING:
+                    if self.current_distance < OBSTACLE_DISTANCE_CM:
+                        self.obstacle_avoidance()
+                    else:
+                        self.move("forward", steps=2, speed=FORWARD_SPEED)
+                        time.sleep(0.5)
+                        
+                        # Random personality (5% chance)
+                        if random.random() < 0.05 and self.personality_actions:
+                            self.random_personality()
+                        
+                        # Periodic emotions (every 30 seconds)
+                        now = time.time()
+                        if now - self.last_emotion_time > self.emotion_interval:
+                            emotions = list(Emotion)
+                            self.emotion = random.choice(emotions)
+                            self.play_emotion(self.emotion)
+                            self.last_emotion_time = now
+                    
+                    time.sleep(0.3)
+                else:
+                    time.sleep(0.1)
+                    
+            except Exception as e:
+                self.get_logger().error(f"Behavior error: {e}")
+                time.sleep(1)
     
     def shutdown(self):
         """Clean shutdown"""
         self.get_logger().info("Shutting down...")
         if self.dog:
             try:
-                self.dog.do_action('sit', speed=50)
-                self.dog.wait_all_done()
+                self.move("sit")
                 self.pidog_manager.shutdown()
             except:
                 pass
@@ -224,14 +347,12 @@ class Ros2AutonomousPiDog(Node):
 
 def main(args=None):
     rclpy.init(args=args)
-    
     node = Ros2AutonomousPiDog()
     
     if node.dog is None:
         node.get_logger().error("No hardware - exiting")
         node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+        rclpy.shutdown()
         return
     
     executor = MultiThreadedExecutor()
@@ -240,7 +361,7 @@ def main(args=None):
     try:
         executor.spin()
     except KeyboardInterrupt:
-        node.get_logger().info("Shutting down")
+        node.get_logger().info("Shutting down...")
     finally:
         node.shutdown()
         node.destroy_node()
