@@ -10,7 +10,7 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy, HistoryPolicy
 
 # Standard ROS 2 imports instead of custom ones
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool  # ADDED: Import Bool for speaking state
 from std_srvs.srv import Trigger
 
 import time
@@ -38,6 +38,9 @@ class PiDogTTSNode(Node):
         # Queue for speech
         self.speech_queue = []
         self.is_speaking = False
+        
+        # ADDED: Publisher for speaking state (used by STT node to know when to ignore input)
+        self.speaking_state_pub = self.create_publisher(Bool, 'tts_speaking_state', 10)
         
         # ROS 2 Service (using standard Trigger for simple speak)
         self.speak_srv = self.create_service(
@@ -119,6 +122,13 @@ class PiDogTTSNode(Node):
         if not self.use_piper and not self.use_espeak:
             self.get_logger().warning("No TTS engine available. Speech will be logged only.")
     
+    # ADDED: Helper method to publish speaking state
+    def publish_speaking_state(self, speaking):
+        """Publish current speaking state to STT node."""
+        msg = Bool()
+        msg.data = speaking
+        self.speaking_state_pub.publish(msg)
+    
     def speak_piper(self, text):
         """Speak text using Piper TTS via pidog.tts.Piper"""
         if self.tts_engine is None:
@@ -140,12 +150,15 @@ class PiDogTTSNode(Node):
             speed = int(self.speak_rate * 175)  # espeak speed 80-450
             
             # Run espeak (non-blocking to allow queue processing)
-            subprocess.Popen([
+            process = subprocess.Popen([
                 'espeak',
                 '-a', str(volume_amp),
                 '-s', str(speed),
                 text
             ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            
+            # Wait for the process to complete (ensures speaking state is accurate)
+            process.wait()
             return True
         except Exception as e:
             self.get_logger().error(f"eSpeak error: {e}")
@@ -202,8 +215,11 @@ class PiDogTTSNode(Node):
         """Process speech queue sequentially"""
         while rclpy.ok():
             if self.speech_queue and not self.is_speaking:
-                text = self.speech_queue.pop(0)
+                text = self.speech_queue.pop(0).strip(':0')  # Remove any trailing :0 from emotion flag
                 self.is_speaking = True
+                
+                # MODIFIED: Publish speaking state BEFORE speaking
+                self.publish_speaking_state(True)
                 
                 try:
                     self.get_logger().info(f"🔊 Speaking: {text}")
@@ -215,6 +231,8 @@ class PiDogTTSNode(Node):
                     else:
                         # Fallback - just log text
                         self.get_logger().info(f"[SPEECH OUTPUT] {text}")
+                        # Simulate speaking delay for fallback
+                        time.sleep(len(text) * 0.1)
                         success = True
                     
                     if not success:
@@ -226,6 +244,8 @@ class PiDogTTSNode(Node):
                 except Exception as e:
                     self.get_logger().error(f"Speech error: {e}")
                 finally:
+                    # MODIFIED: Publish speaking state AFTER speaking (false)
+                    self.publish_speaking_state(False)
                     self.is_speaking = False
             
             time.sleep(0.1)
@@ -233,6 +253,9 @@ class PiDogTTSNode(Node):
     def shutdown(self):
         """Clean shutdown"""
         self.get_logger().info("Shutting down TTS node...")
+        
+        # ADDED: Reset speaking state on shutdown
+        self.publish_speaking_state(False)
         
         # Clear queue
         self.speech_queue.clear()

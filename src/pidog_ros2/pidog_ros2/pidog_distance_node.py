@@ -17,7 +17,7 @@ class PiDogDistanceNode(Node):
     def __init__(self):
         super().__init__('pidog_distance_node')
         
-        self.get_logger().info("Distance node starting (NO hardware initialization)")
+       # self.get_logger().info("Distance node starting (NO hardware initialization)")
         
         # Parameters
         self.declare_parameter('publish_frequency', 10.0)

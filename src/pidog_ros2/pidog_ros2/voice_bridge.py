@@ -11,7 +11,7 @@ from std_msgs.msg import String
 class VoiceBridge(Node):
     def __init__(self):
         super().__init__('voice_bridge')
-        self.get_logger().info("Voice Bridge Node Started")
+        #self.get_logger().info("Voice Bridge Node Started")
         
         # Publisher to command topic (for movement)
         self.command_pub = self.create_publisher(String, 'command', 10)

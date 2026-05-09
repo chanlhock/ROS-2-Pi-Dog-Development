@@ -12,7 +12,7 @@ class PiDogDualTouchNode(Node):
     def __init__(self):
         super().__init__('pidog_dual_touch_node')
         
-        self.get_logger().info("Touch node starting - listening for touch events")
+        #self.get_logger().info("Touch node starting - listening for touch events")
         
         # Subscribe to touch events from main node
         self.touch_sub = self.create_subscription(

@@ -19,7 +19,7 @@ class PiDogIMUNode(Node):
     def __init__(self):
         super().__init__('pidog_imu_node')
         
-        self.get_logger().info("IMU node starting (NO hardware initialization)")
+        #self.get_logger().info("IMU node starting (NO hardware initialization)")
         
         # Parameters
         self.declare_parameter('publish_frequency', 10.0)

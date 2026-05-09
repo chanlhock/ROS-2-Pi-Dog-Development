@@ -32,7 +32,7 @@ class PiDogMovementNode(Node):
     def __init__(self):
         super().__init__('pidog_movement_node')
         
-        self.get_logger().info("Movement node starting (NO hardware initialization)")
+        #self.get_logger().info("Movement node starting (NO hardware initialization)")
         
         # Parameters
         self.declare_parameter('default_speed', 70)

@@ -1,38 +1,32 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-07-12-48-52-907036-raspberrypi-12302
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-09-17-05-38-891362-raspberrypi-25593
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [ros2_autonomous_pidog-1]: process started with pid [12304]
-[INFO] [pidog_movement_node-2]: process started with pid [12306]
-[INFO] [pidog_distance_node-3]: process started with pid [12308]
-[INFO] [pidog_camera_node-4]: process started with pid [12310]
-[INFO] [pidog_imu_node-5]: process started with pid [12312]
-[INFO] [pidog_dual_touch_node-6]: process started with pid [12314]
-[INFO] [pidog_direction_sensor_node-7]: process started with pid [12316]
-[INFO] [pidog_tts_speaks_node-8]: process started with pid [12318]
-[INFO] [pidog_stt_voice_command_node-9]: process started with pid [12320]
-[INFO] [voice_bridge-10]: process started with pid [12322]
-[pidog_direction_sensor_node-7] [INFO] [1778129333.384793608] [pidog.pidog_direction_sensor_node]: Sound direction node starting - listening for data from main node
-[pidog_direction_sensor_node-7] [INFO] [1778129333.393556468] [pidog.pidog_direction_sensor_node]: PiDog Sound Direction Node Ready
-[pidog_movement_node-2] [INFO] [1778129333.602227012] [pidog.pidog_movement_node]: Movement node starting (NO hardware initialization)
-[pidog_imu_node-5] [INFO] [1778129333.728055443] [pidog.pidog_imu_node]: IMU node starting (NO hardware initialization)
-[pidog_movement_node-2] [INFO] [1778129333.759118656] [pidog.pidog_movement_node]: PiDog Movement Node Ready (forwarding commands to main node)
-[pidog_movement_node-2] [INFO] [1778129333.759621342] [pidog.pidog_movement_node]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop
-[pidog_imu_node-5] [INFO] [1778129333.807842794] [pidog.pidog_imu_node]: IMU node ready (publishing at 10.0 Hz)
-[pidog_distance_node-3] [INFO] [1778129333.824317420] [pidog.pidog_distance_node]: Distance node starting (NO hardware initialization)
-[pidog_distance_node-3] [INFO] [1778129333.835274875] [pidog.pidog_distance_node]: Distance node ready (publishing at 10.0 Hz)
-[voice_bridge-10] [INFO] [1778129333.883156437] [pidog.voice_bridge]: Voice Bridge Node Started
-[voice_bridge-10] [INFO] [1778129333.898790748] [pidog.voice_bridge]: Voice Bridge Ready - mapping voice commands to actions
-[voice_bridge-10] [INFO] [1778129333.899488212] [pidog.voice_bridge]: Commands: ['sit', 'sit down', 'stand', 'stand up', 'walk', 'walk forward', 'go forward', 'forward', 'back', 'backward', 'go back', 'stop', 'halt', 'freeze', 'left', 'turn left', 'right', 'turn right', 'stretch', 'hand shake', 'shake hands', 'scratch', 'high five', 'high-five']
-[pidog_stt_voice_command_node-9] [INFO] [1778129333.917406432] [pidog.pidog_stt_voice_command_node]: STT node starting...
-[pidog_dual_touch_node-6] [INFO] [1778129333.941089028] [pidog.pidog_dual_touch_node]: Touch node starting - listening for touch events
-[pidog_dual_touch_node-6] [INFO] [1778129333.950444296] [pidog.pidog_dual_touch_node]: Touch node ready - waiting for touch data
-[pidog_stt_voice_command_node-9] [INFO] [1778129334.134619984] [pidog.pidog_stt_voice_command_node]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...
-[ros2_autonomous_pidog-1] [INFO] [1778129334.165313309] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [INFO] [1778129334.166258791] [pidog.ros2_autonomous_pidog]: Initializing PiDog hardware...
-[pidog_tts_speaks_node-8] [0;93m2026-05-07 12:48:54.359068543 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
-[pidog_camera_node-4] [INFO] [1778129334.471527480] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
+[INFO] [ros2_autonomous_pidog-1]: process started with pid [25595]
+[INFO] [pidog_movement_node-2]: process started with pid [25597]
+[INFO] [pidog_distance_node-3]: process started with pid [25599]
+[INFO] [pidog_camera_node-4]: process started with pid [25601]
+[INFO] [pidog_imu_node-5]: process started with pid [25603]
+[INFO] [pidog_dual_touch_node-6]: process started with pid [25605]
+[INFO] [pidog_direction_sensor_node-7]: process started with pid [25607]
+[INFO] [pidog_tts_speaks_node-8]: process started with pid [25609]
+[INFO] [pidog_stt_voice_command_node-9]: process started with pid [25611]
+[INFO] [voice_bridge-10]: process started with pid [25613]
+[pidog_movement_node-2] [INFO] [1778317539.987070878] [pidog.pidog_movement_node]: PiDog Movement Node Ready (forwarding commands to main node)
+[pidog_movement_node-2] [INFO] [1778317539.995204314] [pidog.pidog_movement_node]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop
+[pidog_stt_voice_command_node-9] [INFO] [1778317540.105530138] [pidog.pidog_stt_voice_command_node]: STT node starting...
+[pidog_dual_touch_node-6] [INFO] [1778317540.124931566] [pidog.pidog_dual_touch_node]: Touch node ready - waiting for touch data
+[voice_bridge-10] [INFO] [1778317540.178808930] [pidog.voice_bridge]: Voice Bridge Ready - mapping voice commands to actions
+[voice_bridge-10] [INFO] [1778317540.184612064] [pidog.voice_bridge]: Commands: ['sit', 'sit down', 'stand', 'stand up', 'walk', 'walk forward', 'go forward', 'forward', 'back', 'backward', 'go back', 'stop', 'halt', 'freeze', 'left', 'turn left', 'right', 'turn right', 'stretch', 'hand shake', 'shake hands', 'scratch', 'high five', 'high-five']
+[pidog_distance_node-3] [INFO] [1778317540.248875981] [pidog.pidog_distance_node]: Distance node ready (publishing at 10.0 Hz)
+[pidog_direction_sensor_node-7] [INFO] [1778317540.300843171] [pidog.pidog_direction_sensor_node]: PiDog Sound Direction Node Ready
+[pidog_stt_voice_command_node-9] [INFO] [1778317540.370457020] [pidog.pidog_stt_voice_command_node]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...
+[ros2_autonomous_pidog-1] [INFO] [1778317540.513809808] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [1778317540.525271058] [pidog.ros2_autonomous_pidog]: Initializing PiDog hardware...
+[pidog_imu_node-5] [INFO] [1778317540.685941896] [pidog.pidog_imu_node]: IMU node ready (publishing at 10.0 Hz)
+[pidog_tts_speaks_node-8] [0;93m2026-05-09 17:05:40.761764767 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
 [ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
 [ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
 [ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
+[pidog_camera_node-4] [INFO] [1778317541.249905935] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
 [pidog_stt_voice_command_node-9] ALSA lib pcm_asym.c:105:(_snd_pcm_asym_open) capture slave is not defined
 [pidog_stt_voice_command_node-9] ALSA lib pcm_direct.c:1206:(snd1_pcm_direct_initialize_slave) requested or auto-format is not available
 [pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1044:(snd_pcm_dmix_open) unable to initialize slave
@@ -626,11 +620,12 @@
 [pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1005:(snd_pcm_dmix_open) The dmix plugin supports only playback stream
 [pidog_stt_voice_command_node-9] ALSA lib pcm_direct.c:1206:(snd1_pcm_direct_initialize_slave) requested or auto-format is not available
 [pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1044:(snd_pcm_dmix_open) unable to initialize slave
-[pidog_stt_voice_command_node-9] [INFO] [1778129334.894671759] [pidog.pidog_stt_voice_command_node]: Using audio device: default
-[pidog_stt_voice_command_node-9] [INFO] [1778129334.897973077] [pidog.pidog_stt_voice_command_node]: Vosk initialized successfully - listening for commands
-[pidog_stt_voice_command_node-9] [INFO] [1778129334.898600967] [pidog.pidog_stt_voice_command_node]: Voice commands will be published to /pidog/voice_command
-[pidog_stt_voice_command_node-9] [INFO] [1778129334.899379801] [pidog.pidog_stt_voice_command_node]: Listening for voice commands...
-[pidog_stt_voice_command_node-9] [INFO] [1778129334.900043727] [pidog.pidog_stt_voice_command_node]: Try saying: sit, stand, walk, stop, turn left, turn right
+[pidog_stt_voice_command_node-9] [INFO] [1778317541.541899927] [pidog.pidog_stt_voice_command_node]: Using audio device: default
+[pidog_stt_voice_command_node-9] [INFO] [1778317541.546198366] [pidog.pidog_stt_voice_command_node]: Vosk initialized successfully - listening for commands
+[pidog_stt_voice_command_node-9] [INFO] [1778317541.547706024] [pidog.pidog_stt_voice_command_node]: Voice commands will be published to /pidog/voice_command
+[pidog_stt_voice_command_node-9] [INFO] [1778317541.548181244] [pidog.pidog_stt_voice_command_node]: Listening for voice commands...
+[pidog_stt_voice_command_node-9] [INFO] [1778317541.548855518] [pidog.pidog_stt_voice_command_node]: Will ignore speech while TTS is speaking + 0.5s delay
+[pidog_stt_voice_command_node-9] [INFO] [1778317541.550755674] [pidog.pidog_stt_voice_command_node]: Try saying: sit, stand, walk, stop, turn left, turn right
 [pidog_camera_node-4] vilib 0.3.18 launching ...
 [pidog_camera_node-4] picamera2 0.3.35
 [pidog_camera_node-4] 
@@ -640,83 +635,69 @@
 [pidog_camera_node-4] Starting web streaming ...
 [pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
 [pidog_camera_node-4]  * Debug mode: off
-[pidog_camera_node-4] [INFO] [1778129336.234025702] [pidog.pidog_camera_node]: Camera initialized with Vilib
-[pidog_camera_node-4] [INFO] [1778129336.235001591] [pidog.pidog_camera_node]: Camera capture loop started
-[pidog_camera_node-4] [INFO] [1778129336.237228001] [pidog.pidog_camera_node]: PiDog Camera Node Ready
-[pidog_camera_node-4] [INFO] [1778129336.237952483] [pidog.pidog_camera_node]: Publishing to: camera/image_raw and face_detection
-[pidog_tts_speaks_node-8] [INFO] [1778129336.599157892] [pidog.pidog_tts_speaks_node]: Piper TTS initialized successfully with model: en_US-ryan-low
-[pidog_tts_speaks_node-8] [INFO] [1778129336.602994840] [pidog.pidog_tts_speaks_node]: eSpeak found and ready
-[pidog_tts_speaks_node-8] [INFO] [1778129336.604301804] [pidog.pidog_tts_speaks_node]: PiDog TTS Node Ready (piper=True, espeak=True)
-[pidog_tts_speaks_node-8] [INFO] [1778129336.605204545] [pidog.pidog_tts_speaks_node]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
-[pidog_tts_speaks_node-8] [INFO] [1778129336.605570712] [pidog.pidog_tts_speaks_node]: Or publish to /speak_text topic
 [ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
+[pidog_camera_node-4] [INFO] [1778317543.498394686] [pidog.pidog_camera_node]: Camera initialized with Vilib
+[pidog_camera_node-4] [INFO] [1778317543.499371699] [pidog.pidog_camera_node]: Camera capture loop started
+[pidog_camera_node-4] [INFO] [1778317543.508896479] [pidog.pidog_camera_node]: PiDog Camera Node Ready
+[pidog_camera_node-4] [INFO] [1778317543.509456606] [pidog.pidog_camera_node]: Publishing to: camera/image_raw and face_detection
+[pidog_tts_speaks_node-8] [INFO] [1778317544.173056162] [pidog.pidog_tts_speaks_node]: Piper TTS initialized successfully with model: en_US-ryan-low
+[pidog_tts_speaks_node-8] [INFO] [1778317544.178854518] [pidog.pidog_tts_speaks_node]: eSpeak found and ready
+[pidog_tts_speaks_node-8] [INFO] [1778317544.184842170] [pidog.pidog_tts_speaks_node]: PiDog TTS Node Ready (piper=True, espeak=True)
+[pidog_tts_speaks_node-8] [INFO] [1778317544.185394871] [pidog.pidog_tts_speaks_node]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
+[pidog_tts_speaks_node-8] [INFO] [1778317544.185847961] [pidog.pidog_tts_speaks_node]: Or publish to /speak_text topic
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
 [ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [INFO] [1778129337.971778146] [pidog.ros2_autonomous_pidog]: ✓ PiDog hardware available
-[ros2_autonomous_pidog-1] [INFO] [1778129337.972307369] [pidog.ros2_autonomous_pidog]: Testing hardware...
+[ros2_autonomous_pidog-1] [INFO] [1778317544.876570927] [pidog.ros2_autonomous_pidog]: ✓ PiDog hardware available
+[ros2_autonomous_pidog-1] [INFO] [1778317544.908237973] [pidog.ros2_autonomous_pidog]: Testing hardware...
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [1778129339.825656260] [pidog.ros2_autonomous_pidog]: ✓ Hardware test passed
-[pidog_distance_node-3] [WARN] [1778129339.830639320] [pidog.pidog_distance_node]: New publisher discovered on topic 'distance', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
-[pidog_imu_node-5] [WARN] [1778129339.834913528] [pidog.pidog_imu_node]: New publisher discovered on topic 'imu', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
-[pidog_dual_touch_node-6] [WARN] [1778129339.839256495] [pidog.pidog_dual_touch_node]: New publisher discovered on topic 'touch', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
-[pidog_direction_sensor_node-7] [WARN] [1778129339.839365310] [pidog.pidog_direction_sensor_node]: New publisher discovered on topic 'sound_direction', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
-[ros2_autonomous_pidog-1] [INFO] [1778129339.864327814] [pidog.ros2_autonomous_pidog]: Autonomous behavior loop started
-[ros2_autonomous_pidog-1] [INFO] [1778129339.864796204] [pidog.ros2_autonomous_pidog]: Sensor reading thread started
-[ros2_autonomous_pidog-1] [INFO] [1778129339.865300241] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [INFO] [1778129339.868111133] [pidog.ros2_autonomous_pidog]: ROS 2 Autonomous PiDog Node Ready!
-[ros2_autonomous_pidog-1] [INFO] [1778129339.877435345] [pidog.ros2_autonomous_pidog]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
-[ros2_autonomous_pidog-1] [INFO] [1778129339.885961409] [pidog.ros2_autonomous_pidog]: Say: sit, stand, walk, stop, turn left, turn right
-[ros2_autonomous_pidog-1] [INFO] [1778129339.886455724] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [WARN] [1778129339.894563620] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'distance', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
-[ros2_autonomous_pidog-1] [WARN] [1778129339.908893004] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'imu', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
-[ros2_autonomous_pidog-1] [INFO] [1778129339.919779292] [pidog.ros2_autonomous_pidog]: ➡️ stand
-[ros2_autonomous_pidog-1] [WARN] [1778129339.924257111] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'touch', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
-[ros2_autonomous_pidog-1] [WARN] [1778129339.926802687] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'sound_direction', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
-[ros2_autonomous_pidog-1] [INFO] [1778129342.196819252] [pidog.ros2_autonomous_pidog]: ➡️ forward
+[ros2_autonomous_pidog-1] [INFO] [1778317547.514745706] [pidog.ros2_autonomous_pidog]: ✓ Hardware test passed
+[pidog_distance_node-3] [WARN] [1778317547.520390916] [pidog.pidog_distance_node]: New publisher discovered on topic 'distance', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
+[pidog_imu_node-5] [WARN] [1778317547.520566341] [pidog.pidog_imu_node]: New publisher discovered on topic 'imu', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
+[pidog_dual_touch_node-6] [WARN] [1778317547.523175937] [pidog.pidog_dual_touch_node]: New publisher discovered on topic 'touch', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
+[pidog_direction_sensor_node-7] [WARN] [1778317547.528658018] [pidog.pidog_direction_sensor_node]: New publisher discovered on topic 'sound_direction', offering incompatible QoS. No messages will be received from it. Last incompatible policy: RELIABILITY
+[pidog_tts_speaks_node-8] [INFO] [1778317547.558540779] [pidog.pidog_tts_speaks_node]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi Dog:0
+[ros2_autonomous_pidog-1] [INFO] [1778317547.572464831] [pidog.ros2_autonomous_pidog]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi Dog
+[pidog_tts_speaks_node-8] [INFO] [1778317547.607017918] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi Dog
+[ros2_autonomous_pidog-1] [INFO] [1778317548.581164752] [pidog.ros2_autonomous_pidog]: 🔊 Speaking: I am running on Ubuntu 22.04 with ROS 2 Humble
+[ros2_autonomous_pidog-1] [INFO] [1778317549.583563516] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [1778317549.584274475] [pidog.ros2_autonomous_pidog]: ROS 2 Autonomous PiDog Node Ready!
+[ros2_autonomous_pidog-1] [INFO] [1778317549.584782509] [pidog.ros2_autonomous_pidog]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
+[ros2_autonomous_pidog-1] [INFO] [1778317549.585248173] [pidog.ros2_autonomous_pidog]: Say: sit, stand, walk, stop, turn left, turn right
+[ros2_autonomous_pidog-1] [INFO] [1778317549.585698875] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [1778317549.587449069] [pidog.ros2_autonomous_pidog]: Sensor reading thread started
+[ros2_autonomous_pidog-1] [WARN] [1778317549.588955505] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'distance', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
+[ros2_autonomous_pidog-1] [WARN] [1778317549.593921237] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'imu', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
+[ros2_autonomous_pidog-1] [WARN] [1778317549.608667563] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'touch', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
+[ros2_autonomous_pidog-1] [WARN] [1778317549.640433443] [pidog.ros2_autonomous_pidog]: New subscription discovered on topic 'sound_direction', requesting incompatible QoS. No messages will be sent to it. Last incompatible policy: RELIABILITY
+[pidog_tts_speaks_node-8] [INFO] [1778317552.118610278] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: I am running on Ubuntu 22.04 with ROS 2 Humble
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[pidog_stt_voice_command_node-9] [INFO] [1778129350.430261406] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit'
-[voice_bridge-10] [INFO] [1778129350.431392389] [pidog.voice_bridge]: 📝 Voice received: 'sit'
-[voice_bridge-10] [INFO] [1778129350.431816796] [pidog.voice_bridge]: 🎯 Matched 'sit' -> Executing: sit
-[ros2_autonomous_pidog-1] [INFO] [1778129350.453720910] [pidog.ros2_autonomous_pidog]: External command: sit
-[ros2_autonomous_pidog-1] [INFO] [1778129350.504615773] [pidog.ros2_autonomous_pidog]: ➡️ sit
-[ros2_autonomous_pidog-1] [INFO] [1778129351.512577472] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_stt_voice_command_node-9] [INFO] [1778129357.184626565] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stop'
-[voice_bridge-10] [INFO] [1778129357.186059677] [pidog.voice_bridge]: 📝 Voice received: 'stop'
-[voice_bridge-10] [INFO] [1778129357.186878308] [pidog.voice_bridge]: 🎯 Matched 'stop' -> Executing: stop
-[ros2_autonomous_pidog-1] [INFO] [1778129357.213684241] [pidog.ros2_autonomous_pidog]: External command: stop
-[ros2_autonomous_pidog-1] [INFO] [1778129357.275743782] [pidog.ros2_autonomous_pidog]: ➡️ stop
-[ros2_autonomous_pidog-1] [INFO] [1778129357.481303128] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'stop'
-[ros2_autonomous_pidog-1] [INFO] [1778129357.481788425] [pidog.ros2_autonomous_pidog]: 📢 STOP
-[ros2_autonomous_pidog-1] [INFO] [1778129357.540195962] [pidog.ros2_autonomous_pidog]: ➡️ stop
-[ros2_autonomous_pidog-1] [INFO] [1778129357.741488267] [pidog.ros2_autonomous_pidog]: 🔊 Speaking: Stopping
-[pidog_tts_speaks_node-8] [INFO] [1778129357.742969676] [pidog.pidog_tts_speaks_node]: Speak topic received: Stopping:0
-[pidog_tts_speaks_node-8] [INFO] [1778129357.840673436] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Stopping:0
-[ros2_autonomous_pidog-1] [INFO] [1778129359.745907107] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [1778129359.824923331] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_stt_voice_command_node-9] [INFO] [1778129360.940405779] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stopping colin zero'
-[voice_bridge-10] [INFO] [1778129360.943187819] [pidog.voice_bridge]: 📝 Voice received: 'stopping colin zero'
-[voice_bridge-10] [INFO] [1778129360.943858635] [pidog.voice_bridge]: 🎯 Matched 'stop' -> Executing: stop
-[ros2_autonomous_pidog-1] [INFO] [1778129360.970189790] [pidog.ros2_autonomous_pidog]: External command: stop
-[ros2_autonomous_pidog-1] [INFO] [1778129361.034671630] [pidog.ros2_autonomous_pidog]: ➡️ stop
-[ros2_autonomous_pidog-1] [INFO] [1778129362.027277332] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_stt_voice_command_node-9] [INFO] [1778129364.926704650] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit'
-[voice_bridge-10] [INFO] [1778129364.930832042] [pidog.voice_bridge]: 📝 Voice received: 'sit'
-[voice_bridge-10] [INFO] [1778129364.934364231] [pidog.voice_bridge]: 🎯 Matched 'sit' -> Executing: sit
-[ros2_autonomous_pidog-1] [INFO] [1778129364.956341845] [pidog.ros2_autonomous_pidog]: External command: sit
-[ros2_autonomous_pidog-1] [INFO] [1778129365.011072935] [pidog.ros2_autonomous_pidog]: ➡️ sit
-[ros2_autonomous_pidog-1] [INFO] [1778129365.664092720] [pidog.ros2_autonomous_pidog]: 🎭 Random personality: wag_tail
-[ros2_autonomous_pidog-1] [INFO] [1778129365.724077186] [pidog.ros2_autonomous_pidog]: ➡️ wag_tail
-[ros2_autonomous_pidog-1] [INFO] [1778129367.812463634] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_stt_voice_command_node-9] [INFO] [1778129374.982761305] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stop'
-[voice_bridge-10] [INFO] [1778129374.988377218] [pidog.voice_bridge]: 📝 Voice received: 'stop'
-[voice_bridge-10] [INFO] [1778129374.988926571] [pidog.voice_bridge]: 🎯 Matched 'stop' -> Executing: stop
-[ros2_autonomous_pidog-1] [INFO] [1778129375.008430590] [pidog.ros2_autonomous_pidog]: External command: stop
-[ros2_autonomous_pidog-1] [INFO] [1778129375.063593515] [pidog.ros2_autonomous_pidog]: ➡️ stop
-[ros2_autonomous_pidog-1] [INFO] [1778129375.711666583] [pidog.ros2_autonomous_pidog]: 🔊 Speaking: Hmm? What's that?
-[pidog_tts_speaks_node-8] [INFO] [1778129375.712045862] [pidog.pidog_tts_speaks_node]: Speak topic received: Hmm? What's that?:1
-[pidog_tts_speaks_node-8] [INFO] [1778129375.725976283] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hmm? What's that?:1
-[ros2_autonomous_pidog-1] [INFO] [1778129375.764838729] [pidog.ros2_autonomous_pidog]: ➡️ head_tilt
-[ros2_autonomous_pidog-1] [INFO] [1778129376.317131592] [pidog.ros2_autonomous_pidog]: ➡️ forward
+[pidog_stt_voice_command_node-9] [INFO] [1778317561.584301436] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit down'
+[voice_bridge-10] [INFO] [1778317561.588251785] [pidog.voice_bridge]: 📝 Voice received: 'sit down'
+[voice_bridge-10] [INFO] [1778317561.588728338] [pidog.voice_bridge]: 🎯 Matched 'sit' -> Executing: sit
+[ros2_autonomous_pidog-1] [INFO] [1778317561.588760875] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'sit down'
+[ros2_autonomous_pidog-1] [INFO] [1778317561.589331779] [pidog.ros2_autonomous_pidog]: 📢 SIT
+[ros2_autonomous_pidog-1] [INFO] [1778317561.640436189] [pidog.ros2_autonomous_pidog]: ➡️ sit
+[pidog_tts_speaks_node-8] [INFO] [1778317562.383784138] [pidog.pidog_tts_speaks_node]: Speak topic received: Sitting down:0
+[ros2_autonomous_pidog-1] [INFO] [1778317562.394782616] [pidog.ros2_autonomous_pidog]: 🔊 Speaking: Sitting down
+[ros2_autonomous_pidog-1] [INFO] [1778317562.403880994] [pidog.ros2_autonomous_pidog]: External command: sit
+[pidog_tts_speaks_node-8] [INFO] [1778317562.436752280] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sitting down
+[ros2_autonomous_pidog-1] [INFO] [1778317562.468045630] [pidog.ros2_autonomous_pidog]: ➡️ sit
+[ros2_autonomous_pidog-1] [INFO] [1778317565.407546061] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
+[pidog_stt_voice_command_node-9] [INFO] [1778317566.580879751] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stand up'
+[voice_bridge-10] [INFO] [1778317566.586848793] [pidog.voice_bridge]: 📝 Voice received: 'stand up'
+[voice_bridge-10] [INFO] [1778317566.587526105] [pidog.voice_bridge]: 🎯 Matched 'stand' -> Executing: stand
+[ros2_autonomous_pidog-1] [INFO] [1778317566.594791492] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'stand up'
+[ros2_autonomous_pidog-1] [INFO] [1778317566.595324396] [pidog.ros2_autonomous_pidog]: 📢 STAND
+[ros2_autonomous_pidog-1] [INFO] [1778317566.652837794] [pidog.ros2_autonomous_pidog]: ➡️ stand
+[ros2_autonomous_pidog-1] [INFO] [1778317567.544387923] [pidog.ros2_autonomous_pidog]: 🔊 Speaking: Standing up
+[pidog_tts_speaks_node-8] [INFO] [1778317567.546072173] [pidog.pidog_tts_speaks_node]: Speak topic received: Standing up:0
+[pidog_tts_speaks_node-8] [INFO] [1778317567.560567485] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Standing up
+[ros2_autonomous_pidog-1] [INFO] [1778317567.572049257] [pidog.ros2_autonomous_pidog]: External command: stand
+[ros2_autonomous_pidog-1] [INFO] [1778317567.644333225] [pidog.ros2_autonomous_pidog]: ➡️ stand
+[ros2_autonomous_pidog-1] [INFO] [1778317569.546429788] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred

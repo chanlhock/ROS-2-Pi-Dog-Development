@@ -25,7 +25,7 @@ class PiDogSoundDirectionNode(Node):
     def __init__(self):
         super().__init__('pidog_direction_sensor_node')
         
-        self.get_logger().info("Sound direction node starting - listening for data from main node")
+        #self.get_logger().info("Sound direction node starting - listening for data from main node")
         
         # Parameters
         self.declare_parameter('enabled', True)

@@ -5,6 +5,8 @@ THIS IS THE ONLY NODE THAT INITIALIZES PIDOG HARDWARE
 Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands | Emotions | Personality Actions
 """
 
+from sys import platform
+
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
@@ -23,12 +25,14 @@ from enum import Enum
 from .pidog_manager import get_pidog_manager
 
 # Constants
+# Pi Dog's name
+NAME = "Woofer" # Name of the dog during my childhood
+GREETING_EN = f"Hi, I am {NAME}. Your obedient ROS2 Pi Dog"
 OBSTACLE_DISTANCE_CM = 30
 FORWARD_SPEED = 80
 TURN_SPEED = 70
 BACKWARD_TIME = 1.0
 TURN_TIME = 0.6
-
 
 class RobotState(Enum):
     IDLE = "idle"
@@ -139,6 +143,10 @@ class Ros2AutonomousPiDog(Node):
         self.sound_dir_sub = self.create_subscription(String, 'sound_direction', self.sound_direction_callback, qos_best)
         self.face_sub = self.create_subscription(String, 'face_detection', self.face_callback, qos_best)
         
+        self.speak(GREETING_EN)
+        time.sleep(1)
+        self.speak(f"I am running on Ubuntu 22.04 with ROS 2 Humble")
+        time.sleep(1)
         # ============================================================
         # START THREADS
         # ============================================================
@@ -146,7 +154,7 @@ class Ros2AutonomousPiDog(Node):
         self.sensor_thread.start()
         
         self.autonomous_thread = threading.Thread(target=self.autonomous_behavior_loop, daemon=True)
-        self.autonomous_thread.start()
+        #self.autonomous_thread.start()
         
         self.status_timer = self.create_timer(1.0, self.publish_status)
         
