@@ -25,5 +25,6 @@ ln -sf $(realpath bin/voice_bridge) lib/pidog_ros2/
 cd /ros2_ws
 source install/setup.bash
 rm log.txt
+rm core*
 clear
 ros2 launch pidog_ros2 pidog_autonomous.launch.py | tee log.txt

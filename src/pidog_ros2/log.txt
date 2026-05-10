@@ -1,3 +1,0 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-06-17-40-50-332391-raspberrypi-9340
-[INFO] [launch]: Default logging verbosity is set to INFO
-[ERROR] [launch]: Caught exception in launch (see debug for traceback): executable 'voice_bridge' not found on the libexec directory '/ros2_ws/install/pidog_ros2/lib/pidog_ros2' 

@@ -6,7 +6,7 @@ NO HARDWARE ACCESS - receives data from main node
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, HistoryPolicy
 
 from sensor_msgs.msg import Imu
 from std_msgs.msg import String
@@ -19,7 +19,7 @@ class PiDogIMUNode(Node):
     def __init__(self):
         super().__init__('pidog_imu_node')
         
-        #self.get_logger().info("IMU node starting (NO hardware initialization)")
+        self.get_logger().info("IMU node starting (NO hardware initialization)")
         
         # Parameters
         self.declare_parameter('publish_frequency', 10.0)
@@ -27,7 +27,7 @@ class PiDogIMUNode(Node):
         
         # Publishers
         qos_profile = QoSProfile(
-            reliability=ReliabilityPolicy.RELIABLE,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
             depth=50
         )

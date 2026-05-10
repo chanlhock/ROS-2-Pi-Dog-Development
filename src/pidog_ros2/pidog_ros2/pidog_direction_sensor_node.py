@@ -6,7 +6,7 @@ NO HARDWARE ACCESS - subscribes to sound direction data from main node
 
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, HistoryPolicy
 
 from std_msgs.msg import String
 from std_srvs.srv import SetBool
@@ -25,7 +25,7 @@ class PiDogSoundDirectionNode(Node):
     def __init__(self):
         super().__init__('pidog_direction_sensor_node')
         
-        #self.get_logger().info("Sound direction node starting - listening for data from main node")
+        self.get_logger().info("Sound direction node starting - listening for data from main node")
         
         # Parameters
         self.declare_parameter('enabled', True)
@@ -42,7 +42,7 @@ class PiDogSoundDirectionNode(Node):
         
         # Publisher for processed sound direction
         qos_profile = QoSProfile(
-            reliability=ReliabilityPolicy.RELIABLE,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
             depth=10
         )

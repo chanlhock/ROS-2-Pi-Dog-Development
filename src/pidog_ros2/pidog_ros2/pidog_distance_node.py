@@ -4,20 +4,22 @@ ROS 2 Distance Sensor Node for Pi Dog
 NO HARDWARE ACCESS - receives data from main node
 """
 
+import time
+
 import rclpy
 from rclpy.node import Node
-from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
+from rclpy.qos import QoSProfile, QoSReliabilityPolicy, HistoryPolicy
 
 from std_msgs.msg import Float32, String
 
 from collections import deque
-
+#from pidog_ros2.ros2_autonomous_pidog import read_ultrasonic_distance 
 
 class PiDogDistanceNode(Node):
     def __init__(self):
         super().__init__('pidog_distance_node')
         
-       # self.get_logger().info("Distance node starting (NO hardware initialization)")
+        self.get_logger().info("Distance node starting (NO hardware initialization)")
         
         # Parameters
         self.declare_parameter('publish_frequency', 10.0)
@@ -31,7 +33,7 @@ class PiDogDistanceNode(Node):
         
         # Publishers
         qos_profile = QoSProfile(
-            reliability=ReliabilityPolicy.RELIABLE,
+            reliability=QoSReliabilityPolicy.BEST_EFFORT,
             history=HistoryPolicy.KEEP_LAST,
             depth=10
         )
@@ -46,7 +48,7 @@ class PiDogDistanceNode(Node):
             self.distance_callback,
             qos_profile
         )
-        
+
         # Timer for publishing filtered data
         timer_period = 1.0 / self.publish_freq
         self.timer = self.create_timer(timer_period, self.publish_filtered)
@@ -55,6 +57,7 @@ class PiDogDistanceNode(Node):
     
     def distance_callback(self, msg: Float32):
         """Receive raw distance from main node"""
+        self.get_logger().info(f"Received distance: {msg.data:.2f} cm")
         self.distance_buffer.append(msg.data)
     
     def publish_filtered(self):

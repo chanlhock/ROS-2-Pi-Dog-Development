@@ -1,8 +1,12 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import SetEnvironmentVariable
 
 def generate_launch_description():
     return LaunchDescription([
+        SetEnvironmentVariable('RCUTILS_CONSOLE_OUTPUT_FORMAT', '[{severity}] [{name}]: {message}'),
+        # Suppress Python warnings and broken pipe errors
+        SetEnvironmentVariable('PYTHONWARNINGS', 'ignore'),
         Node(
             package='pidog_ros2',
             executable='ros2_autonomous_pidog',

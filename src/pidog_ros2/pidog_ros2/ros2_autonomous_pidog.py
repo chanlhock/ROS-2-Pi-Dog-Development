@@ -1,11 +1,30 @@
 #!/usr/bin/env python3
 """
-ROS 2 Main Autonomous Node for Pi Dog
-THIS IS THE ONLY NODE THAT INITIALIZES PIDOG HARDWARE
-Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands | Emotions | Personality Actions
+##########################################################################
+# ROS 2 Autonomous Sunfounder Pi Dog with Raspberry Pi 5 in Ubuntu 22.04
+#
+# ROS 2 Main Autonomous Node for Pi Dog
+# THIS IS THE ONLY NODE THAT INITIALIZES PIDOG HARDWARE
+# Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands | 
+#           Emotions | Personality Actions
+#  
+# Copyright (c) 2026 Bernard Chan
+# chanlhock@gmail.com
+#
+# Date           Author          Notes
+# 05/05/2026     Bernard Chan    Initial release
+# 08/05/2026     Bernard Chan    This version runs on Docker with
+#                                Ubuntu 22.04 and ROS 2 Humble
+#
+# ros2_autonomous_pidog.py is licensed under the GNU General Public 
+# License v3.0 Permissions of this strong copyleft license are 
+# conditioned on making available complete source code of licensed 
+# works and modifications, which include larger works using a licensed 
+# work, under the same license. Copyright and license notices must be 
+# preserved. Contributors provide an express grant of patent rights.
+##########################################################################
 """
-
-from sys import platform
+#from sys import platform
 
 import rclpy
 from rclpy.node import Node
@@ -33,6 +52,9 @@ FORWARD_SPEED = 80
 TURN_SPEED = 70
 BACKWARD_TIME = 1.0
 TURN_TIME = 0.6
+
+# Global Accessible PiDog Instance  
+pidog_instance = None  # This will be set by the main node and can be accessed by other nodes if needed (use with caution)
 
 class RobotState(Enum):
     IDLE = "idle"
@@ -66,6 +88,8 @@ class Ros2AutonomousPiDog(Node):
         
         if self.pidog_manager.initialize(disable_sensors=True):
             self.dog = self.pidog_manager.get_pidog()
+            global pidog_instance
+            pidog_instance = self.dog  # Set global instance for direct access in other nodes if needed
             self.get_logger().info("✓ PiDog hardware available")
             
             try:
@@ -143,10 +167,12 @@ class Ros2AutonomousPiDog(Node):
         self.sound_dir_sub = self.create_subscription(String, 'sound_direction', self.sound_direction_callback, qos_best)
         self.face_sub = self.create_subscription(String, 'face_detection', self.face_callback, qos_best)
         
+        self.dog.rgb_strip.set_mode(style="boom", color="#a10a0a", bps=2.5, brightness=0.5)
         self.speak(GREETING_EN)
         time.sleep(1)
         self.speak(f"I am running on Ubuntu 22.04 with ROS 2 Humble")
         time.sleep(1)
+
         # ============================================================
         # START THREADS
         # ============================================================
@@ -214,7 +240,7 @@ class Ros2AutonomousPiDog(Node):
             except Exception as e:
                 self.get_logger().debug(f"Sensor read error: {e}")
                 time.sleep(0.5)
-    
+
     def angle_to_direction(self, angle):
         """Convert angle to direction string"""
         if angle < 0:
