@@ -32,7 +32,7 @@ setup(
             'pidog_direction_sensor_node = pidog_ros2.pidog_direction_sensor_node:main',
             'pidog_tts_speaks_node = pidog_ros2.pidog_tts_speaks_node:main',
             'pidog_stt_voice_command_node = pidog_ros2.pidog_stt_voice_command_node:main',
-            'voice_bridge = pidog_ros2.voice_bridge:main',
+            #'voice_bridge = pidog_ros2.voice_bridge:main',
         ],
     },
 )

@@ -70,11 +70,11 @@ def generate_launch_description():
             namespace='pidog',
             output='screen'
         ),
-        Node(
-            package='pidog_ros2',
-            executable='voice_bridge',
-            name='voice_bridge',
-            namespace='pidog',
-            output='screen'
-        ),
+        #Node(
+        #    package='pidog_ros2',
+        #    executable='voice_bridge',
+        #    name='voice_bridge',
+        #    namespace='pidog',
+        #    output='screen'
+        #),
     ])

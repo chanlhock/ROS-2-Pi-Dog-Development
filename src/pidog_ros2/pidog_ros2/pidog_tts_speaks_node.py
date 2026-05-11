@@ -216,6 +216,7 @@ class PiDogTTSNode(Node):
         while rclpy.ok():
             if self.speech_queue and not self.is_speaking:
                 text = self.speech_queue.pop(0).strip(':0')  # Remove any trailing :0 from emotion flag
+                text = text.strip(':1')  # Remove any trailing :1 from emotion flag
                 self.is_speaking = True
                 
                 # MODIFIED: Publish speaking state BEFORE speaking

@@ -14,6 +14,7 @@ class PiDogDualTouchNode(Node):
         super().__init__('pidog_dual_touch_node')
         
         self.get_logger().info("Touch node starting - listening for touch events")
+        
         # Publishers
         qos_profile = QoSProfile(
             reliability=QoSReliabilityPolicy.BEST_EFFORT,
@@ -36,8 +37,28 @@ class PiDogDualTouchNode(Node):
     
     def touch_callback(self, msg: String):
         """Process and republish touch events"""
-        self.get_logger().info(f"Touch received: {msg.data}")
-        # Forward the event
+        # Parse the touch data to show human-readable format
+        try:
+            parts = msg.data.split(':')
+            if len(parts) >= 2 and parts[0] == 'touched':
+                touch_value = parts[1]
+                
+                # Convert touch value to readable description
+                touch_desc = {
+                    'L': 'Left side',
+                    'R': 'Right side',
+                    'LS': 'Left swipe (front to back)',
+                    'RS': 'Right swipe (back to front)'
+                }.get(touch_value, f'Unknown ({touch_value})')
+                
+                self.get_logger().info(f"👆 Touch detected: {touch_desc} ({touch_value})")
+            else:
+                self.get_logger().info(f"Touch received: {msg.data}")
+        except Exception as e:
+            self.get_logger().debug(f"Error parsing touch: {e}")
+            self.get_logger().info(f"Touch received: {msg.data}")
+        
+        # Forward the event unchanged
         self.touch_pub.publish(msg)
     
     def shutdown(self):

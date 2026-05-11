@@ -37,6 +37,7 @@ from geometry_msgs.msg import Twist
 import threading
 import time
 import random
+import math
 from collections import deque
 from enum import Enum
 
@@ -47,14 +48,16 @@ from .pidog_manager import get_pidog_manager
 # Pi Dog's name
 NAME = "Woofer" # Name of the dog during my childhood
 GREETING_EN = f"Hi, I am {NAME}. Your obedient ROS2 Pi Dog"
-OBSTACLE_DISTANCE_CM = 30
-FORWARD_SPEED = 80
-TURN_SPEED = 70
-BACKWARD_TIME = 1.0
-TURN_TIME = 0.6
+OBSTACLE_DISTANCE_CM = 35  # Increased from 30cm to 35cm for better obstacle avoidance
+FORWARD_SPEED = 99  # Was 80 very slow - range is 0-100
+TURN_STEPS = 18  # New constant for turn steps
+TURN_SPEED = 95      # Increase from 85 to 95 (was 70)
+BACKWARD_SPEED = 99   # New constant for backing up
+BACKWARD_TIME = 0.8  # Reduced from 1.0
+TURN_TIME = 0.5      # Reduced from 0.6
 
 # Global Accessible PiDog Instance  
-pidog_instance = None  # This will be set by the main node and can be accessed by other nodes if needed (use with caution)
+#pidog_instance = None  # This will be set by the main node and can be accessed by other nodes if needed (use with caution)
 
 class RobotState(Enum):
     IDLE = "idle"
@@ -86,10 +89,10 @@ class Ros2AutonomousPiDog(Node):
         
         self.pidog_manager = get_pidog_manager()
         
-        if self.pidog_manager.initialize(disable_sensors=True):
+        if self.pidog_manager.initialize(disable_sensors=False):
             self.dog = self.pidog_manager.get_pidog()
-            global pidog_instance
-            pidog_instance = self.dog  # Set global instance for direct access in other nodes if needed
+            #global pidog_instance
+            #pidog_instance = self.dog  # Set global instance for direct access in other nodes if needed
             self.get_logger().info("✓ PiDog hardware available")
             
             try:
@@ -108,6 +111,11 @@ class Ros2AutonomousPiDog(Node):
             self.get_logger().error("✗ PiDog hardware NOT available!")
             return
         
+        # Distance sensor filtering
+        self.distance_readings = deque(maxlen=5)  # Store last 5 readings
+        self.last_distance_read_time = 0
+        self.distance_read_interval = 0.1  # Read every 100ms max
+
         # ============================================================
         # STATE MANAGEMENT
         # ============================================================
@@ -158,7 +166,7 @@ class Ros2AutonomousPiDog(Node):
         self.command_sub = self.create_subscription(String, 'command', self.command_callback, qos_rel)
         
         # Direct voice command subscriber (bypasses voice_bridge for faster response)
-        self.voice_sub = self.create_subscription(String, 'voice_command', self.voice_callback, qos_best)
+        self.voice_sub = self.create_subscription(String, '/pidog/voice_command', self.voice_callback, qos_best)
         
         # Sensor subscribers (from other nodes - for redundancy)
         self.distance_sub = self.create_subscription(Float32, 'distance', self.distance_callback, qos_best)
@@ -200,43 +208,135 @@ class Ros2AutonomousPiDog(Node):
         
         while rclpy.ok() and self.dog:
             try:
+                current_time = time.time()
+            
+                # Read distance sensor - with rate limiting
+                if hasattr(self.dog, 'ultrasonic') and hasattr(self.dog.ultrasonic, 'read'):
+                    # Only read every 100ms to avoid noise
+                    if current_time - self.last_distance_read_time >= self.distance_read_interval:
+                        distance = self.dog.ultrasonic.read()
+                        self.last_distance_read_time = current_time
+                    
+                        if distance and 2 <= distance <= 400:
+                            # Add to rolling buffer for filtering
+                            self.distance_readings.append(float(distance))
+                        
+                            # Use median or average for stable reading
+                            if len(self.distance_readings) >= 3:
+                                # Median filter (removes spikes)
+                                sorted_readings = sorted(self.distance_readings)
+                                filtered_distance = sorted_readings[len(sorted_readings)//2]
+
+                                # Also keep raw for debugging
+                                self.current_distance_raw = float(distance)
+                                self.current_distance = filtered_distance
+                            
+                                # Log when there's a significant difference (spike detected)
+                                if abs(filtered_distance - distance) > 30:
+                                    self.get_logger().debug(f"Distance spike filtered: raw={distance:.1f}, filtered={filtered_distance:.1f}")
+                            else:
+                                self.current_distance = float(distance)
+                        
+                            self.distance_pub.publish(Float32(data=self.current_distance))
+                        
+                            # Log every few readings
+                            if random.randint(1, 20) == 1:
+                                self.get_logger().info(f"📏 Distance: {self.current_distance:.1f} cm")
+
                 # Read distance sensor
-                if hasattr(self.dog, 'ultrasonic') and hasattr(self.dog.ultrasonic, 'read_distance'):
-                    distance = self.dog.ultrasonic.read_distance()
-                    if distance and 2 <= distance <= 400:
-                        self.current_distance = float(distance)
-                        self.distance_pub.publish(Float32(data=self.current_distance))
+                #if hasattr(self.dog, 'ultrasonic') and hasattr(self.dog.ultrasonic, 'read'):
+                #    distance = self.dog.ultrasonic.read()
+                #    if distance and 2 <= distance <= 400:
+                #        self.current_distance = float(distance)
+                #        self.distance_pub.publish(Float32(data=self.current_distance))
                 
-                # Read IMU data
-                if hasattr(self.dog, 'get_imu_data'):
-                    imu_data = self.dog.get_imu_data()
-                    if imu_data:
-                        imu_msg = String()
-                        imu_msg.data = f"{imu_data.get('roll',0):.2f},{imu_data.get('pitch',0):.2f},{imu_data.get('yaw',0):.2f}"
-                        self.imu_pub.publish(imu_msg)
-                        self.current_imu = imu_data
-                
+                # Read IMU data - Publish to /imu topic for other nodes
+                try:
+                    # Read raw sensor data
+                    ax, ay, az = self.dog.accData
+                    gx, gy, gz = self.dog.gyroData
+    
+                    # For logging
+                    self.get_logger().debug(f"IMU (accData): {ax/16384:.2f} g, {ay/16384:.2f} g, {az/16384:.2f} g")
+                    self.get_logger().debug(f"IMU (gyroData): {gx} °/s, {gy} °/s, {gz} °/s")
+    
+                    # Publish to /imu topic in format: roll,pitch,yaw,accel_x,accel_y,accel_z,gyro_x,gyro_y,gyro_z
+                    # Note: PiDog accData doesn't provide roll/pitch/yaw directly.
+                    # We can calculate approximate roll/pitch from accelerometer data
+                    # or just publish zeros for now if not needed.
+    
+                    # Calculate approximate roll and pitch from accelerometer data
+                    # Convert raw accelerometer values (range ~ +/-16384) to g force
+                    ax_g = ax / 16384.0
+                    ay_g = ay / 16384.0
+                    az_g = az / 16384.0
+    
+                    # Calculate roll (X-axis rotation) and pitch (Y-axis rotation)
+                    roll = math.atan2(ay_g, az_g) * 180.0 / math.pi
+                    pitch = math.atan2(-ax_g, math.sqrt(ay_g*ay_g + az_g*az_g)) * 180.0 / math.pi
+                    yaw = 0.0  # Yaw requires magnetometer or gyro integration
+    
+                    # Create IMU message with all data
+                    imu_msg = String()
+                    imu_msg.data = f"{roll:.2f},{pitch:.2f},{yaw:.2f},{ax_g:.3f},{ay_g:.3f},{az_g:.3f},{gx:.1f},{gy:.1f},{gz:.1f}"
+                    self.imu_pub.publish(imu_msg)
+                    self.current_imu = {
+                        'roll': roll,
+                        'pitch': pitch,
+                        'yaw': yaw,
+                        'accel_x': ax_g,
+                        'accel_y': ay_g,
+                        'accel_z': az_g,
+                        'gyro_x': gx,
+                        'gyro_y': gy,
+                        'gyro_z': gz
+                    }
+
+                    # Log occasionally (every 50 cycles ~5 seconds)
+                    if random.randint(1, 50) == 1:
+                        self.get_logger().info(f"📊 IMU: roll={roll:.1f}°, pitch={pitch:.1f}°, yaw={yaw:.1f}°")
+
+                except Exception as e:
+                    self.get_logger().debug(f"IMU read error: {e}")
+
                 # Read touch sensors
+                # Read touch sensors - Corrected based on official documentation
                 if hasattr(self.dog, 'dual_touch'):
-                    for i in range(4):
-                        if hasattr(self.dog.dual_touch, 'read'):
-                            touched = self.dog.dual_touch.read(i)
-                            if touched:
-                                self.touch_pub.publish(String(data=f"touched:{i}:1.0"))
-                                self.get_logger().info(f"Touch detected on sensor {i}")
-                                self.handle_touch_event(i)
+                    try:
+                        touch_result = self.dog.dual_touch.read()
+        
+                        # Check if a touch is detected (not "N")
+                        if touch_result != 'N':
+                            self.get_logger().info(f"👆 Touch detected: {touch_result}")
+            
+                            # Create a descriptive message for the touch topic
+                            touch_msg = f"touched:{touch_result}:1.0"
+                            self.touch_pub.publish(String(data=touch_msg))
+            
+                            # Call the touch event handler with the result string
+                            self.handle_touch_event(touch_result)
+            
+                            # Debounce: wait a bit to avoid multiple rapid events
+                            time.sleep(0.2)
+            
+                    except Exception as e:
+                        self.get_logger().info(f"Touch read error: {e}")
                 
                 # Read sound direction
-                if hasattr(self.dog, 'ears'):
-                    if hasattr(self.dog.ears, 'isdetected') and self.dog.ears.isdetected():
-                        if hasattr(self.dog.ears, 'read'):
-                            angle = self.dog.ears.read()
-                            if angle is not None and 0 <= angle <= 360:
-                                self.sound_direction_angle = angle
-                                self.sound_direction_text = self.angle_to_direction(angle)
-                                self.sound_pub.publish(String(data=f"{angle:.1f}:{self.sound_direction_text}:1"))
+                #if hasattr(self.dog, 'ears'):
+                #    if hasattr(self.dog.ears, 'isdetected') and self.dog.ears.isdetected():
+                #        if hasattr(self.dog.ears, 'read'):
+                if self.dog.ears.isdetected():
+                    angle = self.dog.ears.read()
+                    #if angle is not None and 0 <= angle <= 360:
+                    self.sound_direction_angle = angle
+                    self.sound_direction_text = self.angle_to_direction(angle)
+                    self.sound_pub.publish(String(data=f"{angle:.1f}:{self.sound_direction_text}:1"))
+                    self.get_logger().info(f"🔊 Sound detected at {angle:.1f}° ({self.sound_direction_text})")
                 
-                time.sleep(0.1)
+                    time.sleep(0.1)
+                # Small sleep to prevent CPU hogging
+                time.sleep(0.02)  # 20ms - faster than before but with rate limiting above
             except Exception as e:
                 self.get_logger().debug(f"Sensor read error: {e}")
                 time.sleep(0.5)
@@ -273,15 +373,17 @@ class Ros2AutonomousPiDog(Node):
             pass
     
     def touch_callback(self, msg):
+        """Handle touch messages from other nodes or from our own publisher"""
         try:
             parts = msg.data.split(':')
             if len(parts) >= 2:
-                touched = parts[0] == 'touched'
-                sensor_id = int(parts[1])
-                if touched:
-                    self.handle_touch_event(sensor_id)
-        except:
-            pass
+                # New format: "touched:LS:1.0" or "touched:L:1.0" etc.
+                if parts[0] == 'touched':
+                    touch_value = parts[1]  # This is now a string like "L", "R", "LS", "RS"
+                    self.get_logger().info(f"Touch callback received: {touch_value}")
+                    self.handle_touch_event(touch_value)  # Pass the string directly
+        except Exception as e:
+            self.get_logger().debug(f"Touch callback error: {e}")
     
     def sound_direction_callback(self, msg):
         try:
@@ -372,7 +474,12 @@ class Ros2AutonomousPiDog(Node):
         # Process command
         if 'sit' in text:
             self.get_logger().info("📢 SIT")
-            self.execute_movement('sit')
+            # Clear any pending commands first
+            self.dog.body_stop()
+            self.dog.wait_all_done()
+            time.sleep(0.1)
+            self.execute_movement('sit', step_count=0, speed=60)  # sit doesn't need step_count
+            #self.execute_movement('sit')
             self.speak("Sitting down")
             self.state = RobotState.INTERACTING
             threading.Timer(3.0, self.return_to_wandering).start()
@@ -386,7 +493,7 @@ class Ros2AutonomousPiDog(Node):
             
         elif 'walk' in text or 'forward' in text:
             self.get_logger().info("📢 WALK")
-            self.execute_movement('forward', step_count=6, speed=80)
+            self.execute_movement('forward', step_count=12, speed=FORWARD_SPEED)
             
         elif 'back' in text:
             self.get_logger().info("📢 BACK")
@@ -399,13 +506,13 @@ class Ros2AutonomousPiDog(Node):
             self.state = RobotState.INTERACTING
             threading.Timer(2.0, self.return_to_wandering).start()
             
-        elif 'left' in text and len(text) < 10:
+        elif 'left' in text and (len(text) < 10 or 'turn left' in text):
             self.get_logger().info("📢 TURN LEFT")
-            self.execute_movement('turn_left', step_count=4, speed=70)
+            self.execute_movement('turn_left', step_count=12, speed=95)
             
-        elif 'right' in text and len(text) < 10:
+        elif 'right' in text and (len(text) < 10 or 'turn right' in text) :
             self.get_logger().info("📢 TURN RIGHT")
-            self.execute_movement('turn_right', step_count=4, speed=70)
+            self.execute_movement('turn_right', step_count=12, speed=95)
         
         self.voice_command_waiting = False
     
@@ -415,7 +522,7 @@ class Ros2AutonomousPiDog(Node):
         msg = String()
         msg.data = cmd_str
         self.speak_pub.publish(msg)
-        self.get_logger().info(f"🔊 Speaking: {text}")
+        #self.get_logger().info(f"🔊 Speaking: {text}")
     
     # ============================================================
     # EXTERNAL COMMAND HANDLERS
@@ -453,16 +560,42 @@ class Ros2AutonomousPiDog(Node):
         status_str = f"state:{self.state.value}:emotion:{self.emotion.value}:distance:{self.current_distance:.1f}:busy:{active}"
         self.status_pub.publish(String(data=status_str))
     
-    def handle_touch_event(self, sensor_id):
-        """React to touch sensor events"""
+    #def handle_touch_event(self, sensor_id):
+    #    """React to touch sensor events"""
+    #    if self.state != RobotState.WANDERING:
+    #        return
+        
+    #    self.state = RobotState.INTERACTING
+    #    self.speak("That tickles! Hehe!", use_emotion=True)
+    #    self.execute_movement("shake_head", step_count=3, speed=80)
+    #    threading.Timer(5.0, self.return_to_wandering).start()
+    def handle_touch_event(self, touch_result):
+        """React to touch sensor events based on official API."""
+        # Only react if the dog is in a state where it can be interrupted
         if self.state != RobotState.WANDERING:
             return
-        
-        self.state = RobotState.INTERACTING
-        self.speak("That tickles! Hehe!", use_emotion=True)
-        self.execute_movement("shake_head", step_count=3, speed=80)
-        threading.Timer(5.0, self.return_to_wandering).start()
     
+        # Change state so we don't get interrupted by other behaviors
+        self.state = RobotState.INTERACTING
+    
+        # Customize reaction based on touch type
+        if touch_result == 'L':
+            self.speak("You touched my left side", use_emotion=True)
+        elif touch_result == 'R':
+            self.speak("You touched my right side", use_emotion=True)
+        elif touch_result == 'LS':
+            self.speak("You petted me from front to back", use_emotion=True)
+        elif touch_result == 'RS':
+            self.speak("You petted me from back to front", use_emotion=True)
+        else:
+            self.speak("That tickles! Hehe!", use_emotion=True)
+    
+        # Perform a happy action
+        self.execute_movement("wag_tail", step_count=5, speed=80)
+    
+        # Return to wandering after a few seconds
+        threading.Timer(4.0, self.return_to_wandering).start()
+
     def handle_face_detection(self):
         """React to detected faces"""
         if self.face_count > 0 and self.state == RobotState.WANDERING:
@@ -490,7 +623,8 @@ class Ros2AutonomousPiDog(Node):
                 direction = "left" if random.random() > 0.5 else "right"
         
         self.get_logger().info(f"Smart turning {direction}")
-        self.execute_movement(f"turn_{direction}", step_count=5, speed=TURN_SPEED)
+        # Increase step_count to 12-15 for a proper 90-degree turn
+        self.execute_movement(f"turn_{direction}", step_count=TURN_STEPS, speed=TURN_SPEED)
         self.turn_history.append(direction)
         return direction
     
@@ -500,15 +634,30 @@ class Ros2AutonomousPiDog(Node):
             if self.command_active or self.emergency_stop:
                 return
         
+        # Don't avoid if distance is unreliable (too many spikes recently)
+        if len(self.distance_readings) < 3:
+            return
+    
+        # Check if the last 3 readings are ALL below threshold (avoids false triggers)
+        recent_readings = list(self.distance_readings)[-3:]
+        if not all(d < OBSTACLE_DISTANCE_CM for d in recent_readings):
+            self.get_logger().debug(f"Ignoring false obstacle: recent readings {recent_readings}")
+            return
+
         self.state = RobotState.AVOIDING
         self.get_logger().info(f"🚧 Obstacle detected! Distance: {self.current_distance:.1f} cm")
         
-        self.execute_movement("stop")
-        time.sleep(0.3)
+        # Emergency stop
+        if self.dog:
+            self.dog.body_stop()
+            self.dog.wait_all_done()
+        time.sleep(0.1)
+
+        # Back up quickly - increase steps for more distance
+        self.execute_movement('backward', step_count=10, speed=BACKWARD_SPEED)
+        time.sleep(0.2)  # Reduced sleep since more steps
         
-        self.execute_movement("backward", step_count=5, speed=FORWARD_SPEED)
-        time.sleep(BACKWARD_TIME)
-        
+        # Turn (now faster with updated smart_turn)
         self.smart_turn()
         self.play_emotion(Emotion.STARTLED)
         
@@ -588,13 +737,31 @@ class Ros2AutonomousPiDog(Node):
                 # Different behaviors based on state
                 if self.state == RobotState.WANDERING:
                     # Check for obstacles
-                    if self.current_distance and self.current_distance < OBSTACLE_DISTANCE_CM:
+                    #if self.current_distance and self.current_distance < OBSTACLE_DISTANCE_CM:
+                    #    self.obstacle_avoidance()
+                    #else:
+                    # Use filtered distance (self.current_distance is already filtered)
+                    # Also require at least 3 readings for confidence
+                    if len(self.distance_readings) >= 3 and self.current_distance < OBSTACLE_DISTANCE_CM:
                         self.obstacle_avoidance()
                     else:
                         # Move forward normally
-                        self.execute_movement("forward", step_count=2, speed=FORWARD_SPEED)
-                        time.sleep(0.5)
-                        
+                        self.execute_movement("forward", step_count=8, speed=FORWARD_SPEED)  # Increased step_count
+                    
+                        # Check obstacle during movement (most critical part)
+                        # Poll distance sensor while moving
+                        check_interval = 0.15  # Check every 0.15 seconds
+                        #checks_during_move = 4  # Total movement duration: 0.6 seconds
+
+                        for check in range(3):  # Reduced checks
+                            time.sleep(check_interval)
+                            if len(self.distance_readings) >= 3 and self.current_distance < OBSTACLE_DISTANCE_CM:
+                                self.get_logger().info("🚧 Obstacle detected while moving!")
+                                self.dog.body_stop()
+                                self.dog.wait_all_done()
+                                self.obstacle_avoidance()
+                                break
+                    
                         # Random personality actions occasionally
                         now = time.time()
                         if now - last_personality_time > personality_interval and self.personality_actions:
@@ -610,7 +777,7 @@ class Ros2AutonomousPiDog(Node):
                             self.play_emotion(random_emotion)
                             self.last_emotion_time = now
                     
-                    time.sleep(0.3)
+                    #time.sleep(0.3)
                     
                 elif self.state == RobotState.SLEEPING:
                     time.sleep(1.0)

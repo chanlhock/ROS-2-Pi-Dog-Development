@@ -60,17 +60,17 @@
     start_turn_distance: 80
 
 # Node-specific parameters for Distance Node
-pidog_distance_node:
-  ros__parameters:
+#pidog_distance_node:
+#  ros__parameters:
     # Override global parameters
-    publish_frequency: 10.0
-    distance_timeout: 2.0
-    moving_average_window: 5
+#    publish_frequency: 10.0
+#    distance_timeout: 2.0
+#    moving_average_window: 5
     
     # NEW: Hardware control settings (to avoid GPIO conflict
-    enable_hardware: false           # Disable hardware access (movement_node will handle it)
-    enable_head_scanning: false      # Disable head scanning to reduce conflicts
-    use_simulation: true             # Run in simulation mode since hardware is disabled
+    #enable_hardware: false           # Disable hardware access (movement_node will handle it)
+    #enable_head_scanning: false      # Disable head scanning to reduce conflicts
+    #use_simulation: true             # Run in simulation mode since hardware is disabled
 
 # Node-specific parameters for Movement Node
 pidog_movement_node:
@@ -101,26 +101,26 @@ ros2_autonomous_pidog:
     personality_actions: true        # Enable random personality actions
 
 # Node-specific parameters for IMU Node (if exists)
-pidog_imu_node:
-  ros__parameters:
-    simulate_imu: false
-    use_hardware_imu: true
+#pidog_imu_node:
+#  ros__parameters:
+#    simulate_imu: false
+#    use_hardware_imu: true
 
 # Node-specific parameters for Dual Touch Node
-pidog_dual_touch_node:
-  ros__parameters:
-    touch_threshold: 0.8
-    debounce_ms: 100
-    simulate_touch: true
+#pidog_dual_touch_node:
+#  ros__parameters:
+#    touch_threshold: 0.8
+#    debounce_ms: 100
+#    simulate_touch: true
 
 # Node-specific parameters for Direction Sensor Node
-pidog_direction_sensor_node:
-  ros__parameters:
-    sound_enabled: true
-    sample_rate: 16000
-    chunk_size: 1024
-    sound_energy_threshold: 500
-    simulate_sound: true
+#pidog_direction_sensor_node:
+#  ros__parameters:
+#    sound_enabled: true
+#    sample_rate: 16000
+#    chunk_size: 1024
+#    sound_energy_threshold: 500
+#    simulate_sound: true
 
 # Node-specific parameters for Camera Node
 pidog_camera_node:

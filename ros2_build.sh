@@ -24,6 +24,7 @@ ln -sf $(realpath bin/voice_bridge) lib/pidog_ros2/
 # Now the launch file should work
 cd /ros2_ws
 source install/setup.bash
+cp log.txt log.bak
 rm log.txt
 rm core*
 clear

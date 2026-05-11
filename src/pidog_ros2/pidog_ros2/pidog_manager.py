@@ -33,7 +33,7 @@ class PiDogManager:
                 cls._instance = super(PiDogManager, cls).__new__(cls)
             return cls._instance
     
-    def initialize(self, disable_sensors: bool = True) -> bool:
+    def initialize(self, disable_sensors: bool = False) -> bool:
         """Initialize PiDog hardware (ONLY called by main node)."""
         if self._initialized:
             return True

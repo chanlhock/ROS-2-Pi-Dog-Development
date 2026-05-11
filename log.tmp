@@ -1,0 +1,663 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-11-14-49-35-544612-raspberrypi-23291
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [ros2_autonomous_pidog-1]: process started with pid [23293]
+[INFO] [pidog_movement_node-2]: process started with pid [23295]
+[INFO] [pidog_distance_node-3]: process started with pid [23297]
+[INFO] [pidog_camera_node-4]: process started with pid [23299]
+[INFO] [pidog_imu_node-5]: process started with pid [23301]
+[INFO] [pidog_dual_touch_node-6]: process started with pid [23303]
+[INFO] [pidog_direction_sensor_node-7]: process started with pid [23305]
+[INFO] [pidog_tts_speaks_node-8]: process started with pid [23307]
+[INFO] [pidog_stt_voice_command_node-9]: process started with pid [23309]
+[INFO] [voice_bridge-10]: process started with pid [23311]
+[voice_bridge-10] [INFO] [pidog.voice_bridge]: Voice Bridge Ready - mapping voice commands to actions
+[voice_bridge-10] [INFO] [pidog.voice_bridge]: Commands: ['sit', 'sit down', 'stand', 'stand up', 'walk', 'walk forward', 'go forward', 'forward', 'back', 'backward', 'go back', 'stop', 'halt', 'freeze', 'left', 'turn left', 'right', 'turn right', 'stretch', 'hand shake', 'shake hands', 'scratch', 'high five', 'high-five']
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction node starting - listening for data from main node
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: PiDog Sound Direction Node Ready
+[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node starting - listening for touch events
+[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node ready - waiting for touch data
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node starting (NO hardware initialization)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node ready (publishing at 10.0 Hz)
+[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node starting (NO hardware initialization)
+[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node ready (publishing at 10.0 Hz)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Initializing PiDog hardware...
+[pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: PiDog Movement Node Ready (forwarding commands to main node)
+[pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop
+[pidog_tts_speaks_node-8] [0;93m2026-05-11 14:49:37.109222702 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
+[ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
+[ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
+[ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: STT node starting...
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...
+[pidog_camera_node-4] vilib 0.3.18 launching ...
+[pidog_camera_node-4] picamera2 0.3.35
+[pidog_stt_voice_command_node-9] ALSA lib pcm_asym.c:105:(_snd_pcm_asym_open) capture slave is not defined
+[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1032:(snd_pcm_dmix_open) unable to open slave
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+[pidog_stt_voice_command_node-9] ALSA lib pcm_oss.c:397:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+[pidog_stt_voice_command_node-9] ALSA lib pcm_oss.c:397:(_snd_pcm_oss_open) Cannot open device /dev/dsp
+[pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
+[pidog_stt_voice_command_node-9] 
+[pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
+[pidog_stt_voice_command_node-9] 
+[pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
+[pidog_stt_voice_command_node-9] ALSA lib pcm_usb_stream.c:482:(_snd_pcm_usb_stream_open) Invalid card 'card'
+[pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
+[pidog_stt_voice_command_node-9] ALSA lib pcm_usb_stream.c:482:(_snd_pcm_usb_stream_open) Invalid card 'card'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1005:(snd_pcm_dmix_open) The dmix plugin supports only playback stream
+[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1005:(snd_pcm_dmix_open) The dmix plugin supports only playback stream
+[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1032:(snd_pcm_dmix_open) unable to open slave
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Using audio device: default
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Vosk initialized successfully - listening for commands
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Voice commands will be published to /pidog/voice_command
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Will ignore speech while TTS is speaking + 0.5s delay
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Audio filter: low-pass at 4000 Hz (reduces servo noise)
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Try saying: sit, stand, walk, stop, turn left, turn right
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Listening for voice commands with audio filtering...
+[pidog_camera_node-4] 
+[pidog_camera_node-4] Web display on:
+[pidog_camera_node-4]       http://192.168.0.23:9000/mjpg
+[pidog_camera_node-4] 
+[pidog_camera_node-4] Starting web streaming ...
+[pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
+[pidog_camera_node-4]  * Debug mode: off
+[ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Piper TTS initialized successfully with model: en_US-ryan-low
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: eSpeak found and ready
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: PiDog TTS Node Ready (piper=True, espeak=True)
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Or publish to /speak_text topic
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera initialized with Vilib
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera capture loop started
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: PiDog Camera Node Ready
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Publishing to: camera/image_raw and face_detection
+[ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ PiDog hardware available
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Testing hardware...
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ Hardware test passed
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi Dog:0
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi Dog
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Autonomous behavior loop started
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ROS 2 Autonomous PiDog Node Ready!
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Sensor reading thread started
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Say: sit, stand, walk, stop, turn left, turn right
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stand
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.97 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 81.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.53 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 307.0° (left)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.50 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.50 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 92.08 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 53.75 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.48 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.08 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.64 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 80.40 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 80.62 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.48 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 130.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.46 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.48 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 87.60 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 119.64 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.46 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.49 cm
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: I am running on Ubuntu 22.04 with ROS 2 Humble
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 89.82 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=91.6°, pitch=73.7°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 100.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 91.95 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 28.87 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 92.20 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 138.66 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 105.80 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 114.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.35 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 14.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 196.18 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 70.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 123.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.93 cm
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.86 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 136.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 32.23 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 154.13 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 85.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.64 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.60 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 84.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.91 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 84.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 77.43 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 87.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 76.19 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 79.36 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 88.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.64 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 226.87 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 75.41 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 50.36 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 75.40 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 40.11 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 209.60 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 52.65 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 75.26 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 75.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 116.07 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 75.18 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 76.92 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 107.03 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 316.0° (front)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 68.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 73.64 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 64.91 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 73.32 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 73.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 84.58 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 79.86 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 251.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 84.98 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 72.51 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 72.79 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 123.42 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 58.89 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.80 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 88.45 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 60.62 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 225.87 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 101.21 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 131.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 71.28 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 93.32 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.86 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 99.25 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 71.67 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 48.97 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 75.39 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 95.71 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 180.96 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 73.56 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 70.99 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 96.43 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 70.92 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=105.0°, pitch=73.6°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 70.73 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 75.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 74.20 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 81.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 72.80 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 83.63 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 70.36 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 140.71 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 69.99 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 69.81 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.09 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.88 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 94.53 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 109.68 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.03 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.99 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=86.5°, pitch=71.5°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 120.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.71 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 72.96 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.76 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.68 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.00 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.30 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.45 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.41 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 70.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 182.43 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.83 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 74.66 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 69.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.76 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=112.7°, pitch=72.0°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.56 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 204.06 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 94.86 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.62 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.29 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 204.12 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 63.11 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.23 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 88.63 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.60 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 71.93 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.57 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 60.06 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 63.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.46 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 61.85 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.26 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.91 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 64.62 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.26 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 64.60 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 221.0° (back)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 64.73 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 175.87 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 87.73 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 144.70 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 92.82 cm
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 152.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.84 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 63.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 63.33 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=102.5°, pitch=74.4°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 63.83 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 196.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.75 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.70 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=91.8°, pitch=70.5°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.14 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 6.55 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.61 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 90.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 153.34 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 59.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.44 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 62.42 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 61.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 61.04 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 61.06 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 60.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 60.63 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 121.07 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.06 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 60.39 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 58.14 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.69 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 60.20 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 65.83 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 58.88 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 139.66 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 60.03 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.11 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 170.48 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 59.63 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 57.83 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 59.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 59.38 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 48.81 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 61.61 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 59.35 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 59.67 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 74.61 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 90.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 202.39 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 78.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.60 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 74.25 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 55.45 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 70.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 57.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 52.99 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 52.91 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 26.34 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 68.15 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 64.75 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 57.20 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 42.0° (front)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 57.12 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 57.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 85.53 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 99.46 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 102.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 55.24 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 86.85 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 180.77 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 55.33 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 92.53 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 58.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 67.45 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 74.30 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 59.18 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 82.43 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 26.75 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 81.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 55.41 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 74.76 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 163.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 166.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.39 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 53.66 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 58.69 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.92 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.04 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.39 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.40 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 54.35 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 53.57 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 53.01 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 114.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 34.18 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 52.34 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 68.62 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 55.20 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 51.52 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 51.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 136.30 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 98.51 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 57.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 51.26 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 51.11 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 261.0° (left)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 43.05 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 50.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 86.19 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.28 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 50.48 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 5.56 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.76 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 51.46 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.45 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 50.07 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 49.05 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 75.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 48.30 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 172.30 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 47.87 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 48.29 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 48.09 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 47.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 47.04 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 61.15 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 40.19 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.67 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.69 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 47.43 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.30 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.26 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.67 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.63 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 46.89 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 88.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.83 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 45.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 45.07 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.85 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.88 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.24 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.69 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 45.09 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 45.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 66.76 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 48.80 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.88 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 263.0° (left)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 44.21 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 42.99 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 42.08 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 42.79 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 42.52 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=105.3°, pitch=77.5°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.38 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.20 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.61 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 38.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.20 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.13 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 195.0° (back)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 42.37 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.42 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 42.05 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 30.79 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=93.3°, pitch=75.6°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 38.55 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.75 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.63 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 41.89 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 40.24 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 39.32 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 38.39 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 85.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 48.09 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 38.67 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 92.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.98 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.53 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.04 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.51 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 38.01 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.84 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.42 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 51.32 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.51 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.41 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 38.91 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.43 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 106.36 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.43 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.51 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 15.98 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.42 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.75 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.72 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 63.94 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 37.45 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 75.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 40.14 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 38.18 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.77 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 35.50 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 35.76 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 24.97 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 36.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 35.73 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 34.95 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 71.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.69 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.44 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.92 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.14 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.14 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 52.83 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 32.85 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 33.10 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=99.9°, pitch=75.4°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.44 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 32.64 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 32.08 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 32.85 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 32.36 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.64 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.87 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 208.0° (back)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.58 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.03 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.81 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.95 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.16 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.37 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.07 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 31.06 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 30.79 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.71 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 30.01 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.69 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 30.03 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.68 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 27.37 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.49 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.73 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 30.26 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.71 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 28.85 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 28.29 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 112.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 27.40 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.77 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 21.12 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 25.68 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 26.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 28.86 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 14.93 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 25.05 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 15.02 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 70.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 24.51 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.04 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.63 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 30.53 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.91 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.93 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 24.39 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.34 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.34 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 24.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.57 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 24.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.35 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.29 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.59 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.62 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.56 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.74 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.70 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.75 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.79 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 305.0° (left)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.15 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 10.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.45 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.10 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 20.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 21.53 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 21.13 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 20.94 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 30.65 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 21.44 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.12 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 21.17 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 20.50 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 18.0° (front)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.23 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 12.90 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.55 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.53 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.90 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.18 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.21 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 29.55 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.57 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.24 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 22.40 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.88 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.48 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.55 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 19.86 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 14.52 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.56 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.24 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 242.0° (left)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 18.28 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 17.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 17.88 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=78.2°, pitch=78.0°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 17.61 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 17.05 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.95 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.98 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.96 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.94 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 13.97 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.96 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.96 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.65 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 17.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.35 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 80.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.02 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.30 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 15.27 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 15.99 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 23.54 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 16.01 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 15.60 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 14.60 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 15.31 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 14.26 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 14.99 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 13.56 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 14.22 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 13.22 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 83.0° (right)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 12.51 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 12.12 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=121.3°, pitch=64.8°, yaw=0.0°
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.11 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.40 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.81 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.78 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.47 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.41 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.40 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.43 cm
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Received distance: 11.09 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 117.0° (right)

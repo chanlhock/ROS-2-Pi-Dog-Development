@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 ROS 2 IMU Node for Pi Dog
-NO HARDWARE ACCESS - receives data from main node
+Receives IMU data from main node and republishes in standard formats
 """
 
 import rclpy
@@ -47,20 +47,36 @@ class PiDogIMUNode(Node):
         timer_period = 1.0 / self.publish_freq
         self.timer = self.create_timer(timer_period, self.publish_imu)
         
-        # Current IMU data
+        # Current IMU data storage
         self.roll = 0.0
         self.pitch = 0.0
         self.yaw = 0.0
-        self.accel = [0.0, 0.0, 9.81]
-        self.gyro = [0.0, 0.0, 0.0]
+        self.accel_x = 0.0
+        self.accel_y = 0.0
+        self.accel_z = 9.81  # Default gravity
+        self.gyro_x = 0.0
+        self.gyro_y = 0.0
+        self.gyro_z = 0.0
         
         self.get_logger().info(f"IMU node ready (publishing at {self.publish_freq} Hz)")
     
     def imu_callback(self, msg: String):
         """Receive IMU data from main node."""
         try:
+            # Format: roll,pitch,yaw,accel_x,accel_y,accel_z,gyro_x,gyro_y,gyro_z
             parts = msg.data.split(',')
-            if len(parts) >= 3:
+            if len(parts) >= 9:
+                self.roll = float(parts[0])
+                self.pitch = float(parts[1])
+                self.yaw = float(parts[2])
+                self.accel_x = float(parts[3])
+                self.accel_y = float(parts[4])
+                self.accel_z = float(parts[5])
+                self.gyro_x = float(parts[6])
+                self.gyro_y = float(parts[7])
+                self.gyro_z = float(parts[8])
+            elif len(parts) >= 3:
+                # Fallback for old format (only orientation)
                 self.roll = float(parts[0])
                 self.pitch = float(parts[1])
                 self.yaw = float(parts[2])
@@ -88,27 +104,43 @@ class PiDogIMUNode(Node):
         return qx, qy, qz, qw
     
     def publish_imu(self):
-        """Publish IMU data."""
-        # Create standard IMU message
+        """Publish IMU data in standard ROS2 format."""
+        
+        # Create standard IMU message (sensor_msgs/Imu)
         imu_msg = Imu()
         imu_msg.header.stamp = self.get_clock().now().to_msg()
         imu_msg.header.frame_id = 'imu_link'
         
+        # Set orientation from Euler angles
         qx, qy, qz, qw = self.euler_to_quaternion(self.roll, self.pitch, self.yaw)
-        
         imu_msg.orientation.x = qx
         imu_msg.orientation.y = qy
         imu_msg.orientation.z = qz
         imu_msg.orientation.w = qw
-        
         imu_msg.orientation_covariance = [0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01]
+        
+        # Set angular velocity (convert deg/s to rad/s)
+        imu_msg.angular_velocity.x = self.gyro_x * (math.pi / 180.0)
+        imu_msg.angular_velocity.y = self.gyro_y * (math.pi / 180.0)
+        imu_msg.angular_velocity.z = self.gyro_z * (math.pi / 180.0)
+        imu_msg.angular_velocity_covariance = [0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01]
+        
+        # Set linear acceleration (convert g to m/s^2)
+        imu_msg.linear_acceleration.x = self.accel_x * 9.81
+        imu_msg.linear_acceleration.y = self.accel_y * 9.81
+        imu_msg.linear_acceleration.z = self.accel_z * 9.81
+        imu_msg.linear_acceleration_covariance = [0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01]
         
         self.standard_imu_pub.publish(imu_msg)
         
-        # Publish simple message
+        # Publish simple string message for easy viewing
         simple_msg = String()
-        simple_msg.data = f"{self.roll:.2f},{self.pitch:.2f},{self.yaw:.2f}"
+        simple_msg.data = f"r:{self.roll:.1f},p:{self.pitch:.1f},y:{self.yaw:.1f}"
         self.simple_imu_pub.publish(simple_msg)
+        
+        # Log occasionally for debugging (every 50 publishes ~5 seconds)
+        if int(time.time()) % 5 == 0 and int(time.time() * 10) % 50 == 0:
+            self.get_logger().debug(f"IMU: roll={self.roll:.1f}°, pitch={self.pitch:.1f}°, yaw={self.yaw:.1f}°")
     
     def shutdown(self):
         self.get_logger().info("IMU node shutting down")
