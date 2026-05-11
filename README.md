@@ -429,6 +429,8 @@ ros2_ws/
 │       ├── pidog_ros2/
 │       │   ├── __init__.py
 │       │   ├── ros2_autonomous_pidog.py
+│       │   ├── pidog_manager.py
+│       │   ├── pidog_wrapper.py
 │       │   ├── pidog_movement_node.py
 │       │   ├── pidog_distance_node.py
 │       │   ├── pidog_camera_node.py
