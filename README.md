@@ -583,7 +583,7 @@ Start up initialisation of PiDog class is only done by main program ros2_autonom
 All the sensors data are read by main program and published to topic for other nodes to access.
 Although it works but moving forward i think it would be better for each node to read its related sensor.
 The nodes then publish to topic for main program to access else there is no meaning to have the nodes.
-
+- 11th May 2026: Finally managed to get sensor reading of ultrasonic distance, imu data, sound direction and dual touch sensor to work. Autonomous wandering and obstacle avoidance is fully functional!!
 
 ## :coffee: Buy Me a Coffee
 If you appreciate my work, do support me by...<br>
