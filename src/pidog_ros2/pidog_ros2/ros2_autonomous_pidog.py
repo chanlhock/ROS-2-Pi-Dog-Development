@@ -48,16 +48,13 @@ from .pidog_manager import get_pidog_manager
 # Pi Dog's name
 NAME = "Woofer" # Name of the dog during my childhood
 GREETING_EN = f"Hi, I am {NAME}. Your obedient ROS2 Pi Dog"
-OBSTACLE_DISTANCE_CM = 35  # Increased from 30cm to 35cm for better obstacle avoidance
-FORWARD_SPEED = 99  # Was 80 very slow - range is 0-100
-TURN_STEPS = 18  # New constant for turn steps
-TURN_SPEED = 95      # Increase from 85 to 95 (was 70)
-BACKWARD_SPEED = 99   # New constant for backing up
-BACKWARD_TIME = 0.8  # Reduced from 1.0
-TURN_TIME = 0.5      # Reduced from 0.6
-
-# Global Accessible PiDog Instance  
-#pidog_instance = None  # This will be set by the main node and can be accessed by other nodes if needed (use with caution)
+OBSTACLE_DISTANCE_CM = 40  # Increased from 30cm to 35cm for better obstacle avoidance
+FORWARD_SPEED = 100  # Was 80 very slow - range is 0-100
+TURN_STEPS = 8  # New constant for turn steps
+TURN_SPEED = 100      # Increase from 85 to 95 (was 70)
+BACKWARD_SPEED = 100   # New constant for backing up
+BACKWARD_TIME = 0.2 # Reduced from 1.0
+TURN_TIME = 0.1      # Reduced from 0.6
 
 class RobotState(Enum):
     IDLE = "idle"
@@ -91,8 +88,6 @@ class Ros2AutonomousPiDog(Node):
         
         if self.pidog_manager.initialize(disable_sensors=False):
             self.dog = self.pidog_manager.get_pidog()
-            #global pidog_instance
-            #pidog_instance = self.dog  # Set global instance for direct access in other nodes if needed
             self.get_logger().info("✓ PiDog hardware available")
             
             try:
@@ -112,9 +107,10 @@ class Ros2AutonomousPiDog(Node):
             return
         
         # Distance sensor filtering
-        self.distance_readings = deque(maxlen=5)  # Store last 5 readings
+        self.distance_readings = deque(maxlen=3)  # Store last 3 readings
         self.last_distance_read_time = 0
         self.distance_read_interval = 0.1  # Read every 100ms max
+        self.distance_buffer = deque(maxlen=5)  # Buffer for incoming distance messages to filter spikes
 
         # ============================================================
         # STATE MANAGEMENT
@@ -166,7 +162,7 @@ class Ros2AutonomousPiDog(Node):
         self.command_sub = self.create_subscription(String, 'command', self.command_callback, qos_rel)
         
         # Direct voice command subscriber (bypasses voice_bridge for faster response)
-        self.voice_sub = self.create_subscription(String, '/pidog/voice_command', self.voice_callback, qos_best)
+        self.voice_sub = self.create_subscription(String, 'voice_command', self.voice_callback, qos_rel)
         
         # Sensor subscribers (from other nodes - for redundancy)
         self.distance_sub = self.create_subscription(Float32, 'distance', self.distance_callback, qos_best)
@@ -221,34 +217,31 @@ class Ros2AutonomousPiDog(Node):
                             # Add to rolling buffer for filtering
                             self.distance_readings.append(float(distance))
                         
-                            # Use median or average for stable reading
+                            # Moving average filtering - use MINIMUM for obstacle detection, MEDIAN for display:
                             if len(self.distance_readings) >= 3:
-                                # Median filter (removes spikes)
+                                # For obstacle detection, use MINIMUM (most conservative)
+                                # This triggers EARLIER when ANY reading is low
+                                min_distance = min(self.distance_readings)
+    
+                                # Also keep median for general display (optional)
                                 sorted_readings = sorted(self.distance_readings)
-                                filtered_distance = sorted_readings[len(sorted_readings)//2]
-
-                                # Also keep raw for debugging
-                                self.current_distance_raw = float(distance)
-                                self.current_distance = filtered_distance
-                            
-                                # Log when there's a significant difference (spike detected)
-                                if abs(filtered_distance - distance) > 30:
-                                    self.get_logger().debug(f"Distance spike filtered: raw={distance:.1f}, filtered={filtered_distance:.1f}")
+                                median_distance = sorted_readings[len(sorted_readings)//2]
+    
+                                # Use MIN for obstacle detection, MEDIAN for display
+                                self.current_distance_for_obstacle = min_distance  # For obstacle checking
+                                self.current_distance = median_distance  # For display/logging
+    
+                                if abs(median_distance - min_distance) > 10:
+                                    self.get_logger().debug(f"Distance: min={min_distance:.1f}, median={median_distance:.1f}")
                             else:
                                 self.current_distance = float(distance)
+                                self.current_distance_for_obstacle = float(distance)
                         
                             self.distance_pub.publish(Float32(data=self.current_distance))
                         
                             # Log every few readings
                             if random.randint(1, 20) == 1:
                                 self.get_logger().info(f"📏 Distance: {self.current_distance:.1f} cm")
-
-                # Read distance sensor
-                #if hasattr(self.dog, 'ultrasonic') and hasattr(self.dog.ultrasonic, 'read'):
-                #    distance = self.dog.ultrasonic.read()
-                #    if distance and 2 <= distance <= 400:
-                #        self.current_distance = float(distance)
-                #        self.distance_pub.publish(Float32(data=self.current_distance))
                 
                 # Read IMU data - Publish to /imu topic for other nodes
                 try:
@@ -273,7 +266,7 @@ class Ros2AutonomousPiDog(Node):
     
                     # Calculate roll (X-axis rotation) and pitch (Y-axis rotation)
                     roll = math.atan2(ay_g, az_g) * 180.0 / math.pi
-                    pitch = math.atan2(-ax_g, math.sqrt(ay_g*ay_g + az_g*az_g)) * 180.0 / math.pi
+                    pitch = math.atan2(ax_g, az_g) * 180.0 / math.pi 
                     yaw = 0.0  # Yaw requires magnetometer or gyro integration
     
                     # Create IMU message with all data
@@ -323,9 +316,6 @@ class Ros2AutonomousPiDog(Node):
                         self.get_logger().info(f"Touch read error: {e}")
                 
                 # Read sound direction
-                #if hasattr(self.dog, 'ears'):
-                #    if hasattr(self.dog.ears, 'isdetected') and self.dog.ears.isdetected():
-                #        if hasattr(self.dog.ears, 'read'):
                 if self.dog.ears.isdetected():
                     angle = self.dog.ears.read()
                     #if angle is not None and 0 <= angle <= 360:
@@ -334,7 +324,7 @@ class Ros2AutonomousPiDog(Node):
                     self.sound_pub.publish(String(data=f"{angle:.1f}:{self.sound_direction_text}:1"))
                     self.get_logger().info(f"🔊 Sound detected at {angle:.1f}° ({self.sound_direction_text})")
                 
-                    time.sleep(0.1)
+                    #time.sleep(0.1)
                 # Small sleep to prevent CPU hogging
                 time.sleep(0.02)  # 20ms - faster than before but with rate limiting above
             except Exception as e:
@@ -357,9 +347,21 @@ class Ros2AutonomousPiDog(Node):
     # ============================================================
     # SENSOR CALLBACKS (from other nodes)
     # ============================================================
-    def distance_callback(self, msg):
-        self.current_distance = msg.data
+    #def distance_callback(self, msg):
+    #    self.current_distance = msg.data
     
+    def distance_callback(self, msg: Float32):
+        # Add spike filtering
+        if len(self.distance_buffer) > 0:
+            last_reading = self.distance_buffer[-1]
+            # Ignore sudden spikes (>50cm change)
+            if abs(msg.data - last_reading) > 50:
+                self.get_logger().debug(f"Ignoring spike: {msg.data:.2f} cm")
+                return
+    
+        self.get_logger().debug(f"Received distance: {msg.data:.2f} cm")
+        self.distance_buffer.append(msg.data)
+
     def imu_callback(self, msg):
         try:
             parts = msg.data.split(',')
@@ -424,7 +426,9 @@ class Ros2AutonomousPiDog(Node):
             self.get_logger().info(f"➡️ {command}")
             
             if command == 'stop':
-                pass
+                # Already stopped, just return
+                self.get_logger().info("Stop command executed")
+                return True
             elif command in ['sit', 'stand']:
                 self.dog.do_action(command, speed=speed)
                 self.dog.wait_all_done()
@@ -454,6 +458,13 @@ class Ros2AutonomousPiDog(Node):
     # ============================================================
     def voice_callback(self, msg):
         """Handle voice commands - IMMEDIATE execution"""
+        # In voice_callback, add command aliases:
+        self.command_map = {
+            'sit': ['sit', 'sit down', 'set', 'settle'],
+            'stand': ['stand', 'stand up', 'set up', 'sen up'],
+            'walk': ['walk', 'forward', 'go'],
+            'stop': ['stop', 'halt', 'freeze'],
+        }
         text = msg.data.lower().strip()
         
         # Filter garbage
@@ -508,11 +519,11 @@ class Ros2AutonomousPiDog(Node):
             
         elif 'left' in text and (len(text) < 10 or 'turn left' in text):
             self.get_logger().info("📢 TURN LEFT")
-            self.execute_movement('turn_left', step_count=12, speed=95)
+            self.execute_movement('turn_left', step_count=TURN_STEPS, speed=TURN_SPEED)
             
         elif 'right' in text and (len(text) < 10 or 'turn right' in text) :
             self.get_logger().info("📢 TURN RIGHT")
-            self.execute_movement('turn_right', step_count=12, speed=95)
+            self.execute_movement('turn_right', step_count=TURN_STEPS, speed=TURN_SPEED)
         
         self.voice_command_waiting = False
     
@@ -522,7 +533,6 @@ class Ros2AutonomousPiDog(Node):
         msg = String()
         msg.data = cmd_str
         self.speak_pub.publish(msg)
-        #self.get_logger().info(f"🔊 Speaking: {text}")
     
     # ============================================================
     # EXTERNAL COMMAND HANDLERS
@@ -622,9 +632,10 @@ class Ros2AutonomousPiDog(Node):
             else:
                 direction = "left" if random.random() > 0.5 else "right"
         
-        self.get_logger().info(f"Smart turning {direction}")
+        self.get_logger().info(f"🔄 Smart turning {direction} (steps={TURN_STEPS}, speed={TURN_SPEED})")
         # Increase step_count to 12-15 for a proper 90-degree turn
         self.execute_movement(f"turn_{direction}", step_count=TURN_STEPS, speed=TURN_SPEED)
+        self.dog.wait_all_done()
         self.turn_history.append(direction)
         return direction
     
@@ -640,10 +651,16 @@ class Ros2AutonomousPiDog(Node):
     
         # Check if the last 3 readings are ALL below threshold (avoids false triggers)
         recent_readings = list(self.distance_readings)[-3:]
-        if not all(d < OBSTACLE_DISTANCE_CM for d in recent_readings):
+        #if not all(d < OBSTACLE_DISTANCE_CM for d in recent_readings):
+        #    self.get_logger().debug(f"Ignoring false obstacle: recent readings {recent_readings}")
+        #    return
+
+        # Better (use median or average):
+        median_dist = sorted(recent_readings)[len(recent_readings)//2]
+        if median_dist >= OBSTACLE_DISTANCE_CM:
             self.get_logger().debug(f"Ignoring false obstacle: recent readings {recent_readings}")
             return
-
+        
         self.state = RobotState.AVOIDING
         self.get_logger().info(f"🚧 Obstacle detected! Distance: {self.current_distance:.1f} cm")
         
@@ -742,7 +759,7 @@ class Ros2AutonomousPiDog(Node):
                     #else:
                     # Use filtered distance (self.current_distance is already filtered)
                     # Also require at least 3 readings for confidence
-                    if len(self.distance_readings) >= 3 and self.current_distance < OBSTACLE_DISTANCE_CM:
+                    if len(self.distance_readings) >= 3 and self.current_distance_for_obstacle < OBSTACLE_DISTANCE_CM:
                         self.obstacle_avoidance()
                     else:
                         # Move forward normally
@@ -755,7 +772,7 @@ class Ros2AutonomousPiDog(Node):
 
                         for check in range(3):  # Reduced checks
                             time.sleep(check_interval)
-                            if len(self.distance_readings) >= 3 and self.current_distance < OBSTACLE_DISTANCE_CM:
+                            if len(self.distance_readings) >= 3 and self.current_distance_for_obstacle < OBSTACLE_DISTANCE_CM:
                                 self.get_logger().info("🚧 Obstacle detected while moving!")
                                 self.dog.body_stop()
                                 self.dog.wait_all_done()

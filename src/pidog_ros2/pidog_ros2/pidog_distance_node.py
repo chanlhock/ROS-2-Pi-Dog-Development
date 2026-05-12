@@ -12,8 +12,7 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, HistoryPolicy
 
 from std_msgs.msg import Float32, String
 
-from collections import deque
-#from pidog_ros2.ros2_autonomous_pidog import read_ultrasonic_distance 
+from collections import deque 
 
 class PiDogDistanceNode(Node):
     def __init__(self):
@@ -57,7 +56,7 @@ class PiDogDistanceNode(Node):
     
     def distance_callback(self, msg: Float32):
         """Receive raw distance from main node"""
-        self.get_logger().info(f"Received distance: {msg.data:.2f} cm")
+        self.get_logger().debug(f"Received distance: {msg.data:.2f} cm")
         self.distance_buffer.append(msg.data)
     
     def publish_filtered(self):

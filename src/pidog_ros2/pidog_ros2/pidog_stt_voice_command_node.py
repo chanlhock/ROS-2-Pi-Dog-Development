@@ -37,7 +37,7 @@ class PiDogSTTVoiceCommandNode(Node):
         self.declare_parameter('post_speech_delay', 0.5)
         self.declare_parameter('cutoff_freq', 4000)  # Hz - filter cutoff frequency
         self.declare_parameter('sample_rate', 16000)  # Hz
-        self.declare_parameter('chunk_size', 4000)  # Frames per buffer
+        self.declare_parameter('chunk_size', 8000)  # Was 4000 - doubled
         
         self.enabled = self.get_parameter('enabled').value
         self.model_path = self.get_parameter('model_path').value
@@ -167,7 +167,8 @@ class PiDogSTTVoiceCommandNode(Node):
                 rate=self.sample_rate,
                 input=True,
                 input_device_index=device_index,
-                frames_per_buffer=self.chunk_size
+                frames_per_buffer=self.chunk_size,
+                stream_callback=None,  # Add callback for underrun handling
             )
             
             # Start listening thread
@@ -191,8 +192,16 @@ class PiDogSTTVoiceCommandNode(Node):
         self.get_logger().info("Listening for voice commands with audio filtering...")
         
         audio_buffer = []
+        last_clear_time = time.time()
+        BUFFER_TIMEOUT = 5.0  # Clear buffer after 5 seconds of no recognition
+        MAX_BUFFER_SIZE = 50   # Also clear if buffer gets too large (safety)
         
         while rclpy.ok() and self.listening and self.recognizer and self.stream:
+            # Recognizer health check
+            if not self.recognizer:
+                self.get_logger().warning("Recognizer not available, reinitializing...")
+                self.init_vosk()
+                continue
             try:
                 # Read raw audio data from microphone (same as autonomous_dog)
                 raw_data = self.stream.read(self.chunk_size, exception_on_overflow=False)
@@ -211,6 +220,24 @@ class PiDogSTTVoiceCommandNode(Node):
                     # Add to buffer for processing
                     audio_buffer.append(filtered_data)
                     
+                    # ✅ Check buffer timeout
+                    current_time = time.time()
+                    if current_time - last_clear_time > BUFFER_TIMEOUT:
+                        if audio_buffer:
+                            self.get_logger().debug(f"Clearing audio buffer after {BUFFER_TIMEOUT}s timeout (size: {len(audio_buffer)})")
+                            audio_buffer = []
+                            if self.recognizer:
+                                self.recognizer.Reset()
+                        last_clear_time = current_time
+                
+                    # ✅ Also clear if buffer gets too large
+                    if len(audio_buffer) > MAX_BUFFER_SIZE:
+                        self.get_logger().debug(f"Clearing oversized buffer: {len(audio_buffer)} > {MAX_BUFFER_SIZE}")
+                        audio_buffer = []
+                        if self.recognizer:
+                            self.recognizer.Reset()
+                        last_clear_time = current_time
+
                     # Send filtered audio to Vosk
                     if self.recognizer.AcceptWaveform(filtered_data):
                         result = json.loads(self.recognizer.Result())
@@ -226,20 +253,21 @@ class PiDogSTTVoiceCommandNode(Node):
                             
                             # Reset buffer after detection
                             audio_buffer = []
+                            last_clear_time = time.time()  # Reset timeout on recognition
                     else:
-                        # Optional: log partial results in debug mode
-                        if self.debug:
-                            partial = json.loads(self.recognizer.PartialResult())
-                            partial_text = partial.get("partial", "").strip()
-                            if partial_text:
-                                self.get_logger().debug(f"Partial: {partial_text}")
+                        # ✅ Also reset after empty result (speech detected but no words)
+                        #audio_buffer = []
+                        #last_clear_time = time.time()
+                        pass
                 else:
-                    # Clear audio buffer when ignoring speech
+                    # Clear audio buffer when ignoring speech (TTS is speaking)
                     if audio_buffer:
+                        self.get_logger().debug(f"Clearing buffer due to TTS speaking (size: {len(audio_buffer)})")
                         audio_buffer = []
                         if self.recognizer:
                             self.recognizer.Reset()
-                    
+                        last_clear_time = time.time()
+                
                     # Small sleep to prevent busy-waiting
                     time.sleep(0.05)
                 
