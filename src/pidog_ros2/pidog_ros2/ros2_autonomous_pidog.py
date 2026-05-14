@@ -34,6 +34,7 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, ReliabilityPolicy, Histo
 from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Twist
 from std_srvs.srv import SetBool
+#from pidog_ros2.srv import GetBatteryLevel  # Changed from pidog_interfaces
 
 import threading
 import time
@@ -162,14 +163,36 @@ class Ros2AutonomousPiDog(Node):
         self.distance_pub = self.create_publisher(Float32, 'distance', qos_best)
         self.imu_pub = self.create_publisher(String, 'imu', qos_best)
         self.touch_pub = self.create_publisher(String, 'touch', qos_best)
-        self.sound_pub = self.create_publisher(String, 'sound_direction', qos_best)
+        
         self.status_pub = self.create_publisher(String, 'status', qos_best)
         self.speak_pub = self.create_publisher(String, 'speak_text', qos_rel)
         
+        self.dog.rgb_strip.set_mode(style="boom", color="#a10a0a", bps=2.5, brightness=0.5)
+
+        #self._speak_timer = None
+        self.speak(GREETING_EN+f"I am running on Ubuntu 22.04 with ROS 2 Humble")
+        #time.sleep(8)  # Wait for first speech to complete
+        #self.speak(f"I am running on Ubuntu 22.04 with ROS 2 Humble")
+
         # Subscribers (for external commands)
         self.cmd_vel_sub = self.create_subscription(Twist, 'cmd_vel', self.cmd_vel_callback, qos_rel)
         self.command_sub = self.create_subscription(String, 'command', self.command_callback, qos_rel)
         
+        self.sound_pub = self.create_publisher(String, 'sound_direction', qos_best)
+
+        # Battery monitoring subscriber
+        self.battery_status_sub = self.create_subscription(
+            String,
+            'battery_status',
+            self.battery_status_callback,
+            qos_best
+        )
+
+        # Battery state variables
+        self.current_battery_voltage = 0.0
+        self.current_battery_percentage = 0.0
+        self.battery_status = "unknown"
+
         # Direct voice command subscriber (bypasses voice_bridge for faster response)
         self.voice_sub = self.create_subscription(String, 'voice_command', self.voice_callback, qos_rel)
         
@@ -179,14 +202,6 @@ class Ros2AutonomousPiDog(Node):
         self.touch_sub = self.create_subscription(String, 'touch', self.touch_callback, qos_best)
         self.sound_dir_sub = self.create_subscription(String, 'sound_direction', self.sound_direction_callback, qos_best)
         self.face_sub = self.create_subscription(String, 'face_detection', self.face_callback, qos_best)
-        
-        self.dog.rgb_strip.set_mode(style="boom", color="#a10a0a", bps=2.5, brightness=0.5)
-
-        self._speak_timer = None
-        self.speak(GREETING_EN)
-        time.sleep(6)  # Wait for first speech to complete
-        self.speak(f"I am running on Ubuntu 22.04 with ROS 2 Humble")
-        
 
         # ============================================================
         # START THREADS
@@ -545,6 +560,24 @@ class Ros2AutonomousPiDog(Node):
     #    msg.data = cmd_str
     #    self.speak_pub.publish(msg)
     
+    # ============================================================
+    # BATTERY MONITORING (Placeholder - battery monitor not running yet)
+    # ============================================================
+    def battery_status_callback(self, msg: String):
+        """Receive battery status from battery monitor node"""
+        try:
+            # Format: "voltage:7.5:percentage:85:status:good"
+            parts = msg.data.split(':')
+            if len(parts) >= 6:
+                self.current_battery_voltage = float(parts[1])
+                self.current_battery_percentage = float(parts[3])
+                self.battery_status = parts[5]
+            
+                if self.battery_status == "critical":
+                    self.get_logger().error(f"🔴 CRITICAL: Battery {self.current_battery_voltage:.2f}V!")
+                    self.speak("Battery is critically low! Please charge me!", use_emotion=True)
+        except Exception as e:
+            self.get_logger().debug(f"Battery callback error: {e}")
 
     def speak(self, text, use_emotion=False):
         """Send speech command to TTS node without causing echo feedback"""
@@ -563,7 +596,7 @@ class Ros2AutonomousPiDog(Node):
         self.speak_pub.publish(msg)
     
         # Step 3: Calculate duration for speech
-        duration = len(text) * 0.12 + 2.0
+        duration = len(text) * 0.15 + 2.5
         self.get_logger().info(f"🔇 Sound disabled for {duration:.1f}s")
     
         # Step 4: Cancel any existing timer

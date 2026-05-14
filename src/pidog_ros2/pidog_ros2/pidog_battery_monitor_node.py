@@ -22,7 +22,7 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 
 from std_msgs.msg import Float32, String
-from pidog_interfaces.srv import GetBatteryLevel  # Custom service
+#from pidog_ros2.srv import GetBatteryLevel  # Changed from pidog_interfaces
 
 import threading
 import time
@@ -55,7 +55,7 @@ class BatteryMonitorNode(Node):
         try:
             self.battery_adc = ADC(BATTERY_ADC_CHANNEL)
             # Test read to ensure ADC is working
-            test_voltage = self.battery_adc.read_voltage()
+            test_voltage = self.battery_adc.read_voltage() * 3  # Assuming voltage divider with 3:1 ratio
             self.get_logger().info(f"✓ Battery ADC initialized on channel {BATTERY_ADC_CHANNEL}")
             self.get_logger().info(f"✓ Initial battery voltage: {test_voltage:.2f}V")
             self.current_voltage = test_voltage
@@ -89,11 +89,11 @@ class BatteryMonitorNode(Node):
         # ROS 2 SERVICES
         # ============================================================
         # Service to get current battery level on-demand
-        self.battery_service = self.create_service(
-            GetBatteryLevel,
-            'get_battery_level',
-            self.get_battery_level_callback
-        )
+        #self.battery_service = self.create_service(
+        #    GetBatteryLevel,
+        #    'get_battery_level',
+        #    self.get_battery_level_callback
+        #)
         
         # ============================================================
         # START MONITORING THREAD
@@ -119,7 +119,7 @@ class BatteryMonitorNode(Node):
         while rclpy.ok() and self.battery_adc:
             try:
                 # Read battery voltage
-                voltage = self.battery_adc.read_voltage()
+                voltage = self.battery_adc.read_voltage() * 3  # Assuming voltage divider with 3:1 ratio
                 
                 if voltage and BATTERY_MIN_VOLTAGE <= voltage <= BATTERY_MAX_VOLTAGE:
                     self.current_voltage = voltage

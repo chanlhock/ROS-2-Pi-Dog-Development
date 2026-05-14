@@ -19,7 +19,7 @@ ln -sf $(realpath bin/pidog_direction_sensor_node) lib/pidog_ros2/
 ln -sf $(realpath bin/pidog_tts_speaks_node) lib/pidog_ros2/
 ln -sf $(realpath bin/pidog_stt_voice_command_node) lib/pidog_ros2/
 ln -sf $(realpath bin/ros2_autonomous_pidog) lib/pidog_ros2/
-ln -sf $(realpath bin/battery_monitor_node) lib/pidog_ros2/
+ln -sf $(realpath bin/pidog_battery_monitor_node) lib/pidog_ros2/
 
 # Now the launch file should work
 cd /ros2_ws

@@ -1,0 +1,7 @@
+---
+float32 voltage           # Battery voltage in volts
+float32 percentage        # Battery percentage (0-100)
+string status             # Battery status: "good", "warning", "critical"
+bool alert_triggered      # Whether an alert has been triggered
+string message            # Status message
+
