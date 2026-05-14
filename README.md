@@ -437,6 +437,7 @@ ros2_ws/
 │       │   ├── pidog_imu_node.py
 │       │   ├── pidog_dual_touch_node.py
 │       │   ├── pidog_direction_sensor_node.py
+│       │   ├── pidog_battery_monitor_node.py
 │       │   ├── pidog_tts_speaks_node.py
 │       │   └── pidog_stt_voice_command_node.py
 │       ├── launch/
