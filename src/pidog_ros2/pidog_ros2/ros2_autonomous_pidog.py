@@ -33,6 +33,7 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, ReliabilityPolicy, Histo
 
 from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Twist
+from std_srvs.srv import SetBool
 
 import threading
 import time
@@ -106,6 +107,14 @@ class Ros2AutonomousPiDog(Node):
             self.get_logger().error("✗ PiDog hardware NOT available!")
             return
         
+        self.sound_direction_client = self.create_client(SetBool, '/pidog/enable_sound_direction')
+        # Wait for service (don't block startup)
+        while not self.sound_direction_client.wait_for_service(timeout_sec=0.1):
+            if rclpy.ok():
+                self.get_logger().debug('Waiting for sound direction service...')
+            else:
+                break
+
         # Distance sensor filtering
         self.distance_readings = deque(maxlen=3)  # Store last 3 readings
         self.last_distance_read_time = 0
@@ -172,10 +181,12 @@ class Ros2AutonomousPiDog(Node):
         self.face_sub = self.create_subscription(String, 'face_detection', self.face_callback, qos_best)
         
         self.dog.rgb_strip.set_mode(style="boom", color="#a10a0a", bps=2.5, brightness=0.5)
+
+        self._speak_timer = None
         self.speak(GREETING_EN)
-        time.sleep(1)
+        time.sleep(6)  # Wait for first speech to complete
         self.speak(f"I am running on Ubuntu 22.04 with ROS 2 Humble")
-        time.sleep(1)
+        
 
         # ============================================================
         # START THREADS
@@ -527,13 +538,52 @@ class Ros2AutonomousPiDog(Node):
         
         self.voice_command_waiting = False
     
+    #def speak(self, text, use_emotion=False):
+    #    """Send speech command to TTS node"""
+    #    cmd_str = f"{text}:{1 if use_emotion else 0}"
+    #    msg = String()
+    #    msg.data = cmd_str
+    #    self.speak_pub.publish(msg)
+    
+
     def speak(self, text, use_emotion=False):
-        """Send speech command to TTS node"""
+        """Send speech command to TTS node without causing echo feedback"""
+        # Step 1: Disable sound direction BEFORE speaking
+        req = SetBool.Request()
+        req.data = False
+        self.sound_direction_client.call_async(req)
+    
+        # Small delay to ensure service processes
+        time.sleep(0.05)
+    
+        # Step 2: Speak using original functionality
         cmd_str = f"{text}:{1 if use_emotion else 0}"
         msg = String()
         msg.data = cmd_str
         self.speak_pub.publish(msg)
     
+        # Step 3: Calculate duration for speech
+        duration = len(text) * 0.12 + 2.0
+        self.get_logger().info(f"🔇 Sound disabled for {duration:.1f}s")
+    
+        # Step 4: Cancel any existing timer
+        if hasattr(self, '_speak_timer') and self._speak_timer:
+            self._speak_timer.cancel()
+            self._speak_timer = None
+
+        # Step 5: Use ROS timer (MORE RELIABLE than threading.Timer)
+        self._speak_timer = self.create_timer(duration, self._re_enable_sound)
+
+    def _re_enable_sound(self):
+        """Re-enable sound direction after speech"""
+        # Only re-enable if we're not about to speak again
+        if hasattr(self, '_speak_timer'):
+            self._speak_timer = None
+        req = SetBool.Request()
+        req.data = True
+        self.sound_direction_client.call_async(req)
+        self.get_logger().info("🔊 Sound re-enabled after speech")
+
     # ============================================================
     # EXTERNAL COMMAND HANDLERS
     # ============================================================

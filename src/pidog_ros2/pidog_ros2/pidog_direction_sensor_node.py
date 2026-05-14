@@ -36,7 +36,10 @@ class PiDogSoundDirectionNode(Node):
         self.current_direction = "unknown"
         self.sound_detected = False
         self.last_detection_time = time.time()
-        
+
+        # ADD THIS LINE:
+        self.speech_end_timer = None  # <-- IMPORTANT!
+
         # Service to enable/disable
         self.enable_srv = self.create_service(SetBool, 'enable_sound_direction', self.enable_callback)
         
@@ -78,7 +81,7 @@ class PiDogSoundDirectionNode(Node):
             return "back"
         else:
             return "left"
-    
+
     def sound_callback(self, msg: String):
         """Receive sound direction from main node."""
         if not self.enabled:
@@ -106,6 +109,7 @@ class PiDogSoundDirectionNode(Node):
     
     def shutdown(self):
         self.get_logger().info("Sound direction node shutting down")
+
 
 
 def main(args=None):

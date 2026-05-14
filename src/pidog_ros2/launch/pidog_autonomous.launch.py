@@ -70,6 +70,13 @@ def generate_launch_description():
             namespace='pidog',
             output='screen'
         ),
+        Node(
+            package='pidog_ros2',
+            executable='battery_monitor_node',
+            name='battery_monitor_node',
+            namespace='pidog',
+            output='screen'
+       ),
         #Node(
         #    package='pidog_ros2',
         #    executable='voice_bridge',

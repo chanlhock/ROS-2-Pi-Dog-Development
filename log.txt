@@ -1,35 +1,58 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-12-09-58-29-392129-raspberrypi-5535
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-14-11-03-23-187197-raspberrypi-22369
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [ros2_autonomous_pidog-1]: process started with pid [5537]
-[INFO] [pidog_movement_node-2]: process started with pid [5539]
-[INFO] [pidog_distance_node-3]: process started with pid [5541]
-[INFO] [pidog_camera_node-4]: process started with pid [5543]
-[INFO] [pidog_imu_node-5]: process started with pid [5545]
-[INFO] [pidog_dual_touch_node-6]: process started with pid [5547]
-[INFO] [pidog_direction_sensor_node-7]: process started with pid [5549]
-[INFO] [pidog_tts_speaks_node-8]: process started with pid [5551]
-[INFO] [pidog_stt_voice_command_node-9]: process started with pid [5553]
+[INFO] [ros2_autonomous_pidog-1]: process started with pid [22371]
+[INFO] [pidog_movement_node-2]: process started with pid [22373]
+[INFO] [pidog_distance_node-3]: process started with pid [22375]
+[INFO] [pidog_camera_node-4]: process started with pid [22377]
+[INFO] [pidog_imu_node-5]: process started with pid [22379]
+[INFO] [pidog_dual_touch_node-6]: process started with pid [22381]
+[INFO] [pidog_direction_sensor_node-7]: process started with pid [22383]
+[INFO] [pidog_tts_speaks_node-8]: process started with pid [22385]
+[INFO] [pidog_stt_voice_command_node-9]: process started with pid [22387]
+[INFO] [battery_monitor_node-10]: process started with pid [22389]
+[battery_monitor_node-10] Traceback (most recent call last):
+[battery_monitor_node-10]   File "/ros2_ws/install/pidog_ros2/lib/pidog_ros2/battery_monitor_node", line 33, in <module>
+[battery_monitor_node-10]     sys.exit(load_entry_point('pidog_ros2==1.0.0', 'console_scripts', 'battery_monitor_node')())
+[battery_monitor_node-10]   File "/ros2_ws/install/pidog_ros2/lib/pidog_ros2/battery_monitor_node", line 25, in importlib_load_entry_point
+[battery_monitor_node-10]     return next(matches).load()
+[battery_monitor_node-10]   File "/usr/lib/python3.10/importlib/metadata/__init__.py", line 171, in load
+[battery_monitor_node-10]     module = import_module(match.group('module'))
+[battery_monitor_node-10]   File "/usr/lib/python3.10/importlib/__init__.py", line 126, in import_module
+[battery_monitor_node-10]     return _bootstrap._gcd_import(name[level:], package, level)
+[battery_monitor_node-10]   File "<frozen importlib._bootstrap>", line 1050, in _gcd_import
+[battery_monitor_node-10]   File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+[battery_monitor_node-10]   File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+[battery_monitor_node-10]   File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+[battery_monitor_node-10]   File "<frozen importlib._bootstrap_external>", line 883, in exec_module
+[battery_monitor_node-10]   File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+[battery_monitor_node-10]   File "/ros2_ws/install/pidog_ros2/lib/python3.10/site-packages/pidog_ros2/battery_monitor_node.py", line 25, in <module>
+[battery_monitor_node-10]     from pidog_interfaces.srv import GetBatteryLevel  # Custom service
+[battery_monitor_node-10] ModuleNotFoundError: No module named 'pidog_interfaces'
 [pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: PiDog Movement Node Ready (forwarding commands to main node)
 [pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop
+[ERROR] [battery_monitor_node-10]: process has died [pid 22389, exit code 1, cmd '/ros2_ws/install/pidog_ros2/lib/pidog_ros2/battery_monitor_node --ros-args -r __node:=battery_monitor_node -r __ns:=/pidog'].
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node starting (NO hardware initialization)
+[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node ready (publishing at 10.0 Hz)
+[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node starting - listening for touch events
+[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node ready - waiting for touch data
 [pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction node starting - listening for data from main node
 [pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: PiDog Sound Direction Node Ready
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node starting (NO hardware initialization)
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node starting - listening for touch events
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node ready (publishing at 10.0 Hz)
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node ready - waiting for touch data
+[pidog_tts_speaks_node-8] [0;93m2026-05-14 11:03:25.146148400 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
 [pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node starting (NO hardware initialization)
 [pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node ready (publishing at 10.0 Hz)
-[pidog_tts_speaks_node-8] [0;93m2026-05-12 09:58:31.072564031 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Initializing PiDog hardware...
 [ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
 [ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
 [ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: STT node starting...
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...
-[pidog_camera_node-4] vilib 0.3.18 launching ...
-[pidog_camera_node-4] picamera2 0.3.35
+[pidog_camera_node-4] Camera __init__ sequence did not complete.
+[pidog_camera_node-4] [ERROR] [pidog.pidog_camera_node]: Camera initialization error: Camera __init__ sequence did not complete.
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera capture loop started
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: PiDog Camera Node Ready
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Publishing to: camera/image_raw and face_detection
 [pidog_stt_voice_command_node-9] ALSA lib pcm_asym.c:105:(_snd_pcm_asym_open) capture slave is not defined
 [pidog_stt_voice_command_node-9] ALSA lib pcm_direct.c:1206:(snd1_pcm_direct_initialize_slave) requested or auto-format is not available
 [pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1044:(snd_pcm_dmix_open) unable to initialize slave
@@ -624,98 +647,92 @@
 [pidog_stt_voice_command_node-9] ALSA lib pcm_direct.c:1206:(snd1_pcm_direct_initialize_slave) requested or auto-format is not available
 [pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1044:(snd_pcm_dmix_open) unable to initialize slave
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Using audio device: default
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Listening for voice commands with audio filtering...
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Vosk initialized successfully - listening for commands
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Listening for voice commands with audio filtering...
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Voice commands will be published to /pidog/voice_command
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Will ignore speech while TTS is speaking + 0.5s delay
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Audio filter: low-pass at 4000 Hz (reduces servo noise)
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Try saying: sit, stand, walk, stop, turn left, turn right
-[pidog_camera_node-4] 
-[pidog_camera_node-4] Web display on:
-[pidog_camera_node-4]       http://192.168.0.23:9000/mjpg
-[pidog_camera_node-4] 
-[pidog_camera_node-4] Starting web streaming ...
-[pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
-[pidog_camera_node-4]  * Debug mode: off
 [ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera initialized with Vilib
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera capture loop started
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: PiDog Camera Node Ready
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Publishing to: camera/image_raw and face_detection
-[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Piper TTS initialized successfully with model: en_US-ryan-low
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: eSpeak found and ready
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: PiDog TTS Node Ready (piper=True, espeak=True)
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Or publish to /speak_text topic
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ PiDog hardware available
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Testing hardware...
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ Hardware test passed
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: OFF
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔇 Sound disabled for 7.0s
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi Dog:0
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi Dog
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: OFF
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔇 Sound disabled for 7.5s
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Sensor reading thread started
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: I am running on Ubuntu 22.04 with ROS 2 Humble:0
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ROS 2 Autonomous PiDog Node Ready!
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Say: sit, stand, walk, stop, turn left, turn right
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 11.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.2°, pitch=-89.0°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 31.3 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 120.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 23.9 cm
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: I am running on Ubuntu 22.04 with ROS 2 Humble
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=84.8°, pitch=-88.9°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 25.2 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 307.0° (left)
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 31.2 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 70.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.0°, pitch=-88.9°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.3°, pitch=-89.0°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.2°, pitch=-89.0°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 127.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.1°, pitch=-88.9°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 129.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.2°, pitch=-89.0°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 36.0° (front)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 130.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=86.9°, pitch=-89.1°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 130.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=87.1°, pitch=-89.2°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 130.0° (right)
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 51.6 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.2°, pitch=-88.9°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 70.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 129.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 130.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 52.5 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 71.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 78.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 96.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 51.6 cm
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit down'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 31.3 cm
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'sit down'
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 SIT
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ sit
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 87.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 256.0° (left)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 58.6 cm
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: OFF
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Sitting down:0
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔇 Sound disabled for 3.4s
 [pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sitting down
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-86.9°, pitch=-89.0°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 122.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 307.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 👆 Touch detected: L
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: 👆 Touch detected: Left side (L)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Touch callback received: L
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 👆 Touch detected: L
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Touch callback received: L
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: 👆 Touch detected: Left side (L)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 👆 Touch detected: L
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: 👆 Touch detected: Left side (L)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Touch callback received: L
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 👆 Touch detected: L
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Touch callback received: L
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: 👆 Touch detected: Left side (L)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 240.0° (left)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 127.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-89.5°, pitch=-89.9°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 👆 Touch detected: L
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: You touched my left side:1
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Touch callback received: L
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: 👆 Touch detected: Left side (L)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: You touched my left side
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ wag_tail
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 124.0° (right)
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stand up'
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'stand up'
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 STAND
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stand
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 15.0° (front)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=72.3°, pitch=-82.9°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=72.0°, pitch=-86.2°, yaw=0.0°
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: OFF
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Standing up:0
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔇 Sound disabled for 3.3s
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Standing up
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 210.0° (back)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=87.3°, pitch=-89.2°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 127.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 55.7 cm
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 56.1 cm
