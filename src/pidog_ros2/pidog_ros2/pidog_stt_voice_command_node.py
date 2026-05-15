@@ -5,6 +5,8 @@ Publishes recognized commands to voice_command topic
 With TTS speaking state awareness and audio filtering for servo noise reduction
 """
 
+from pydoc import text
+
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy
@@ -38,7 +40,15 @@ class PiDogSTTVoiceCommandNode(Node):
         self.declare_parameter('cutoff_freq', 4000)  # Hz - filter cutoff frequency
         self.declare_parameter('sample_rate', 16000)  # Hz
         self.declare_parameter('chunk_size', 8000)  # Was 4000 - doubled
-        
+        self.declare_parameter('min_confidence', 0.5)
+        self.min_confidence = self.get_parameter('min_confidence').value
+    
+        # Blacklist common false positives
+        self.false_positive_blacklist = {
+            'now', 'then', 'the', 'and', 'um', 'uh', 'oh', 'ah', 'by', 'do',
+            'go', 'to', 'be', 'me', 'salt', 'please', 'fifth', 'ben', 'get'
+        }
+
         self.enabled = self.get_parameter('enabled').value
         self.model_path = self.get_parameter('model_path').value
         self.debug = self.get_parameter('debug').value
@@ -245,6 +255,17 @@ class PiDogSTTVoiceCommandNode(Node):
                         text = result.get("text", "").strip()
                         
                         if text:
+                            # Filter false positives
+                            text_lower = text.lower().strip()
+                            if text_lower in self.false_positive_blacklist:
+                                if self.debug:
+                                    self.get_logger().debug(f"Ignoring false positive: '{text}'")
+                                continue  # Don't publish
+    
+                            # Also check length
+                            if len(text_lower) < 3:
+                                continue
+
                             self.get_logger().info(f"🎤 Recognized: '{text}'")
                             
                             # Publish to voice_command topic

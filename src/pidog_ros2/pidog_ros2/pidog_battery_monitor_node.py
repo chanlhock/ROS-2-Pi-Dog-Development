@@ -22,7 +22,6 @@ from rclpy.node import Node
 from rclpy.qos import QoSProfile, QoSReliabilityPolicy
 
 from std_msgs.msg import Float32, String
-#from pidog_ros2.srv import GetBatteryLevel  # Changed from pidog_interfaces
 
 import threading
 import time
@@ -33,8 +32,8 @@ BATTERY_ADC_CHANNEL = "A4"  # ADC channel for battery voltage
 BATTERY_CHECK_INTERVAL = 60  # Check battery every 60 seconds
 BATTERY_WARNING_THRESHOLD = 7.0  # Warn if below 7.0V
 BATTERY_CRITICAL_THRESHOLD = 6.5  # Critical if below 6.5V
-BATTERY_MAX_VOLTAGE = 12.0  # Maximum battery voltage (12V nominal)
-BATTERY_MIN_VOLTAGE = 5.0  # Minimum safe voltage
+BATTERY_MAX_VOLTAGE = 8.4  # Maximum battery voltage (8.4V nominal)
+BATTERY_MIN_VOLTAGE = 6.0  # Minimum safe voltage
 
 
 class BatteryMonitorNode(Node):
@@ -121,6 +120,11 @@ class BatteryMonitorNode(Node):
                 # Read battery voltage
                 voltage = self.battery_adc.read_voltage() * 3  # Assuming voltage divider with 3:1 ratio
                 
+                if voltage is None or voltage == 0.0:
+                    self.get_logger().debug("Skipping invalid battery reading")
+                    time.sleep(1)
+                    continue
+
                 if voltage and BATTERY_MIN_VOLTAGE <= voltage <= BATTERY_MAX_VOLTAGE:
                     self.current_voltage = voltage
                     
@@ -180,16 +184,16 @@ class BatteryMonitorNode(Node):
     def calculate_battery_percentage(self, voltage):
         """
         Calculate battery percentage from voltage
-        For 12V LiPo batteries (3S):
-        - 12.6V = 100%
-        - 11.1V = 50%
-        - 9.0V = 0% (cutoff)
+        For 12V LiPo batteries (2S):
+        - 8.4V = 100%
+        - 7.2V = 50% 
+        - 6.0V = 0% (cutoff)
         
         Adjust these values based on your actual battery type
         """
-        # LiPo 3S battery curve (approximate)
-        voltage_max = 12.6
-        voltage_min = 9.0
+        # LiPo 2S battery curve (approximate)
+        voltage_max = 8.4  # 4.2V per cell * 2 cells
+        voltage_min = 6.0  # 3.0V per cell * 2 cells (cutoff)
         
         if voltage >= voltage_max:
             return 100.0

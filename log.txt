@@ -1,62 +1,57 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-15-15-23-55-438601-raspberrypi-92
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-15-17-06-11-944625-raspberrypi-12691
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [ros2_autonomous_pidog-1]: process started with pid [94]
-[INFO] [pidog_movement_node-2]: process started with pid [96]
-[INFO] [pidog_distance_node-3]: process started with pid [98]
-[INFO] [pidog_camera_node-4]: process started with pid [100]
-[INFO] [pidog_imu_node-5]: process started with pid [102]
-[INFO] [pidog_dual_touch_node-6]: process started with pid [104]
-[INFO] [pidog_direction_sensor_node-7]: process started with pid [106]
-[INFO] [pidog_tts_speaks_node-8]: process started with pid [108]
-[INFO] [pidog_stt_voice_command_node-9]: process started with pid [110]
-[INFO] [pidog_battery_monitor_node-10]: process started with pid [112]
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction node starting - listening for data from main node
+[INFO] [ros2_autonomous_pidog-1]: process started with pid [12693]
+[INFO] [pidog_movement_node-2]: process started with pid [12695]
+[INFO] [pidog_distance_node-3]: process started with pid [12697]
+[INFO] [pidog_camera_node-4]: process started with pid [12699]
+[INFO] [pidog_imu_node-5]: process started with pid [12701]
+[INFO] [pidog_dual_touch_node-6]: process started with pid [12703]
+[INFO] [pidog_direction_sensor_node-7]: process started with pid [12705]
+[INFO] [pidog_tts_speaks_node-8]: process started with pid [12707]
+[INFO] [pidog_stt_voice_command_node-9]: process started with pid [12709]
+[INFO] [pidog_battery_monitor_node-10]: process started with pid [12711]
 [pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node starting (NO hardware initialization)
 [pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node starting - listening for touch events
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: PiDog Sound Direction Node Ready
 [pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node ready - waiting for touch data
+[pidog_tts_speaks_node-8] [0;93m2026-05-15 17:06:13.093572898 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
 [pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node ready (publishing at 10.0 Hz)
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction node starting - listening for data from main node
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: PiDog Sound Direction Node Ready
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ============================================================
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Initializing Battery Monitor Node...
+[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node starting (NO hardware initialization)
 [pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: PiDog Movement Node Ready (forwarding commands to main node)
 [pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ✓ Battery ADC initialized on channel A4
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ✓ Initial battery voltage: 8.05V
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Battery monitoring thread started
+[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ✓ Initial battery voltage: 8.36V
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ============================================================
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Battery Monitor Node Ready!
+[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Battery monitoring thread started
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Battery check interval: 60s
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Warning threshold: 7.0V
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Critical threshold: 6.5V
 [pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ============================================================
-[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node starting (NO hardware initialization)
+[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node ready (publishing at 10.0 Hz)
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Initializing PiDog hardware...
-[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node ready (publishing at 10.0 Hz)
+[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
 [ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
 [ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
 [ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
-[pidog_tts_speaks_node-8] [0;93m2026-05-15 15:23:57.112193794 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 8.14V (0.0%) - GOOD
-[ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: STT node starting...
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Piper TTS initialized successfully with model: en_US-ryan-low
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: eSpeak found and ready
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: PiDog TTS Node Ready (piper=True, espeak=True)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Or publish to /speak_text topic
-[ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ PiDog hardware available
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Testing hardware...
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[pidog_camera_node-4] vilib 0.3.18 launching ...
+[pidog_camera_node-4] picamera2 0.3.35
+[pidog_camera_node-4] 
+[pidog_camera_node-4] Web display on:
+[pidog_camera_node-4]       http://192.168.0.23:9000/mjpg
+[pidog_camera_node-4] 
+[pidog_camera_node-4] Starting web streaming ...
+[pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
+[pidog_camera_node-4]  * Debug mode: off
 [pidog_stt_voice_command_node-9] ALSA lib pcm_asym.c:105:(_snd_pcm_asym_open) capture slave is not defined
-[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1032:(snd_pcm_dmix_open) unable to open slave
+[pidog_stt_voice_command_node-9] ALSA lib pcm_direct.c:1206:(snd1_pcm_direct_initialize_slave) requested or auto-format is not available
+[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1044:(snd_pcm_dmix_open) unable to initialize slave
 [pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
 [pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
 [pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
@@ -73,326 +68,653 @@
 [pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
 [pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
 [pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U8
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U16_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U32_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U24_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U20_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: U18_3BE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
 [pidog_stt_voice_command_node-9] ALSA lib pcm_oss.c:397:(_snd_pcm_oss_open) Cannot open device /dev/dsp
 [pidog_stt_voice_command_node-9] ALSA lib pcm_oss.c:397:(_snd_pcm_oss_open) Cannot open device /dev/dsp
 [pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
 [pidog_stt_voice_command_node-9] 
 [pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
 [pidog_stt_voice_command_node-9] 
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:835:(snd_pcm_plug_hw_refine_schange) Unable to find an usable slave format for 'plug:hw'
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:839:(snd_pcm_plug_hw_refine_schange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:844:(snd_pcm_plug_hw_refine_schange) Slave format: IEC958_SUBFRAME_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:924:(snd_pcm_plug_hw_refine_cchange) Unable to find an usable client format
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:928:(snd_pcm_plug_hw_refine_cchange) Format: S16_LE
+[pidog_stt_voice_command_node-9] ALSA lib pcm_plug.c:933:(snd_pcm_plug_hw_refine_cchange) Slave format: IEC958_SUBFRAME_LE
 [pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
 [pidog_stt_voice_command_node-9] ALSA lib pcm_usb_stream.c:482:(_snd_pcm_usb_stream_open) Invalid card 'card'
 [pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
 [pidog_stt_voice_command_node-9] ALSA lib pcm_usb_stream.c:482:(_snd_pcm_usb_stream_open) Invalid card 'card'
 [pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1005:(snd_pcm_dmix_open) The dmix plugin supports only playback stream
 [pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1005:(snd_pcm_dmix_open) The dmix plugin supports only playback stream
-[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1032:(snd_pcm_dmix_open) unable to open slave
+[pidog_stt_voice_command_node-9] ALSA lib pcm_direct.c:1206:(snd1_pcm_direct_initialize_slave) requested or auto-format is not available
+[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1044:(snd_pcm_dmix_open) unable to initialize slave
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Using audio device: default
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Listening for voice commands with audio filtering...
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Vosk initialized successfully - listening for commands
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Voice commands will be published to /pidog/voice_command
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Will ignore speech while TTS is speaking + 0.5s delay
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Listening for voice commands with audio filtering...
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Audio filter: low-pass at 4000 Hz (reduces servo noise)
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Try saying: sit, stand, walk, stop, turn left, turn right
-[pidog_camera_node-4] vilib 0.3.18 launching ...
-[pidog_camera_node-4] picamera2 0.3.35
-[pidog_camera_node-4] 
-[pidog_camera_node-4] Web display on:
-[pidog_camera_node-4]       http://192.168.0.23:9000/mjpg
-[pidog_camera_node-4] 
-[pidog_camera_node-4] Starting web streaming ...
-[pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
-[pidog_camera_node-4]  * Debug mode: off
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ Hardware test passed
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: OFF
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔇 Sound disabled for 15.7s
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble:0
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Autonomous behavior loop started
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Sensor reading thread started
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ROS 2 Autonomous PiDog Node Ready!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Say: sit, stand, walk, stop, turn left, turn right
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stand
+[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 8.38V (99.1%) - GOOD
 [pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera initialized with Vilib
 [pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera capture loop started
 [pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: PiDog Camera Node Ready
 [pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Publishing to: camera/image_raw and face_detection
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 130.0° (right)
+[ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Piper TTS initialized successfully with model: en_US-ryan-low
+[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: eSpeak found and ready
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: PiDog TTS Node Ready (piper=True, espeak=True)
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Or publish to /speak_text topic
+[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 65.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=76.9°, pitch=-88.1°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 130.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 70.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 76.0° (right)
+[ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ PiDog hardware available
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Testing hardware...
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 187.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 90.0° (right)
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 18.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 265.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 184.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 96.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=91.8°, pitch=-90.4°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 92.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 21.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected while moving!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected! Distance: 3.3 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ backward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 232.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 108.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 67.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 256.0° (left)
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 20.5 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 57.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 67.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 261.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=103.5°, pitch=-93.7°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 267.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 90.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 300.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 261.0° (left)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ Hardware test passed
+[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: OFF
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔇 Sound disabled for 15.7s
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble:0
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Calibrating IMU - keep dog still...
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 52.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 184.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 20.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 112.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔄 Smart turning left (steps=8, speed=100)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ turn_left
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 247.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 64.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 179.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 96.0° (right)
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 214.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 96.0 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 221.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 59.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 114.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 76.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: IMU calibration complete: offsets (ax=-0.998, ay=-0.021, az=0.003)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ROS 2 Autonomous PiDog Node Ready!
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Autonomous behavior loop started
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Sensor reading thread started
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Say: sit, stand, walk, stop, turn left, turn right
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stand
 [ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 108.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 240.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 21.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 232.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 99.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 260.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 46.0° (right)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 224.0° (back)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=129.6°, pitch=-151.1°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=139.2°, pitch=-163.5°, yaw=0.0°
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 69.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sigh... I'm bored
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.9°, pitch=-87.5°, yaw=0.0°
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 69.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 255.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 23.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 52.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=94.1°, pitch=-91.3°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 263.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 67.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 232.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 73.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 71.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 90.0° (right)
-[pidog_battery_monitor_node-10] [WARN] [pidog.pidog_battery_monitor_node]: Invalid battery reading: 0.0V
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 21.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 85.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 129.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 260.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 16.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 309.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 67.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 305.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 268.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 92.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 28.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 69.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 110.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 268.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 222.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 249.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 62.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 67.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 46.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 185.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 117.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 71.0° (right)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 253.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 64.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected while moving!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected! Distance: 36.5 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ backward
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'fifth now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 34.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=60.7°, pitch=-81.2°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 70.0° (right)
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 67.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 71.0° (right)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'please down'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 16.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 65.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 261.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 76.0° (right)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 84.3 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=99.9°, pitch=-93.4°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 75.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 247.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 110.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 218.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 78.0° (right)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'please no'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 293.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 120.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 297.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 73.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 59.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 182.0° (back)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'the'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 214.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔄 Smart turning right (steps=8, speed=100)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ turn_right
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 90.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 135.9 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 309.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 78.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 239.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 57.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 59.3 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 78.0° (right)
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 240.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 249.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 244.0° (left)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'salt'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 195.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 86.4 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 247.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 69.0° (right)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 113.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 309.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 250.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 73.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 10.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 210.0° (back)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 73.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 65.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 318.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 69.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 242.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 276.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 65.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 73.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 119.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎭 Random personality: wag_tail
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ wag_tail
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 119.0° (right)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Awooo... anyone there?:1
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Awooo... anyone there?
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 330.0° (front)
-[pidog_battery_monitor_node-10] [WARN] [pidog.pidog_battery_monitor_node]: Invalid battery reading: 0.0V
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 321.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 81.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 83.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 46.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 55.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 65.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 18.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 230.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 94.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 11.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 65.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 320.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 62.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 60.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 92.0° (right)
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 346.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 245.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 309.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 128.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 244.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 191.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 117.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 258.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 120.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 253.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 145.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 83.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 258.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 247.0° (left)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'the now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 299.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 76.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 96.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 127.0° (right)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 81.5 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 51.0 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 31.8 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-143.6°, pitch=-145.0°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-157.8°, pitch=161.5°, yaw=0.0°
 [pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit down'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 2.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 135.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 15.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 251.0° (left)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 81.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎭 Random personality: shake_head
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 108.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ shake_head
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 342.0° (front)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'sit down'
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 SIT
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 51.8 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ sit
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected while moving!
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Sitting down:0
+[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sitting down
 [pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 120.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 60.0 cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit down'
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 50.1 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
 [ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 20.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 25.0° (front)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 78.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 221.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 70.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 81.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 221.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 81.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 75.0° (right)
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 90.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound re-enabled after speech
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 221.0° (back)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 65.0° (right)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔊 Sound detected at 237.0° (left)
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 39.2 cm
+[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'push up'
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'push up'
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'push up'
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
+[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=138.8°, pitch=-137.2°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 57.4 cm
+[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 63.8 cm

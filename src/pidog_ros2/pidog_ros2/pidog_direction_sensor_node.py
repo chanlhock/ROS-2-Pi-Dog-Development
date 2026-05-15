@@ -60,9 +60,19 @@ class PiDogSoundDirectionNode(Node):
         )
         
         self.get_logger().info("PiDog Sound Direction Node Ready")
+        self.last_enable_time = 0
+        self.enable_debounce = 1.0  # Don't toggle more than once per second
     
     def enable_callback(self, request, response):
         """Enable/disable sound direction processing."""
+        current_time = time.time()
+        if current_time - self.last_enable_time < self.enable_debounce:
+            # Ignore rapid toggles
+            response.success = True
+            response.message = "Debounced"
+            return response
+    
+        self.last_enable_time = current_time
         self.enabled = request.data
         response.success = True
         response.message = f"Sound direction {'enabled' if self.enabled else 'disabled'}"

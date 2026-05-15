@@ -15,6 +15,7 @@
 # 05/05/2026     Bernard Chan    Initial release
 # 08/05/2026     Bernard Chan    This version runs on Docker with
 #                                Ubuntu 22.04 and ROS 2 Humble
+# 15/05/2026     Bernard Chan    Added battery monitoring 
 #
 # ros2_autonomous_pidog.py is licensed under the GNU General Public 
 # License v3.0 Permissions of this strong copyleft license are 
@@ -50,7 +51,7 @@ from .pidog_manager import get_pidog_manager
 # Pi Dog's name
 NAME = "Woofer" # Name of the dog during my childhood
 GREETING_EN = f"Hi, I am {NAME}. Your obedient ROS2 Pi Dog"
-OBSTACLE_DISTANCE_CM = 40  # Increased from 30cm to 35cm for better obstacle avoidance
+OBSTACLE_DISTANCE_CM = 35  # Increased from 30cm to 35cm for better obstacle avoidance
 FORWARD_SPEED = 100  # Was 80 very slow - range is 0-100
 TURN_STEPS = 8  # New constant for turn steps
 TURN_SPEED = 100      # Increase from 85 to 95 (was 70)
@@ -209,6 +210,8 @@ class Ros2AutonomousPiDog(Node):
         self.last_sound_reaction_time = 0
         self.sound_reaction_cooldown = 2.0  # Don't react to sound more than once per 2 seconds
 
+        self.imu_offset = self.calibrate_imu()
+
         # ============================================================
         # START THREADS
         # ============================================================
@@ -226,6 +229,31 @@ class Ros2AutonomousPiDog(Node):
         self.get_logger().info("Say: sit, stand, walk, stop, turn left, turn right")
         self.get_logger().info("=" * 60)
     
+    def calibrate_imu(self):
+        """Calibrate IMU by averaging readinfoings while stationary"""
+        self.get_logger().info("Calibrating IMU - keep dog still...")
+        samples_ax = []
+        samples_ay = []
+        samples_az = []
+    
+        for _ in range(100):
+            try:
+                ax, ay, az = self.dog.accData
+                samples_ax.append(ax / 16384.0)
+                samples_ay.append(ay / 16384.0)
+                samples_az.append(az / 16384.0)
+                time.sleep(0.01)
+            except:
+                pass
+    
+        # Calculate averages (offset)
+        offset_ax = sum(samples_ax) / len(samples_ax)
+        offset_ay = sum(samples_ay) / len(samples_ay)
+        offset_az = sum(samples_az) / len(samples_az)
+    
+        self.get_logger().info(f"IMU calibration complete: offsets (ax={offset_ax:.3f}, ay={offset_ay:.3f}, az={offset_az:.3f})")
+        return (offset_ax, offset_ay, offset_az)
+
     # ============================================================
     # SENSOR READING LOOP (Direct hardware access)
     # ============================================================
@@ -295,6 +323,12 @@ class Ros2AutonomousPiDog(Node):
                     ay_g = ay / 16384.0
                     az_g = az / 16384.0
     
+                    # Apply calibration offsets (subtract the stationary offset)
+                    if hasattr(self, 'imu_offset'):
+                        ax_g -= self.imu_offset[0]
+                        ay_g -= self.imu_offset[1]
+                        az_g -= self.imu_offset[2]
+                    
                     # Calculate roll (X-axis rotation) and pitch (Y-axis rotation)
                     roll = math.atan2(ay_g, az_g) * 180.0 / math.pi
                     pitch = math.atan2(ax_g, az_g) * 180.0 / math.pi 
@@ -353,14 +387,14 @@ class Ros2AutonomousPiDog(Node):
                     self.sound_direction_angle = angle
                     self.sound_direction_text = self.angle_to_direction(angle)
                     self.sound_pub.publish(String(data=f"{angle:.1f}:{self.sound_direction_text}:1"))
-                    self.get_logger().info(f"🔊 Sound detected at {angle:.1f}° ({self.sound_direction_text})")
+                    self.get_logger().debug(f"🔊 Sound detected at {angle:.1f}° ({self.sound_direction_text})")
                 
                     #time.sleep(0.1)
                 # Small sleep to prevent CPU hogging
-                time.sleep(0.5)  # 20ms - faster than before but with rate limiting above
+                time.sleep(0.05)  # 20ms - faster than before but with rate limiting above
             except Exception as e:
                 self.get_logger().debug(f"Sensor read error: {e}")
-                time.sleep(0.5)
+                time.sleep(0.05)
 
     def angle_to_direction(self, angle):
         """Convert angle to direction string"""
@@ -507,61 +541,82 @@ class Ros2AutonomousPiDog(Node):
         if len(text) < 2:
             return
         
-        false_positives = ['ah', 'uh', 'um', 'oh', 'by', 'do', 'go', 'to', 'be', 'me']
+        false_positives = ['ah', 'uh', 'um', 'oh', 'by', 'do', 'go', 'to', 'be', 'me', 
+                   'wow', 'the bow', 'oops', 'it\'s now', 'the out']
         if text in false_positives:
             return
         
+        # INTERRUPT CURRENT ACTION - Voice commands have priority!
         with self.command_lock:
             if self.command_active:
-                return
+                self.get_logger().info("🛑 Interrupting current action for voice command")
+                # Force stop the dog immediately
+                if self.dog:
+                    self.dog.body_stop()
+                    self.dog.wait_all_done()
+                self.command_active = False  # Release the lock
+    
+        # Small delay to ensure stop completes
+        time.sleep(0.1)
+    
+        # Now acquire lock for new command
+        with self.command_lock:
+            self.command_active = True
         
         self.get_logger().info(f"🎤 Voice command: '{text}'")
         self.voice_command_waiting = True
         
         # Process command
-        if 'sit' in text:
-            self.get_logger().info("📢 SIT")
-            # Clear any pending commands first
-            self.dog.body_stop()
-            self.dog.wait_all_done()
-            time.sleep(0.1)
-            self.execute_movement('sit', step_count=0, speed=60)  # sit doesn't need step_count
-            #self.execute_movement('sit')
-            self.speak("Sitting down")
-            self.state = RobotState.INTERACTING
-            threading.Timer(3.0, self.return_to_wandering).start()
+        try:
+            if 'sit' in text:
+                self.get_logger().info("📢 SIT")
+                # Clear any pending commands first
+                self.dog.body_stop()
+                self.dog.wait_all_done()
+                time.sleep(0.1)
+                self.execute_movement('sit', step_count=0, speed=60)  # sit doesn't need step_count
+                #self.execute_movement('sit')
+                self.speak("Sitting down")
+                self.state = RobotState.INTERACTING
+                threading.Timer(3.0, self.return_to_wandering).start()
             
-        elif 'stand' in text:
-            self.get_logger().info("📢 STAND")
-            self.execute_movement('stand')
-            self.speak("Standing up")
-            self.state = RobotState.INTERACTING
-            threading.Timer(2.0, self.return_to_wandering).start()
+            elif 'stand' in text:
+                self.get_logger().info("📢 STAND")
+                self.execute_movement('stand')
+                self.speak("Standing up")
+                self.state = RobotState.INTERACTING
+                threading.Timer(2.0, self.return_to_wandering).start()
             
-        elif 'walk' in text or 'forward' in text:
-            self.get_logger().info("📢 WALK")
-            self.execute_movement('forward', step_count=12, speed=FORWARD_SPEED)
+            elif 'walk' in text or 'forward' in text:
+                self.get_logger().info("📢 WALK")
+                self.execute_movement('forward', step_count=12, speed=FORWARD_SPEED)
             
-        elif 'back' in text:
-            self.get_logger().info("📢 BACK")
-            self.execute_movement('backward', step_count=4, speed=80)
+            elif 'back' in text:
+                self.get_logger().info("📢 BACK")
+                self.execute_movement('backward', step_count=4, speed=80)
             
-        elif 'stop' in text and len(text) < 10:
-            self.get_logger().info("📢 STOP")
-            self.execute_movement('stop')
-            self.speak("Stopping")
-            self.state = RobotState.INTERACTING
-            threading.Timer(2.0, self.return_to_wandering).start()
+            elif 'stop' in text and len(text) < 10:
+                self.get_logger().info("📢 STOP")
+                self.execute_movement('stop')
+                self.speak("Stopping")
+                self.state = RobotState.INTERACTING
+                threading.Timer(2.0, self.return_to_wandering).start()
             
-        elif 'left' in text and (len(text) < 10 or 'turn left' in text):
-            self.get_logger().info("📢 TURN LEFT")
-            self.execute_movement('turn_left', step_count=TURN_STEPS, speed=TURN_SPEED)
+            elif 'left' in text and (len(text) < 10 or 'turn left' in text):
+                self.get_logger().info("📢 TURN LEFT")
+                self.execute_movement('turn_left', step_count=TURN_STEPS, speed=TURN_SPEED)
             
-        elif 'right' in text and (len(text) < 10 or 'turn right' in text) :
-            self.get_logger().info("📢 TURN RIGHT")
-            self.execute_movement('turn_right', step_count=TURN_STEPS, speed=TURN_SPEED)
+            elif 'right' in text and (len(text) < 10 or 'turn right' in text):
+                self.get_logger().info("📢 TURN RIGHT")
+                self.execute_movement('turn_right', step_count=TURN_STEPS, speed=TURN_SPEED)
         
-        self.voice_command_waiting = False
+            else:
+                self.get_logger().info(f"Unknown command: '{text}'")
+            
+        finally:
+            self.voice_command_waiting = False
+            with self.command_lock:
+                self.command_active = False
     
     #def speak(self, text, use_emotion=False):
     #    """Send speech command to TTS node"""
@@ -572,7 +627,7 @@ class Ros2AutonomousPiDog(Node):
     
     # ============================================================
     # BATTERY MONITORING (Placeholder - battery monitor not running yet)
-    # ============================================================
+    # ====================================info========================
     def battery_status_callback(self, msg: String):
         """Receive battery status from battery monitor node"""
         try:
@@ -641,7 +696,7 @@ class Ros2AutonomousPiDog(Node):
         req = SetBool.Request()
         req.data = True
         self.sound_direction_client.call_async(req)
-        self.get_logger().info("🔊 Sound re-enabled after speech")
+        self.get_logger().debug("🔊 Sound re-enabled after speech")
 
     # ============================================================
     # EXTERNAL COMMAND HANDLERS
