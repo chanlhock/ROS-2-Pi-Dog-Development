@@ -107,7 +107,7 @@ class Ros2AutonomousPiDog(Node):
             self.dog = None
             self.get_logger().error("✗ PiDog hardware NOT available!")
             return
-        
+        self.sound_disabled = True  # ADD THIS STATE TRACKING
         self.sound_direction_client = self.create_client(SetBool, '/pidog/enable_sound_direction')
         # Wait for service (don't block startup)
         while not self.sound_direction_client.wait_for_service(timeout_sec=0.1):
@@ -167,6 +167,7 @@ class Ros2AutonomousPiDog(Node):
         self.status_pub = self.create_publisher(String, 'status', qos_best)
         self.speak_pub = self.create_publisher(String, 'speak_text', qos_rel)
         
+        self.sound_disabled = False
         self.dog.rgb_strip.set_mode(style="boom", color="#a10a0a", bps=2.5, brightness=0.5)
 
         #self._speak_timer = None
@@ -203,6 +204,11 @@ class Ros2AutonomousPiDog(Node):
         self.sound_dir_sub = self.create_subscription(String, 'sound_direction', self.sound_direction_callback, qos_best)
         self.face_sub = self.create_subscription(String, 'face_detection', self.face_callback, qos_best)
 
+        self.obstacle_debounce_time = 0
+        self.obstacle_debounce_duration = 1.0  # 1 second debounce
+        self.last_sound_reaction_time = 0
+        self.sound_reaction_cooldown = 2.0  # Don't react to sound more than once per 2 seconds
+
         # ============================================================
         # START THREADS
         # ============================================================
@@ -210,7 +216,7 @@ class Ros2AutonomousPiDog(Node):
         self.sensor_thread.start()
         
         self.autonomous_thread = threading.Thread(target=self.autonomous_behavior_loop, daemon=True)
-        #self.autonomous_thread.start()
+        self.autonomous_thread.start()
         
         self.status_timer = self.create_timer(1.0, self.publish_status)
         
@@ -252,7 +258,6 @@ class Ros2AutonomousPiDog(Node):
                                 # Also keep median for general display (optional)
                                 sorted_readings = sorted(self.distance_readings)
                                 median_distance = sorted_readings[len(sorted_readings)//2]
-    
                                 # Use MIN for obstacle detection, MEDIAN for display
                                 self.current_distance_for_obstacle = min_distance  # For obstacle checking
                                 self.current_distance = median_distance  # For display/logging
@@ -352,7 +357,7 @@ class Ros2AutonomousPiDog(Node):
                 
                     #time.sleep(0.1)
                 # Small sleep to prevent CPU hogging
-                time.sleep(0.02)  # 20ms - faster than before but with rate limiting above
+                time.sleep(0.5)  # 20ms - faster than before but with rate limiting above
             except Exception as e:
                 self.get_logger().debug(f"Sensor read error: {e}")
                 time.sleep(0.5)
@@ -414,6 +419,11 @@ class Ros2AutonomousPiDog(Node):
             self.get_logger().debug(f"Touch callback error: {e}")
     
     def sound_direction_callback(self, msg):
+        current_time = time.time()
+        if current_time - self.last_sound_reaction_time < self.sound_reaction_cooldown:
+            return  # Ignore during cooldown
+    
+        self.last_sound_reaction_time = current_time
         try:
             parts = msg.data.split(':')
             if len(parts) >= 2:
@@ -576,15 +586,31 @@ class Ros2AutonomousPiDog(Node):
                 if self.battery_status == "critical":
                     self.get_logger().error(f"🔴 CRITICAL: Battery {self.current_battery_voltage:.2f}V!")
                     self.speak("Battery is critically low! Please charge me!", use_emotion=True)
+                if self.current_battery_percentage < 15:
+                    self.state = RobotState.SLEEPING
+                    self.speak("Battery low, going to sleep")
+                    self.execute_movement('sit')
         except Exception as e:
             self.get_logger().debug(f"Battery callback error: {e}")
 
     def speak(self, text, use_emotion=False):
         """Send speech command to TTS node without causing echo feedback"""
+
+        # Don't disable if already disabled
+        if self.sound_disabled:
+            self.get_logger().debug("Sound already disabled, skipping duplicate request")
+            # Still publish speech but don't call service again
+            cmd_str = f"{text}:{1 if use_emotion else 0}"
+            msg = String()
+            msg.data = cmd_str
+            self.speak_pub.publish(msg)
+            return
+    
         # Step 1: Disable sound direction BEFORE speaking
         req = SetBool.Request()
         req.data = False
         self.sound_direction_client.call_async(req)
+        self.sound_disabled = True  # ADD THIS STATE TRACKING
     
         # Small delay to ensure service processes
         time.sleep(0.05)
@@ -724,14 +750,30 @@ class Ros2AutonomousPiDog(Node):
     
     def obstacle_avoidance(self):
         """Handle obstacle avoidance behavior"""
+
+        # Debounce - don't react too frequently
+        current_time = time.time()
+        if current_time - self.obstacle_debounce_time < self.obstacle_debounce_duration:
+            self.get_logger().debug("Obstacle avoidance debounced")
+            return
+    
         with self.command_lock:
             if self.command_active or self.emergency_stop:
                 return
         
         # Don't avoid if distance is unreliable (too many spikes recently)
-        if len(self.distance_readings) < 3:
-            return
+        #if len(self.distance_readings) < 3:
+        #    return
+
+        # Only proceed if distance is TRULY close (use minimum of last 5 readings)
+        if len(self.distance_readings) >= 5:
+            min_recent = min(list(self.distance_readings)[-5:])
+            if min_recent >= OBSTACLE_DISTANCE_CM:
+                self.get_logger().debug(f"False obstacle ignored (min={min_recent:.1f}cm)")
+                return
     
+        self.obstacle_debounce_time = current_time
+        
         # Check if the last 3 readings are ALL below threshold (avoids false triggers)
         recent_readings = list(self.distance_readings)[-3:]
         #if not all(d < OBSTACLE_DISTANCE_CM for d in recent_readings):

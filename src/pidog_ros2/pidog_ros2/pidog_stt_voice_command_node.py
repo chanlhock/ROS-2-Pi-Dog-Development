@@ -169,6 +169,7 @@ class PiDogSTTVoiceCommandNode(Node):
                 input_device_index=device_index,
                 frames_per_buffer=self.chunk_size,
                 stream_callback=None,  # Add callback for underrun handling
+                input_host_api_specific_stream_info=None  # Add this
             )
             
             # Start listening thread

@@ -102,7 +102,7 @@ class PiDogSoundDirectionNode(Node):
                 self.direction_pub.publish(processed_msg)
                 
                 if self.sound_detected:
-                    self.get_logger().info(f"🔊 Sound from {self.current_direction} ({self.current_angle:.0f}°)")
+                    self.get_logger().debug(f"🔊 Sound from {self.current_direction} ({self.current_angle:.0f}°)")
                     
         except Exception as e:
             self.get_logger().debug(f"Sound direction parse error: {e}")
