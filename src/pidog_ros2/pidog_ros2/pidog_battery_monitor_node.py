@@ -125,7 +125,8 @@ class BatteryMonitorNode(Node):
                     time.sleep(1)
                     continue
 
-                if voltage and BATTERY_MIN_VOLTAGE <= voltage <= BATTERY_MAX_VOLTAGE:
+                #if voltage and BATTERY_MIN_VOLTAGE <= voltage <= BATTERY_MAX_VOLTAGE:
+                if BATTERY_MIN_VOLTAGE <= voltage <= BATTERY_MAX_VOLTAGE:
                     self.current_voltage = voltage
                     
                     # Calculate battery percentage (0-100%)

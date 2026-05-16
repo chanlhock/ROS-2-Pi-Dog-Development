@@ -25,7 +25,6 @@
 # preserved. Contributors provide an express grant of patent rights.
 ##########################################################################
 """
-#from sys import platform
 
 import rclpy
 from rclpy.node import Node
@@ -35,7 +34,7 @@ from rclpy.qos import QoSProfile, QoSReliabilityPolicy, ReliabilityPolicy, Histo
 from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Twist
 from std_srvs.srv import SetBool
-#from pidog_ros2.srv import GetBatteryLevel  # Changed from pidog_interfaces
+from pidog.preset_actions import *
 
 import threading
 import time
@@ -219,7 +218,7 @@ class Ros2AutonomousPiDog(Node):
         self.sensor_thread.start()
         
         self.autonomous_thread = threading.Thread(target=self.autonomous_behavior_loop, daemon=True)
-        self.autonomous_thread.start()
+        #self.autonomous_thread.start()
         
         self.status_timer = self.create_timer(1.0, self.publish_status)
         
@@ -388,7 +387,6 @@ class Ros2AutonomousPiDog(Node):
                     self.sound_direction_text = self.angle_to_direction(angle)
                     self.sound_pub.publish(String(data=f"{angle:.1f}:{self.sound_direction_text}:1"))
                     self.get_logger().debug(f"🔊 Sound detected at {angle:.1f}° ({self.sound_direction_text})")
-                
                     #time.sleep(0.1)
                 # Small sleep to prevent CPU hogging
                 time.sleep(0.05)  # 20ms - faster than before but with rate limiting above
@@ -502,11 +500,32 @@ class Ros2AutonomousPiDog(Node):
             elif command in ['sit', 'stand']:
                 self.dog.do_action(command, speed=speed)
                 self.dog.wait_all_done()
+            elif command in ['hand_shake']:
+                self.dog.do_action('sit', speed=speed)
+                self.dog.wait_all_done()
+                hand_shake(self.dog)
+                self.dog.wait_all_done()  
+            elif command in ['high_five']:
+                self.dog.do_action('sit', speed=speed)
+                self.dog.wait_all_done()
+                high_five(self.dog)
+                self.dog.wait_all_done()
+            elif command in ['stretch']:
+                self.dog.do_action(command, speed=speed)
+                self.dog.wait_all_done()
+                self.dog.do_action('stand', speed=speed)
+                self.dog.wait_all_done()
+            elif command in ['scratch']:
+                self.dog.do_action('sit', speed=speed)
+                self.dog.wait_all_done()        
+                scratch(self.dog)
+                head_angs = [ [0, 0, 0], [0, 0, 0] ]
+                self.dog.head_move_raw(head_angs, immediately=False, speed=80)
+                time.sleep(2)
             else:
                 steps = max(1, step_count) if step_count > 0 else 1
                 self.dog.do_action(command, step_count=steps, speed=speed)
                 self.dog.wait_all_done()
-            
             return True
         except Exception as e:
             self.get_logger().error(f"Movement error: {e}")
@@ -531,7 +550,7 @@ class Ros2AutonomousPiDog(Node):
         # In voice_callback, add command aliases:
         self.command_map = {
             'sit': ['sit', 'sit down', 'set', 'settle'],
-            'stand': ['stand', 'stand up', 'set up', 'sen up'],
+            'stand': ['stand', 'stand up', 'set up', 'sen up','sten', 'stem'],
             'walk': ['walk', 'forward', 'go'],
             'stop': ['stop', 'halt', 'freeze'],
         }
@@ -575,17 +594,16 @@ class Ros2AutonomousPiDog(Node):
                 self.dog.wait_all_done()
                 time.sleep(0.1)
                 self.execute_movement('sit', step_count=0, speed=60)  # sit doesn't need step_count
-                #self.execute_movement('sit')
                 self.speak("Sitting down")
                 self.state = RobotState.INTERACTING
-                threading.Timer(3.0, self.return_to_wandering).start()
+                threading.Timer(5.0, self.return_to_wandering).start()
             
             elif 'stand' in text:
                 self.get_logger().info("📢 STAND")
                 self.execute_movement('stand')
                 self.speak("Standing up")
                 self.state = RobotState.INTERACTING
-                threading.Timer(2.0, self.return_to_wandering).start()
+                threading.Timer(5.0, self.return_to_wandering).start()
             
             elif 'walk' in text or 'forward' in text:
                 self.get_logger().info("📢 WALK")
@@ -609,7 +627,41 @@ class Ros2AutonomousPiDog(Node):
             elif 'right' in text and (len(text) < 10 or 'turn right' in text):
                 self.get_logger().info("📢 TURN RIGHT")
                 self.execute_movement('turn_right', step_count=TURN_STEPS, speed=TURN_SPEED)
-        
+            elif "stretch" in text:
+                self.get_logger().info("📢 STRETCH")
+                self.execute_movement('stretch', step_count=0, speed=60)
+            #elif "push up" in cmd_lower or "push-up" in cmd_lower:
+            #    indiv_commands('push_up')
+            elif "hand" in text or "shake" in text or "handshake" in text:
+                self.get_logger().info("📢 Hand Shake")
+                # Clear any pending commands first
+                self.dog.body_stop()
+                self.dog.wait_all_done()
+                time.sleep(0.1)
+                self.execute_movement('hand_shake', step_count=0, speed=60)  
+                self.speak("Hand Shake")
+                self.state = RobotState.INTERACTING
+                threading.Timer(5.0, self.return_to_wandering).start()
+            elif "scratch" in text:
+                self.get_logger().info("📢 Scratch")
+                # Clear any pending commands first
+                self.dog.body_stop()
+                self.dog.wait_all_done()
+                time.sleep(0.1)
+                self.execute_movement('scratch')  
+                self.speak("Scratch")
+                self.state = RobotState.INTERACTING
+                threading.Timer(5.0, self.return_to_wandering).start()
+            elif "high" in text or "five" in text or "high five" in text:
+                self.get_logger().info("📢 High Five")
+                # Clear any pending commands first
+                self.dog.body_stop()
+                self.dog.wait_all_done()
+                time.sleep(0.1)
+                self.execute_movement('high_five')  
+                self.speak("High Five")
+                self.state = RobotState.INTERACTING
+                threading.Timer(5.0, self.return_to_wandering).start()
             else:
                 self.get_logger().info(f"Unknown command: '{text}'")
             
@@ -618,12 +670,6 @@ class Ros2AutonomousPiDog(Node):
             with self.command_lock:
                 self.command_active = False
     
-    #def speak(self, text, use_emotion=False):
-    #    """Send speech command to TTS node"""
-    #    cmd_str = f"{text}:{1 if use_emotion else 0}"
-    #    msg = String()
-    #    msg.data = cmd_str
-    #    self.speak_pub.publish(msg)
     
     # ============================================================
     # BATTERY MONITORING (Placeholder - battery monitor not running yet)
@@ -734,15 +780,7 @@ class Ros2AutonomousPiDog(Node):
         status_str = f"state:{self.state.value}:emotion:{self.emotion.value}:distance:{self.current_distance:.1f}:busy:{active}"
         self.status_pub.publish(String(data=status_str))
     
-    #def handle_touch_event(self, sensor_id):
-    #    """React to touch sensor events"""
-    #    if self.state != RobotState.WANDERING:
-    #        return
-        
-    #    self.state = RobotState.INTERACTING
-    #    self.speak("That tickles! Hehe!", use_emotion=True)
-    #    self.execute_movement("shake_head", step_count=3, speed=80)
-    #    threading.Timer(5.0, self.return_to_wandering).start()
+    
     def handle_touch_event(self, touch_result):
         """React to touch sensor events based on official API."""
         # Only react if the dog is in a state where it can be interrupted
@@ -755,8 +793,10 @@ class Ros2AutonomousPiDog(Node):
         # Customize reaction based on touch type
         if touch_result == 'L':
             self.speak("You touched my left side", use_emotion=True)
+            self.execute_movement("shake_head", step_count=3, speed=80)
         elif touch_result == 'R':
             self.speak("You touched my right side", use_emotion=True)
+            self.execute_movement("shake_head", step_count=3, speed=80)
         elif touch_result == 'LS':
             self.speak("You petted me from front to back", use_emotion=True)
         elif touch_result == 'RS':
@@ -768,7 +808,7 @@ class Ros2AutonomousPiDog(Node):
         self.execute_movement("wag_tail", step_count=5, speed=80)
     
         # Return to wandering after a few seconds
-        threading.Timer(4.0, self.return_to_wandering).start()
+        threading.Timer(8.0, self.return_to_wandering).start()
 
     def handle_face_detection(self):
         """React to detected faces"""

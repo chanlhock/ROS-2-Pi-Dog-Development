@@ -1,9 +1,26 @@
 #!/usr/bin/env python3
 """
-PiDog Hardware Manager - Simple singleton for main node only
-
-IMPORTANT: Only ros2_autonomous_pidog.py should use this module.
-Other nodes should NOT import this module at all.
+##########################################################################
+# ROS 2 Autonomous Sunfounder Pi Dog with Raspberry Pi 5 in Ubuntu 22.04
+#
+# PiDog Hardware Manager - Simple singleton for main node only
+#
+# IMPORTANT: Only ros2_autonomous_pidog.py should use this module.
+# Other nodes should NOT import this module at all.
+#  
+# Copyright (c) 2026 Bernard Chan
+# chanlhock@gmail.com
+#
+# Date           Author          Notes
+# 05/05/2026     Bernard Chan    Initial release
+#
+# pidog_manager.py is licensed under the GNU General Public License v3.0
+# License v3.0 Permissions of this strong copyleft license are 
+# conditioned on making available complete source code of licensed 
+# works and modifications, which include larger works using a licensed 
+# work, under the same license. Copyright and license notices must be 
+# preserved. Contributors provide an express grant of patent rights.
+##########################################################################
 """
 
 import sys
