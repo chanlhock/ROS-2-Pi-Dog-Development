@@ -80,6 +80,13 @@ class Ros2AutonomousPiDog(Node):
     def __init__(self):
         super().__init__('ros2_autonomous_pidog')
         
+        # Parameters to be set false during debugging  
+        self.declare_parameter('enable_wandering', False)
+        self.declare_parameter('enable_obstacle_avoidance', False)
+        
+        self.enable_wandering = self.get_parameter('enable_wandering').value
+        self.enable_obstacle_avoidance = self.get_parameter('enable_obstacle_avoidance').value
+
         # ============================================================
         # INITIALIZE PIDOG HARDWARE
         # ============================================================
@@ -218,7 +225,7 @@ class Ros2AutonomousPiDog(Node):
         self.sensor_thread.start()
         
         self.autonomous_thread = threading.Thread(target=self.autonomous_behavior_loop, daemon=True)
-        #self.autonomous_thread.start()
+        self.autonomous_thread.start()
         
         self.status_timer = self.create_timer(1.0, self.publish_status)
         
@@ -890,13 +897,14 @@ class Ros2AutonomousPiDog(Node):
             self.dog.wait_all_done()
         time.sleep(0.1)
 
-        # Back up quickly - increase steps for more distance
-        self.execute_movement('backward', step_count=10, speed=BACKWARD_SPEED)
-        time.sleep(0.2)  # Reduced sleep since more steps
+        if self.enable_obstacle_avoidance:
+            # Back up quickly - increase steps for more distance
+            self.execute_movement('backward', step_count=10, speed=BACKWARD_SPEED)
+            time.sleep(0.2)  # Reduced sleep since more steps
         
-        # Turn (now faster with updated smart_turn)
-        self.smart_turn()
-        self.play_emotion(Emotion.STARTLED)
+            # Turn (now faster with updated smart_turn)
+            self.smart_turn()
+            self.play_emotion(Emotion.STARTLED)
         
         self.state = RobotState.WANDERING
     
@@ -982,8 +990,9 @@ class Ros2AutonomousPiDog(Node):
                     if len(self.distance_readings) >= 3 and self.current_distance_for_obstacle < OBSTACLE_DISTANCE_CM:
                         self.obstacle_avoidance()
                     else:
-                        # Move forward normally
-                        self.execute_movement("forward", step_count=8, speed=FORWARD_SPEED)  # Increased step_count
+                        if self.enable_wandering:
+                            # Move forward normally
+                            self.execute_movement("forward", step_count=8, speed=FORWARD_SPEED)  # Increased step_count
                     
                         # Check obstacle during movement (most critical part)
                         # Poll distance sensor while moving
