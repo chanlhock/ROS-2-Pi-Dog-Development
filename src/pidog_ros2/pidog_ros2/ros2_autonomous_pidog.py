@@ -81,8 +81,8 @@ class Ros2AutonomousPiDog(Node):
         super().__init__('ros2_autonomous_pidog')
         
         # Parameters to be set false during debugging  
-        self.declare_parameter('enable_wandering', False)
-        self.declare_parameter('enable_obstacle_avoidance', False)
+        self.declare_parameter('enable_wandering', True)
+        self.declare_parameter('enable_obstacle_avoidance', True)
         
         self.enable_wandering = self.get_parameter('enable_wandering').value
         self.enable_obstacle_avoidance = self.get_parameter('enable_obstacle_avoidance').value
@@ -128,6 +128,11 @@ class Ros2AutonomousPiDog(Node):
         self.last_distance_read_time = 0
         self.distance_read_interval = 0.1  # Read every 100ms max
         self.distance_buffer = deque(maxlen=5)  # Buffer for incoming distance messages to filter spikes
+
+        # Add after other buffers initialization:
+        self.filtered_distance_history = deque(maxlen=5)  # Track filtered distance over time
+        self.current_distance_filtered = 999.0
+        self.current_distance_stable = 999.0
 
         # ============================================================
         # STATE MANAGEMENT
@@ -186,6 +191,22 @@ class Ros2AutonomousPiDog(Node):
         self.cmd_vel_sub = self.create_subscription(Twist, 'cmd_vel', self.cmd_vel_callback, qos_rel)
         self.command_sub = self.create_subscription(String, 'command', self.command_callback, qos_rel)
         
+        # Subscribe to FILTERED distance from distance processing node
+        self.distance_filtered_sub = self.create_subscription(
+            Float32, 
+            'distance/filtered',  # Filtered distance with outlier rejection
+            self.distance_filtered_callback, 
+            qos_best
+        )
+
+        # Subscribe to STABLE distance for critical decisions
+        self.distance_stable_sub = self.create_subscription(
+            Float32, 
+            'distance/stable',  # Even more stable (temporal consistency)
+            self.distance_stable_callback, 
+            qos_best
+        )
+
         self.sound_pub = self.create_publisher(String, 'sound_direction', qos_best)
 
         # Battery monitoring subscriber
@@ -205,7 +226,7 @@ class Ros2AutonomousPiDog(Node):
         self.voice_sub = self.create_subscription(String, 'voice_command', self.voice_callback, qos_rel)
         
         # Sensor subscribers (from other nodes - for redundancy)
-        self.distance_sub = self.create_subscription(Float32, 'distance', self.distance_callback, qos_best)
+        self.distance_raw_pub = self.create_publisher(Float32, 'distance/raw', qos_best)
         self.imu_sub = self.create_subscription(String, 'imu', self.imu_callback, qos_best)
         self.touch_sub = self.create_subscription(String, 'touch', self.touch_callback, qos_best)
         self.sound_dir_sub = self.create_subscription(String, 'sound_direction', self.sound_direction_callback, qos_best)
@@ -302,7 +323,7 @@ class Ros2AutonomousPiDog(Node):
                                 self.current_distance = float(distance)
                                 self.current_distance_for_obstacle = float(distance)
                         
-                            self.distance_pub.publish(Float32(data=self.current_distance))
+                            self.distance_raw_pub.publish(Float32(data=float(distance)))
                         
                             # Log every few readings
                             if random.randint(1, 20) == 1:
@@ -417,20 +438,15 @@ class Ros2AutonomousPiDog(Node):
     # ============================================================
     # SENSOR CALLBACKS (from other nodes)
     # ============================================================
-    #def distance_callback(self, msg):
-    #    self.current_distance = msg.data
-    
-    def distance_callback(self, msg: Float32):
-        # Add spike filtering
-        if len(self.distance_buffer) > 0:
-            last_reading = self.distance_buffer[-1]
-            # Ignore sudden spikes (>50cm change)
-            if abs(msg.data - last_reading) > 50:
-                self.get_logger().debug(f"Ignoring spike: {msg.data:.2f} cm")
-                return
-    
-        self.get_logger().debug(f"Received distance: {msg.data:.2f} cm")
-        self.distance_buffer.append(msg.data)
+    def distance_filtered_callback(self, msg: Float32):
+        """Use filtered distance for obstacle detection - rejects outliers"""
+        self.current_distance_filtered = msg.data
+        self.filtered_distance_history.append(msg.data)  # Store for temporal checks
+        self.get_logger().debug(f"Filtered distance: {msg.data:.2f} cm")
+
+    def distance_stable_callback(self, msg: Float32):
+        """Use stable distance for critical decisions - highest confidence"""
+        self.current_distance_stable = msg.data
 
     def imu_callback(self, msg):
         try:
@@ -851,8 +867,15 @@ class Ros2AutonomousPiDog(Node):
         return direction
     
     def obstacle_avoidance(self):
-        """Handle obstacle avoidance behavior"""
-
+        """Handle obstacle avoidance behavior using FILTERED distance"""
+    
+        # Use filtered distance (from distance node) for decision making
+        # Fall back to raw if filtered not available
+        if hasattr(self, 'current_distance_filtered'):
+            distance_to_use = self.current_distance_filtered
+        else:
+            distance_to_use = self.current_distance  # fallback
+    
         # Debounce - don't react too frequently
         current_time = time.time()
         if current_time - self.obstacle_debounce_time < self.obstacle_debounce_duration:
@@ -862,35 +885,34 @@ class Ros2AutonomousPiDog(Node):
         with self.command_lock:
             if self.command_active or self.emergency_stop:
                 return
-        
-        # Don't avoid if distance is unreliable (too many spikes recently)
-        #if len(self.distance_readings) < 3:
-        #    return
-
-        # Only proceed if distance is TRULY close (use minimum of last 5 readings)
-        if len(self.distance_readings) >= 5:
-            min_recent = min(list(self.distance_readings)[-5:])
-            if min_recent >= OBSTACLE_DISTANCE_CM:
-                self.get_logger().debug(f"False obstacle ignored (min={min_recent:.1f}cm)")
-                return
+    
+        # Use stable distance for critical obstacles (more conservative)
+        if hasattr(self, 'current_distance_stable'):
+            # If stable distance shows obstacle, react immediately
+            if self.current_distance_stable < (OBSTACLE_DISTANCE_CM - 5):
+                self.get_logger().info(f"🚨 CRITICAL obstacle! Stable distance: {self.current_distance_stable:.1f}cm")
+                distance_to_use = self.current_distance_stable
+    
+        # Only proceed if distance is TRULY close (using filtered readings)
+        if distance_to_use >= OBSTACLE_DISTANCE_CM:
+            self.get_logger().debug(f"Distance OK: {distance_to_use:.1f}cm")
+            return
     
         self.obstacle_debounce_time = current_time
-        
-        # Check if the last 3 readings are ALL below threshold (avoids false triggers)
-        recent_readings = list(self.distance_readings)[-3:]
-        #if not all(d < OBSTACLE_DISTANCE_CM for d in recent_readings):
-        #    self.get_logger().debug(f"Ignoring false obstacle: recent readings {recent_readings}")
-        #    return
-
-        # Better (use median or average):
-        median_dist = sorted(recent_readings)[len(recent_readings)//2]
-        if median_dist >= OBSTACLE_DISTANCE_CM:
-            self.get_logger().debug(f"Ignoring false obstacle: recent readings {recent_readings}")
-            return
-        
+    
+        # Additional check: require multiple filtered readings below threshold
+        if hasattr(self, 'filtered_distance_history'):
+            recent_filtered = list(self.filtered_distance_history)[-3:]
+            if len(recent_filtered) >= 3:
+                # Require at least 2 of last 3 filtered readings to be below threshold
+                below_threshold = sum(1 for d in recent_filtered if d < OBSTACLE_DISTANCE_CM)
+                if below_threshold < 2:
+                    self.get_logger().debug(f"Ignoring transient obstacle: filtered readings {recent_filtered}")
+                    return
+    
         self.state = RobotState.AVOIDING
-        self.get_logger().info(f"🚧 Obstacle detected! Distance: {self.current_distance:.1f} cm")
-        
+        self.get_logger().info(f"🚧 Obstacle confirmed! Distance: {distance_to_use:.1f} cm")
+    
         # Emergency stop
         if self.dog:
             self.dog.body_stop()
@@ -900,12 +922,12 @@ class Ros2AutonomousPiDog(Node):
         if self.enable_obstacle_avoidance:
             # Back up quickly - increase steps for more distance
             self.execute_movement('backward', step_count=10, speed=BACKWARD_SPEED)
-            time.sleep(0.2)  # Reduced sleep since more steps
-        
+            time.sleep(0.2)
+    
             # Turn (now faster with updated smart_turn)
             self.smart_turn()
             self.play_emotion(Emotion.STARTLED)
-        
+    
         self.state = RobotState.WANDERING
     
     def play_emotion(self, emotion):
@@ -987,43 +1009,44 @@ class Ros2AutonomousPiDog(Node):
                     #else:
                     # Use filtered distance (self.current_distance is already filtered)
                     # Also require at least 3 readings for confidence
-                    if len(self.distance_readings) >= 3 and self.current_distance_for_obstacle < OBSTACLE_DISTANCE_CM:
-                        self.obstacle_avoidance()
-                    else:
-                        if self.enable_wandering:
-                            # Move forward normally
-                            self.execute_movement("forward", step_count=8, speed=FORWARD_SPEED)  # Increased step_count
+                    if hasattr(self, 'current_distance_filtered'):
+                        if self.current_distance_filtered < OBSTACLE_DISTANCE_CM:
+                            self.obstacle_avoidance()
+                        else:
+                            if self.enable_wandering:
+                                # Move forward normally
+                                self.execute_movement("forward", step_count=8, speed=FORWARD_SPEED)  # Increased step_count
                     
-                        # Check obstacle during movement (most critical part)
-                        # Poll distance sensor while moving
-                        check_interval = 0.15  # Check every 0.15 seconds
-                        #checks_during_move = 4  # Total movement duration: 0.6 seconds
+                            # Check obstacle during movement (most critical part)
+                            # Poll distance sensor while moving
+                            check_interval = 0.15  # Check every 0.15 seconds
+                            #checks_during_move = 4  # Total movement duration: 0.6 seconds
 
-                        for check in range(3):  # Reduced checks
-                            time.sleep(check_interval)
-                            if len(self.distance_readings) >= 3 and self.current_distance_for_obstacle < OBSTACLE_DISTANCE_CM:
-                                self.get_logger().info("🚧 Obstacle detected while moving!")
-                                self.dog.body_stop()
-                                self.dog.wait_all_done()
-                                self.obstacle_avoidance()
-                                break
+                            for check in range(3):  # Reduced checks
+                                time.sleep(check_interval)
+                                if len(self.distance_readings) >= 3 and self.current_distance_for_obstacle < OBSTACLE_DISTANCE_CM:
+                                    self.get_logger().info("🚧 Obstacle detected while moving!")
+                                    self.dog.body_stop()
+                                    self.dog.wait_all_done()
+                                    self.obstacle_avoidance()
+                                    break
                     
-                        # Random personality actions occasionally
-                        now = time.time()
-                        if now - last_personality_time > personality_interval and self.personality_actions:
-                            if random.random() < 0.3:
-                                self.random_personality_action()
-                                last_personality_time = now
+                            # Random personality actions occasionally
+                            now = time.time()
+                            if now - last_personality_time > personality_interval and self.personality_actions:
+                                if random.random() < 0.3:
+                                    self.random_personality_action()
+                                    last_personality_time = now
                         
-                        # Periodic emotions
-                        now = time.time()
-                        if now - self.last_emotion_time > self.emotion_interval:
-                            emotions = list(Emotion)
-                            random_emotion = random.choice(emotions)
-                            self.play_emotion(random_emotion)
-                            self.last_emotion_time = now
+                            # Periodic emotions
+                            now = time.time()
+                            if now - self.last_emotion_time > self.emotion_interval:
+                                emotions = list(Emotion)
+                                random_emotion = random.choice(emotions)
+                                self.play_emotion(random_emotion)
+                                self.last_emotion_time = now
                     
-                    #time.sleep(0.3)
+                        #time.sleep(0.3)
                     
                 elif self.state == RobotState.SLEEPING:
                     time.sleep(1.0)
