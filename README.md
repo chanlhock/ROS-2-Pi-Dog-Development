@@ -287,6 +287,9 @@ To move your entire setup to another SD card or computer, you can save your Dock
   ```bash
   docker load -i ros2_humble_pi5_backup.tar
   ```
+  Autonomous Pi Dog Backup Image can be downloaded from link below:
+  https://www.dropbox.com/scl/fi/v9ayaopj40jhnvu2qmsr0/ros2_humble_pi5_backup.tar?rlkey=ic73zmls467wdgvg9jwal6yfs&st=74z78elw&dl=0
+
   Remember to also copy your ~/ros2_ws folder, as it is not inside the Docker image.
 
 Summary of Commands for Your Daily Workflow
