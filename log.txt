@@ -1,52 +1,52 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-18-11-41-15-681629-raspberrypi-5540
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-19-10-27-12-735178-raspberrypi-1918
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [ros2_autonomous_pidog-1]: process started with pid [5542]
-[INFO] [pidog_movement_node-2]: process started with pid [5544]
-[INFO] [pidog_distance_node-3]: process started with pid [5546]
-[INFO] [pidog_camera_node-4]: process started with pid [5548]
-[INFO] [pidog_imu_node-5]: process started with pid [5550]
-[INFO] [pidog_dual_touch_node-6]: process started with pid [5552]
-[INFO] [pidog_direction_sensor_node-7]: process started with pid [5554]
-[INFO] [pidog_tts_speaks_node-8]: process started with pid [5556]
-[INFO] [pidog_stt_voice_command_node-9]: process started with pid [5558]
-[INFO] [pidog_battery_monitor_node-10]: process started with pid [5560]
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node starting - listening for touch events
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: Touch node ready - waiting for touch data
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ============================================================
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Initializing Battery Monitor Node...
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ✓ Battery ADC initialized on channel A4
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ✓ Initial battery voltage: 8.04V
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Battery monitoring thread started
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ============================================================
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Battery Monitor Node Ready!
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Battery check interval: 60s
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Warning threshold: 7.0V
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: Critical threshold: 6.5V
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: ============================================================
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction node starting - listening for data from main node
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: PiDog Sound Direction Node Ready
-[pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: PiDog Movement Node Ready (forwarding commands to main node)
-[pidog_movement_node-2] [INFO] [pidog.pidog_movement_node]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node starting with advanced filtering
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: Distance node ready with advanced filtering:
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]:   - Window size: 5
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]:   - Outlier threshold: 50.0 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]:   - Max change per reading: 100.0 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]:   - Publishing at 10.0 Hz
-[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node starting (NO hardware initialization)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Initializing PiDog hardware...
-[pidog_imu_node-5] [INFO] [pidog.pidog_imu_node]: IMU node ready (publishing at 10.0 Hz)
-[pidog_tts_speaks_node-8] [0;93m2026-05-18 11:41:17.502985422 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
+[INFO] [ros2_autonomous_pidog-1]: process started with pid [1920]
+[INFO] [pidog_movement_node-2]: process started with pid [1922]
+[INFO] [pidog_distance_node-3]: process started with pid [1924]
+[INFO] [pidog_camera_node-4]: process started with pid [1926]
+[INFO] [pidog_imu_node-5]: process started with pid [1928]
+[INFO] [pidog_dual_touch_node-6]: process started with pid [1930]
+[INFO] [pidog_direction_sensor_node-7]: process started with pid [1932]
+[INFO] [pidog_tts_speaks_node-8]: process started with pid [1934]
+[INFO] [pidog_stt_voice_command_node-9]: process started with pid [1936]
+[INFO] [pidog_battery_monitor_node-10]: process started with pid [1938]
+[pidog_battery_monitor_node-10] [INFO]: ============================================================
+[pidog_battery_monitor_node-10] [INFO]: Initializing Battery Monitor Node...
+[pidog_dual_touch_node-6] [INFO]: Touch node starting - listening for touch events
+[pidog_dual_touch_node-6] [INFO]: Touch node ready - waiting for touch data
+[pidog_battery_monitor_node-10] [INFO]: ✓ Battery ADC initialized on channel A4
+[pidog_battery_monitor_node-10] [INFO]: ✓ Initial battery voltage: 8.04V
+[pidog_battery_monitor_node-10] [INFO]: ============================================================
+[pidog_battery_monitor_node-10] [INFO]: Battery Monitor Node Ready!
+[pidog_battery_monitor_node-10] [INFO]: Battery check interval: 60s
+[pidog_battery_monitor_node-10] [INFO]: Warning threshold: 7.0V
+[pidog_battery_monitor_node-10] [INFO]: Critical threshold: 6.5V
+[pidog_battery_monitor_node-10] [INFO]: ============================================================
+[pidog_battery_monitor_node-10] [INFO]: Battery monitoring thread started
+[pidog_movement_node-2] [INFO]: PiDog Movement Node Ready (forwarding commands to main node)
+[pidog_movement_node-2] [INFO]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop
+[pidog_direction_sensor_node-7] [INFO]: Sound direction node starting - listening for data from main node
+[pidog_direction_sensor_node-7] [INFO]: PiDog Sound Direction Node Ready
+[pidog_distance_node-3] [INFO]: Distance node starting with advanced filtering
+[pidog_distance_node-3] [INFO]: Distance node ready with advanced filtering:
+[pidog_distance_node-3] [INFO]:   - Window size: 5
+[pidog_distance_node-3] [INFO]:   - Outlier threshold: 50.0 cm
+[pidog_distance_node-3] [INFO]:   - Max change per reading: 100.0 cm
+[pidog_distance_node-3] [INFO]:   - Publishing at 10.0 Hz
+[pidog_imu_node-5] [INFO]: IMU node starting (NO hardware initialization)
+[pidog_imu_node-5] [INFO]: IMU node ready (publishing at 10.0 Hz)
+[ros2_autonomous_pidog-1] [INFO]: ============================================================
+[ros2_autonomous_pidog-1] [INFO]: Initializing PiDog hardware...
+[pidog_tts_speaks_node-8] [0;93m2026-05-19 10:27:14.634047378 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
+[pidog_camera_node-4] [INFO]: Face cascade classifier loaded successfully
 [ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
 [ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
 [ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Face cascade classifier loaded successfully
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: STT node starting...
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 7.96V (81.5%) - GOOD
+[pidog_stt_voice_command_node-9] [INFO]: STT node starting...
+[pidog_stt_voice_command_node-9] [INFO]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...
 [pidog_camera_node-4] vilib 0.3.18 launching ...
 [pidog_camera_node-4] picamera2 0.3.35
+[pidog_battery_monitor_node-10] [WARN]: Invalid battery reading: 11.186153846153845V
 [pidog_camera_node-4] 
 [pidog_camera_node-4] Web display on:
 [pidog_camera_node-4]       http://192.168.0.23:9000/mjpg
@@ -54,610 +54,507 @@
 [pidog_camera_node-4] Starting web streaming ...
 [pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
 [pidog_camera_node-4]  * Debug mode: off
-[pidog_stt_voice_command_node-9] ALSA lib pcm_asym.c:105:(_snd_pcm_asym_open) capture slave is not defined
-[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1032:(snd_pcm_dmix_open) unable to open slave
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.rear
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.center_lfe
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.side
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround21
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround40
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround41
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround50
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround51
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.surround71
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.hdmi
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.modem
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
-[pidog_stt_voice_command_node-9] ALSA lib pcm.c:2664:(snd_pcm_open_noupdate) Unknown PCM cards.pcm.phoneline
-[pidog_stt_voice_command_node-9] ALSA lib pcm_oss.c:397:(_snd_pcm_oss_open) Cannot open device /dev/dsp
-[pidog_stt_voice_command_node-9] ALSA lib pcm_oss.c:397:(_snd_pcm_oss_open) Cannot open device /dev/dsp
 [pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
 [pidog_stt_voice_command_node-9] 
 [pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
 [pidog_stt_voice_command_node-9] 
 [pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
-[pidog_stt_voice_command_node-9] ALSA lib pcm_usb_stream.c:482:(_snd_pcm_usb_stream_open) Invalid card 'card'
 [pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
-[pidog_stt_voice_command_node-9] ALSA lib pcm_usb_stream.c:482:(_snd_pcm_usb_stream_open) Invalid card 'card'
-[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1005:(snd_pcm_dmix_open) The dmix plugin supports only playback stream
-[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1005:(snd_pcm_dmix_open) The dmix plugin supports only playback stream
-[pidog_stt_voice_command_node-9] ALSA lib pcm_dmix.c:1032:(snd_pcm_dmix_open) unable to open slave
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Using audio device: default
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Vosk initialized successfully - listening for commands
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Voice commands will be published to /pidog/voice_command
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Will ignore speech while TTS is speaking + 0.5s delay
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Audio filter: low-pass at 4000 Hz (reduces servo noise)
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Try saying: sit, stand, walk, stop, turn left, turn right
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: Listening for voice commands with audio filtering...
+[pidog_stt_voice_command_node-9] [INFO]: Using audio device: default
+[pidog_stt_voice_command_node-9] [INFO]: Listening for voice commands with audio filtering...
+[pidog_stt_voice_command_node-9] [INFO]: Vosk initialized successfully - listening for commands
+[pidog_stt_voice_command_node-9] [INFO]: Voice commands will be published to /pidog/voice_command
+[pidog_stt_voice_command_node-9] [INFO]: Will ignore speech while TTS is speaking + 0.5s delay
+[pidog_stt_voice_command_node-9] [INFO]: Audio filter: low-pass at 4000 Hz (reduces servo noise)
+[pidog_stt_voice_command_node-9] [INFO]: Try saying: sit, stand, walk, stop, turn left, turn right
+[pidog_camera_node-4] [INFO]: Camera initialized with Vilib
+[pidog_camera_node-4] [INFO]: Camera capture loop started
+[pidog_camera_node-4] [INFO]: PiDog Camera Node Ready
+[pidog_camera_node-4] [INFO]: Publishing to: camera/image_raw and face_detection
 [ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera initialized with Vilib
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Camera capture loop started
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: PiDog Camera Node Ready
-[pidog_camera_node-4] [INFO] [pidog.pidog_camera_node]: Publishing to: camera/image_raw and face_detection
 [ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
 [ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Piper TTS initialized successfully with model: en_US-ryan-low
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: eSpeak found and ready
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: PiDog TTS Node Ready (piper=True, espeak=True)
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Or publish to /speak_text topic
+[pidog_tts_speaks_node-8] [INFO]: Piper TTS initialized successfully with model: en_US-ryan-low
+[pidog_tts_speaks_node-8] [INFO]: eSpeak found and ready
+[pidog_tts_speaks_node-8] [INFO]: PiDog TTS Node Ready (piper=True, espeak=True)
+[pidog_tts_speaks_node-8] [INFO]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'
+[pidog_tts_speaks_node-8] [INFO]: Or publish to /speak_text topic
 [ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ PiDog hardware available
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Testing hardware...
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ✓ Hardware test passed
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: OFF
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble:0
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔇 Sound disabled for 15.7s
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Calibrating IMU - keep dog still...
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: IMU calibration complete: offsets (ax=-1.048, ay=0.315, az=0.001)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Autonomous behavior loop started
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ROS 2 Autonomous PiDog Node Ready!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Sensor reading thread started
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Say: sit, stand, walk, stop, turn left, turn right
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ============================================================
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stand
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=109-154cm → filtered=123cm → stable=123cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 105.8 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=139.5°, pitch=135.6°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=56-95cm → filtered=86cm → stable=86cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=56-92cm → filtered=83cm → stable=83cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=49-86cm → filtered=76cm → stable=76cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=71-135cm → filtered=73cm → stable=73cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 25/50 (50.0% rejected)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 48.7 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=44-49cm → filtered=47cm → stable=47cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-131.4°, pitch=142.6°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=40-45cm → filtered=43cm → stable=43cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=40-44cm → filtered=41cm → stable=41cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=127.8°, pitch=-157.6°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 33.7 cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 53/100 (53.0% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=23-51cm → filtered=30cm → stable=30cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected while moving!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚨 CRITICAL obstacle! Stable distance: 29.3cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle confirmed! Distance: 29.3 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ backward
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 28.0 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-124.0°, pitch=-111.6°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-39cm → filtered=38cm → stable=38cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 42.6 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-45cm → filtered=44cm → stable=44cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=30.5°, pitch=-42.6°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-158.0°, pitch=113.9°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=14-48cm → filtered=35cm → stable=35cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 53/150 (35.3% rejected)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=140.7°, pitch=114.3°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=50-52cm → filtered=51cm → stable=51cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 61.5 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=79.5°, pitch=80.4°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=63-130cm → filtered=70cm → stable=70cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=146.8°, pitch=112.5°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=36-79cm → filtered=69cm → stable=69cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=73-82cm → filtered=77cm → stable=77cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 89/200 (44.5% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=71-91cm → filtered=85cm → stable=85cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 94.1 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 96.2 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 102.1 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=63-127cm → filtered=105cm → stable=105cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 113.9 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-42.1°, pitch=-44.4°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=94.8°, pitch=-106.3°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 110/250 (44.0% rejected)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔄 Smart turning right (steps=8, speed=100)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ turn_right
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=52-123cm → filtered=122cm → stable=122cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 120.4 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 120.4 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=118-120cm → filtered=119cm → stable=119cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 115.8 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=109.1°, pitch=108.4°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=187-189cm → filtered=188cm → stable=188cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=185-188cm → filtered=187cm → stable=187cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=185-247cm → filtered=186cm → stable=186cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=60-140cm → filtered=67cm → stable=67cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=64-140cm → filtered=68cm → stable=68cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 173/300 (57.7% rejected)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=135.5°, pitch=168.4°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=56-136cm → filtered=57cm → stable=57cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 52.8 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=177.1°, pitch=98.0°, yaw=0.0°
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=62-96cm → filtered=75cm → stable=75cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=23.7°, pitch=-21.7°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=68-96cm → filtered=79cm → stable=79cm
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sigh... I'm bored
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=44-58cm → filtered=53cm → stable=53cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 197/350 (56.3% rejected)
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 7.99V (83.0%) - GOOD
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-172.6°, pitch=173.0°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 36.3 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=34-39cm → filtered=37cm → stable=37cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=9-47cm → filtered=31cm → stable=31cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=25-47cm → filtered=37cm → stable=37cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=25-37cm → filtered=32cm → stable=32cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 36.0 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=30-32cm → filtered=31cm → stable=31cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 199/400 (49.8% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=21-58cm → filtered=33cm → stable=33cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=21-58cm → filtered=33cm → stable=33cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 30.8 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎭 Random personality: scratch
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ scratch
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 36.5 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=15-42cm → filtered=34cm → stable=34cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'three'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=28-53cm → filtered=34cm → stable=34cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'three'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'three'
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 208/450 (46.2% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=50-89cm → filtered=73cm → stable=73cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 86.9 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 85.2 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 86.1 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=57-87cm → filtered=80cm → stable=80cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=35-58cm → filtered=41cm → stable=41cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 👆 Touch detected: R
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: You touched my right side:1
-[pidog_dual_touch_node-6] [INFO] [pidog.pidog_dual_touch_node]: 👆 Touch detected: Right side (R)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Touch callback received: R
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ shake_head
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: You touched my right side
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ wag_tail
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-44cm → filtered=39cm → stable=39cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 39.1 cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=104-209cm → filtered=143cm → stable=143cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=104-209cm → filtered=143cm → stable=143cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 240/500 (48.0% rejected)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=38.7°, pitch=12.3°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=41.9°, pitch=13.9°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=13-61cm → filtered=23cm → stable=23cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=43.8°, pitch=22.4°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=45.2°, pitch=12.5°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚨 CRITICAL obstacle! Stable distance: 9.3cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle confirmed! Distance: 9.3 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ backward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=9-21cm → filtered=14cm → stable=14cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=10-37cm → filtered=19cm → stable=19cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=160-168cm → filtered=165cm → stable=165cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 166.4 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 260/550 (47.3% rejected)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 166.8 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 170.2 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-73.7°, pitch=59.8°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=176-186cm → filtered=180cm → stable=180cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=176-186cm → filtered=180cm → stable=180cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 186.1 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=69.8°, pitch=-79.2°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=84.9°, pitch=82.7°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=191-194cm → filtered=193cm → stable=193cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-7.0°, pitch=-29.6°, yaw=0.0°
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 197.4 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=196-202cm → filtered=199cm → stable=199cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=200-208cm → filtered=203cm → stable=203cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=170-210cm → filtered=201cm → stable=201cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=170-211cm → filtered=202cm → stable=202cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=170-211cm → filtered=202cm → stable=202cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 210.6 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=170-211cm → filtered=202cm → stable=202cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 272/600 (45.3% rejected)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=7.5°, pitch=-73.3°, yaw=0.0°
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 7.98V (82.3%) - GOOD
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=54-234cm → filtered=230cm → stable=230cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=230-237cm → filtered=235cm → stable=235cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=184-248cm → filtered=244cm → stable=244cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=184-248cm → filtered=244cm → stable=244cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 184.5 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔄 Smart turning left (steps=8, speed=100)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ turn_left
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=106-248cm → filtered=226cm → stable=226cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 364/650 (56.0% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=237-254cm → filtered=249cm → stable=249cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=237-254cm → filtered=249cm → stable=249cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=82.6°, pitch=41.6°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-97.1°, pitch=116.6°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=237-254cm → filtered=249cm → stable=249cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=237-254cm → filtered=249cm → stable=249cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=60-254cm → filtered=236cm → stable=236cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=60-254cm → filtered=236cm → stable=236cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=60-254cm → filtered=228cm → stable=228cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=61.1°, pitch=-37.8°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 139.5 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 65.2 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=49-139cm → filtered=137cm → stable=137cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=129-136cm → filtered=133cm → stable=133cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 420/700 (60.0% rejected)
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=146-148cm → filtered=147cm → stable=147cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=146-147cm → filtered=146cm → stable=146cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=60.4°, pitch=23.8°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=145-146cm → filtered=146cm → stable=146cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=130.8°, pitch=102.1°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=145-146cm → filtered=146cm → stable=146cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=119.1°, pitch=173.5°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 108.8 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=103-110cm → filtered=107cm → stable=107cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=51-110cm → filtered=107cm → stable=107cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=51-110cm → filtered=105cm → stable=105cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=86.5°, pitch=-87.9°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 96.6 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-33.6°, pitch=-33.6°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=74.8°, pitch=77.5°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-77.8°, pitch=72.1°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=72-86cm → filtered=81cm → stable=81cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=72-85cm → filtered=81cm → stable=81cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 461/750 (61.5% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=77-182cm → filtered=78cm → stable=78cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 74.1 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=50-134cm → filtered=68cm → stable=68cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=52-54cm → filtered=53cm → stable=53cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-45cm → filtered=43cm → stable=43cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=37-42cm → filtered=40cm → stable=40cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=36-38cm → filtered=37cm → stable=37cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 486/800 (60.8% rejected)
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected while moving!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle confirmed! Distance: 30.7 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ backward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=32-36cm → filtered=34cm → stable=34cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=35-38cm → filtered=37cm → stable=37cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=35-38cm → filtered=37cm → stable=37cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=70.6°, pitch=46.3°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=39-42cm → filtered=41cm → stable=41cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 41.8 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 45.3 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 53.5 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=50-147cm → filtered=53cm → stable=53cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 54.4 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 49.7 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 499/850 (58.7% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=50-67cm → filtered=59cm → stable=59cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 60.2 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=62-199cm → filtered=64cm → stable=64cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=65-199cm → filtered=66cm → stable=66cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=49-154cm → filtered=77cm → stable=77cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=49-86cm → filtered=70cm → stable=70cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-23.8°, pitch=-28.7°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=57-93cm → filtered=80cm → stable=80cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 513/900 (57.0% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=98-138cm → filtered=107cm → stable=107cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=98-138cm → filtered=107cm → stable=107cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'little'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'little'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'little'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔄 Smart turning right (steps=8, speed=100)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ turn_right
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=58-114cm → filtered=106cm → stable=106cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 110.9 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 111.4 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=56-112cm → filtered=111cm → stable=111cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 111.9 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=94.7°, pitch=101.2°, yaw=0.0°
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 7.98V (82.5%) - GOOD
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=173-176cm → filtered=174cm → stable=174cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=173-176cm → filtered=174cm → stable=174cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=173-176cm → filtered=174cm → stable=174cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=173-176cm → filtered=174cm → stable=174cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=173-176cm → filtered=174cm → stable=174cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 17.3 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 566/950 (59.6% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=13-20cm → filtered=18cm → stable=18cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=13-20cm → filtered=18cm → stable=18cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=11-14cm → filtered=12cm → stable=12cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=36.7°, pitch=62.8°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=11-15cm → filtered=13cm → stable=13cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎭 Random personality: look_around
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ look_around
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=12-18cm → filtered=14cm → stable=14cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚨 CRITICAL obstacle! Stable distance: 14.1cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle confirmed! Distance: 14.1 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ backward
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=50-73cm → filtered=60cm → stable=60cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 58.6 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 59.2 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 566/1000 (56.6% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=54-99cm → filtered=67cm → stable=67cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 57.4 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 59.8 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=29-71cm → filtered=52cm → stable=52cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 63.0 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=49-68cm → filtered=56cm → stable=56cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 598/1050 (57.0% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=56-60cm → filtered=58cm → stable=58cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 57.6 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-48.5°, pitch=-26.0°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=56-178cm → filtered=58cm → stable=58cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=60-63cm → filtered=61cm → stable=61cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=65-69cm → filtered=67cm → stable=67cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 69.2 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=51-157cm → filtered=53cm → stable=53cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=52-114cm → filtered=53cm → stable=53cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=47-80cm → filtered=60cm → stable=60cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-24.9°, pitch=-26.6°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=32-80cm → filtered=55cm → stable=55cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=31-54cm → filtered=45cm → stable=45cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 640/1100 (58.2% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=29-62cm → filtered=48cm → stable=48cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=53-99cm → filtered=62cm → stable=62cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 57.4 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=70.2°, pitch=-48.2°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=10-245cm → filtered=57cm → stable=57cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=85.5°, pitch=84.5°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=10-245cm → filtered=57cm → stable=57cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=10-245cm → filtered=63cm → stable=63cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'flip flop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'flip flop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'flip flop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🔄 Smart turning left (steps=8, speed=100)
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ turn_left
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 70.5 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=61-73cm → filtered=70cm → stable=70cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 68.6 cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=144.1°, pitch=-126.9°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=67-75cm → filtered=69cm → stable=69cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📊 Filter stats: 669/1150 (58.2% rejected)
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=67-80cm → filtered=72cm → stable=72cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-80cm → filtered=65cm → stable=65cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'flipped out'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'flipped out'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'flipped out'
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[ros2_autonomous_pidog-1] ALSA lib pcm.c:8568:(snd_pcm_recover) underrun occurred
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=51.9°, pitch=8.6°, yaw=0.0°
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'out'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'out'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'out'
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Woof! That scared me!:1
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Woof! That scared me!
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ startle
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-84.5°, pitch=-83.4°, yaw=0.0°
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit down'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'sit down'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 SIT
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ sit
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 7.81V (75.6%) - GOOD
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Sitting down:0
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sitting down
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-90.0°, pitch=90.0°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-95.7°, pitch=96.9°, yaw=0.0°
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=52.0°, pitch=29.4°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'stop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 STOP
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stop
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Stop command executed
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Stopping:0
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Stopping
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-38.2°, pitch=14.6°, yaw=0.0°
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'the now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'the now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'the now'
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'this now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'this now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'this now'
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Hmm? What's that?:1
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Hmm? What's that?
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ head_tilt
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-134.0°, pitch=158.3°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'sit down'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'sit down'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 SIT
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ sit
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-14.2°, pitch=-65.1°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-139cm → filtered=65cm → stable=65cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-87.3°, pitch=82.3°, yaw=0.0°
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Sitting down:0
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sitting down
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-89.4°, pitch=88.2°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-89.3°, pitch=87.9°, yaw=0.0°
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'stop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 STOP
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stop
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Stop command executed
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Stopping:0
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Stopping
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=158.3°, pitch=133.8°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'it says south'
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'it says south'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'it says south'
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Sigh... I'm bored:1
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Sigh... I'm bored
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=42-193cm → filtered=63cm → stable=63cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'flint now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'flint now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'flint now'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=28-113cm → filtered=109cm → stable=109cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=28-113cm → filtered=106cm → stable=106cm
-[pidog_battery_monitor_node-10] [INFO] [pidog.pidog_battery_monitor_node]: 🔋 Battery: 7.89V (78.9%) - GOOD
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=28-102cm → filtered=96cm → stable=96cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'fifth know'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'fifth know'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Unknown command: 'fifth know'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_direction_sensor_node-7] [INFO] [pidog.pidog_direction_sensor_node]: Sound direction: ON
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=28-102cm → filtered=96cm → stable=96cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📊 IMU: roll=-93.3°, pitch=-94.8°, yaw=0.0°
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=21-102cm → filtered=96cm → stable=96cm
-[pidog_stt_voice_command_node-9] [INFO] [pidog.pidog_stt_voice_command_node]: 🎤 Recognized: 'stop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🛑 Interrupting current action for voice command
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=21-102cm → filtered=96cm → stable=96cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🎤 Voice command: 'stop'
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📢 STOP
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ stop
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Stop command executed
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=21-102cm → filtered=96cm → stable=96cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 🚧 Obstacle detected while moving!
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: Speak topic received: Stopping:0
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: ➡️ forward
-[pidog_tts_speaks_node-8] [INFO] [pidog.pidog_tts_speaks_node]: 🔊 Speaking: Stopping
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=21-102cm → filtered=96cm → stable=96cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=21-96cm → filtered=91cm → stable=91cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 83.8 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=38-219cm → filtered=107cm → stable=107cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=76-154cm → filtered=78cm → stable=78cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: Returning to wandering mode
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 80.6 cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=62-115cm → filtered=79cm → stable=79cm
-[pidog_distance_node-3] [INFO] [pidog.pidog_distance_node]: 📏 Distance: raw=61-86cm → filtered=68cm → stable=68cm
-[ros2_autonomous_pidog-1] [INFO] [pidog.ros2_autonomous_pidog]: 📏 Distance: 60.6 cm
+[ros2_autonomous_pidog-1] [INFO]: ✓ PiDog hardware available
+[ros2_autonomous_pidog-1] [INFO]: Testing hardware...
+[ros2_autonomous_pidog-1] [INFO]: ✓ Hardware test passed
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: OFF
+[ros2_autonomous_pidog-1] [INFO]: 🔇 Sound disabled for 15.7s
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble:0
+[ros2_autonomous_pidog-1] [INFO]: Calibrating IMU - keep dog still...
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble
+[ros2_autonomous_pidog-1] [INFO]: IMU calibration complete: offsets (ax=-1.084, ay=0.292, az=0.006)
+[ros2_autonomous_pidog-1] [INFO]: ============================================================
+[ros2_autonomous_pidog-1] [INFO]: Sensor reading thread started
+[ros2_autonomous_pidog-1] [INFO]: ROS 2 Autonomous PiDog Node Ready!
+[ros2_autonomous_pidog-1] [INFO]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands
+[ros2_autonomous_pidog-1] [INFO]: Say: sit, stand, walk, stop, turn left, turn right
+[ros2_autonomous_pidog-1] [INFO]: ============================================================
+[ros2_autonomous_pidog-1] [INFO]: Autonomous behavior loop started
+[ros2_autonomous_pidog-1] [INFO]: ➡️ stand
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=54-130cm → filtered=123cm → stable=123cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 129.6 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 134.3 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-92.5°, pitch=93.9°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=124-128cm → filtered=126cm → stable=126cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=124-128cm → filtered=126cm → stable=126cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-103.3°, pitch=-110.8°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-87.8°, pitch=-86.4°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 109.2 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=60-111cm → filtered=100cm → stable=100cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 103.0 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 62.8 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=61-97cm → filtered=82cm → stable=82cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 25/50 (50.0% rejected)
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=63-96cm → filtered=87cm → stable=87cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-60.7°, pitch=51.7°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=83-87cm → filtered=86cm → stable=86cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 82.6 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 79.1 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=74-223cm → filtered=77cm → stable=77cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=62-66cm → filtered=64cm → stable=64cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 54.0 cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 42/100 (42.0% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 47.3 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=47-55cm → filtered=50cm → stable=50cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-46.3°, pitch=-26.7°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 42.8 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=42-222cm → filtered=44cm → stable=44cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=38-222cm → filtered=40cm → stable=40cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=33-38cm → filtered=36cm → stable=36cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=173.7°, pitch=131.6°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-124.4°, pitch=116.1°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=24-31cm → filtered=28cm → stable=28cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 22.1 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 18.6 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 12.2 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=6-15cm → filtered=11cm → stable=11cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 7.6 cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 48/150 (32.0% rejected)
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=2-4cm → filtered=3cm → stable=3cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=3-3cm → filtered=3cm → stable=3cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=3-3cm → filtered=3cm → stable=3cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-122.2°, pitch=128.4°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 2.8 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=2-3cm → filtered=2cm → stable=2cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-74.2°, pitch=43.0°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=122.3°, pitch=-99.7°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 48/200 (24.0% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 🚧 Obstacle detected while moving!
+[ros2_autonomous_pidog-1] [INFO]: 🚨 CRITICAL obstacle! Stable distance: 2.4cm
+[ros2_autonomous_pidog-1] [INFO]: 🚧 Obstacle confirmed! Distance: 2.4 cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ backward
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 12.8 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=74.9°, pitch=86.4°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=16-18cm → filtered=17cm → stable=17cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 21.4 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-153.8°, pitch=137.4°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 29.2 cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 48/250 (19.2% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 36.5 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=142.5°, pitch=162.5°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 44.0 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 47.7 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-54cm → filtered=51cm → stable=51cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-54cm → filtered=53cm → stable=53cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 54.3 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 55.8 cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 59/300 (19.7% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-51.8°, pitch=-11.1°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=49-69cm → filtered=59cm → stable=59cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=60-82cm → filtered=69cm → stable=69cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 68.4 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-36.8°, pitch=-21.8°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=173.6°, pitch=-148.1°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 83.1 cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=84-185cm → filtered=87cm → stable=87cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 87.0 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 88.4 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=86-89cm → filtered=88cm → stable=88cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=88-92cm → filtered=90cm → stable=90cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 66/350 (18.9% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-80.2°, pitch=-77.2°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 96.4 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 99.1 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=57-99cm → filtered=90cm → stable=90cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=98-163cm → filtered=99cm → stable=99cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=104-109cm → filtered=106cm → stable=106cm
+[ros2_autonomous_pidog-1] [INFO]: 🔄 Smart turning left (steps=8, speed=100)
+[ros2_autonomous_pidog-1] [INFO]: ➡️ turn_left
+[pidog_battery_monitor_node-10] [INFO]: 🔋 Battery: 7.43V (59.5%) - GOOD
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=125.9°, pitch=-167.8°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=150.7°, pitch=-144.0°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=48.4°, pitch=8.5°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-191cm → filtered=98cm → stable=98cm
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Woof! That scared me!:1
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Woof! That scared me!
+[ros2_autonomous_pidog-1] [INFO]: ➡️ startle
+[ros2_autonomous_pidog-1] [INFO]: ➡️ wag_tail
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-244cm → filtered=231cm → stable=152cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-244cm → filtered=231cm → stable=231cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=56.7°, pitch=16.6°, yaw=0.0°
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Happy bark!
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-244cm → filtered=231cm → stable=231cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-34.9°, pitch=-41.5°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-244cm → filtered=229cm → stable=229cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=93-244cm → filtered=229cm → stable=229cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'not'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'not'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'not'
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'the down'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'the down'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'the down'
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'sit down'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'sit down'
+[ros2_autonomous_pidog-1] [INFO]: 📢 SIT
+[ros2_autonomous_pidog-1] [INFO]: ➡️ sit
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=67-224cm → filtered=179cm → stable=179cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-143.8°, pitch=172.6°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Sitting down:0
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Sitting down
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-89.0°, pitch=87.1°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-221cm → filtered=144cm → stable=144cm
+[ros2_autonomous_pidog-1] [INFO]: Returning to wandering mode
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 639/400 (159.8% rejected)
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=6.3°, pitch=60.0°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=60-136cm → filtered=96cm → stable=96cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'stuff'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'stuff'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'stuff'
+[ros2_autonomous_pidog-1] [INFO]: 🎭 Random personality: shake_head
+[ros2_autonomous_pidog-1] [INFO]: ➡️ shake_head
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=17.1°, pitch=29.7°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=86-131cm → filtered=97cm → stable=97cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'push up'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'push up'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'push up'
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=88-257cm → filtered=89cm → stable=89cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=90-257cm → filtered=257cm → stable=257cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 253.2 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 234.7 cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 724/450 (160.9% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 162.5 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=161-242cm → filtered=237cm → stable=237cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=161-242cm → filtered=237cm → stable=237cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=44.4°, pitch=-52.7°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-135cm → filtered=110cm → stable=110cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=112.4°, pitch=111.8°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 160.0 cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'thought'
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=122-207cm → filtered=179cm → stable=179cm
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=122-207cm → filtered=193cm → stable=193cm
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'thought'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'thought'
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=116-194cm → filtered=156cm → stable=156cm
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Hmm? What's that?:1
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Hmm? What's that?
+[ros2_autonomous_pidog-1] [INFO]: ➡️ head_tilt
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=112-159cm → filtered=122cm → stable=122cm
+[pidog_battery_monitor_node-10] [INFO]: 🔋 Battery: 7.79V (74.5%) - GOOD
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=112-193cm → filtered=113cm → stable=113cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=112-193cm → filtered=113cm → stable=113cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 844/500 (168.8% rejected)
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=112-200cm → filtered=112cm → stable=112cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'right'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'right'
+[ros2_autonomous_pidog-1] [INFO]: 📢 TURN RIGHT
+[ros2_autonomous_pidog-1] [INFO]: ➡️ turn_right
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=86-110cm → filtered=96cm → stable=96cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 78.6 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=49-80cm → filtered=72cm → stable=72cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 73.4 cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=58-166cm → filtered=64cm → stable=64cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=57-75cm → filtered=63cm → stable=63cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 914/550 (166.2% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 41.1 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 41.0 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=15-42cm → filtered=36cm → stable=36cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=89-109cm → filtered=93cm → stable=93cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=88-98cm → filtered=91cm → stable=91cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 67.9 cm
+[ros2_autonomous_pidog-1] [INFO]: 🎭 Random personality: wag_tail
+[ros2_autonomous_pidog-1] [INFO]: ➡️ wag_tail
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 927/600 (154.5% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=42.6°, pitch=17.1°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 57.8 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 57.4 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=57-130cm → filtered=58cm → stable=58cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=37-130cm → filtered=51cm → stable=51cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 80.8 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=163.6°, pitch=-173.9°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=75-81cm → filtered=77cm → stable=77cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=74-81cm → filtered=77cm → stable=77cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=95.7°, pitch=133.2°, yaw=0.0°
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'down'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'down'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'down'
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 944/650 (145.2% rejected)
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=69-243cm → filtered=78cm → stable=78cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-156.2°, pitch=174.2°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 996/700 (142.3% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 98.7 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 94.7 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-38.0°, pitch=63.4°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 77.7 cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'sit down'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'sit down'
+[ros2_autonomous_pidog-1] [INFO]: 📢 SIT
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-10.9°, pitch=-11.8°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: ➡️ sit
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-78cm → filtered=76cm → stable=76cm
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Sitting down:0
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Sitting down
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 1011/750 (134.8% rejected)
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=48-85cm → filtered=66cm → stable=66cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=48-85cm → filtered=65cm → stable=65cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=48-147cm → filtered=59cm → stable=59cm
+[ros2_autonomous_pidog-1] [INFO]: Returning to wandering mode
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-89.4°, pitch=88.2°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=57-118cm → filtered=63cm → stable=63cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 81.5 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=121.8°, pitch=-171.2°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=82cm → stable=82cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=82cm → stable=82cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=82cm → stable=82cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=82cm → stable=82cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-169.2°, pitch=167.8°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=50.0°, pitch=-67.1°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-140.1°, pitch=102.4°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=93.3°, pitch=-96.4°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_battery_monitor_node-10] [INFO]: 🔋 Battery: 7.90V (79.1%) - GOOD
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-75.2°, pitch=-7.9°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=113.7°, pitch=174.8°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Awooo... anyone there?:1
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Awooo... anyone there?
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=64-245cm → filtered=84cm → stable=84cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=138.7°, pitch=123.5°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'stop'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'stop'
+[ros2_autonomous_pidog-1] [INFO]: 📢 STOP
+[ros2_autonomous_pidog-1] [INFO]: ➡️ stop
+[ros2_autonomous_pidog-1] [INFO]: Stop command executed
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Stopping:0
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Stopping
+[ros2_autonomous_pidog-1] [INFO]: 🎭 Random personality: shake_head
+[ros2_autonomous_pidog-1] [INFO]: ➡️ shake_head
+[ros2_autonomous_pidog-1] [INFO]: Returning to wandering mode
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'stretch'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'stretch'
+[ros2_autonomous_pidog-1] [INFO]: 📢 STRETCH
+[ros2_autonomous_pidog-1] [INFO]: ➡️ stretch
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=68.1°, pitch=61.9°, yaw=0.0°
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'stop'
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-4.3°, pitch=-71.3°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=25.1°, pitch=32.9°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=25.9°, pitch=-19.4°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=31.5°, pitch=15.8°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'wow'
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'gop'
+[pidog_battery_monitor_node-10] [INFO]: 🔋 Battery: 7.90V (79.1%) - GOOD
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=73-245cm → filtered=108cm → stable=108cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'stop'
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=170.7°, pitch=119.4°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=97.6°, pitch=-165.9°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-245cm → filtered=63cm → stable=63cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-245cm → filtered=63cm → stable=63cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-245cm → filtered=63cm → stable=63cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'stop'
+[ros2_autonomous_pidog-1] [INFO]: 📢 STOP
+[ros2_autonomous_pidog-1] [INFO]: ➡️ stop
+[ros2_autonomous_pidog-1] [INFO]: Stop command executed
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Stopping:0
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Stopping
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-245cm → filtered=63cm → stable=63cm
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'gop'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'gop'
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'stop'
+[ros2_autonomous_pidog-1] [INFO]: 📢 STOP
+[ros2_autonomous_pidog-1] [INFO]: ➡️ stop
+[ros2_autonomous_pidog-1] [INFO]: Stop command executed
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=35.0°, pitch=58.3°, yaw=0.0°
+[pidog_tts_speaks_node-8] [INFO]: Speak topic received: Stopping:0
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=50-253cm → filtered=63cm → stable=63cm
+[pidog_tts_speaks_node-8] [INFO]: 🔊 Speaking: Stopping
+[ros2_autonomous_pidog-1] [INFO]: Returning to wandering mode
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=33-253cm → filtered=192cm → stable=107cm
+[ros2_autonomous_pidog-1] [INFO]: Returning to wandering mode
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 248.6 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=228-250cm → filtered=245cm → stable=245cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=238-244cm → filtered=242cm → stable=242cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 1994/800 (249.3% rejected)
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=235-244cm → filtered=240cm → stable=240cm
+[pidog_direction_sensor_node-7] [INFO]: Sound direction: ON
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=179-249cm → filtered=221cm → stable=221cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 220.0 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=179-229cm → filtered=215cm → stable=215cm
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'and shape'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'and shape'
+[ros2_autonomous_pidog-1] [INFO]: Unknown command: 'and shape'
+[ros2_autonomous_pidog-1] [INFO]: 🎭 Random personality: wag_tail
+[ros2_autonomous_pidog-1] [INFO]: ➡️ wag_tail
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=126-216cm → filtered=214cm → stable=214cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 213.2 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=212-214cm → filtered=213cm → stable=213cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=212-219cm → filtered=213cm → stable=213cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=205-211cm → filtered=207cm → stable=207cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=203-211cm → filtered=206cm → stable=206cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=203-211cm → filtered=206cm → stable=206cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 2027/850 (238.5% rejected)
+[pidog_stt_voice_command_node-9] [INFO]: 🎤 Recognized: 'shake panic'
+[ros2_autonomous_pidog-1] [INFO]: 🛑 Interrupting current action for voice command
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=175-178cm → filtered=176cm → stable=176cm
+[ros2_autonomous_pidog-1] [INFO]: 🎤 Voice command: 'shake panic'
+[ros2_autonomous_pidog-1] [INFO]: 📢 Hand Shake
+[ros2_autonomous_pidog-1] [INFO]: ➡️ hand_shake
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-105.3°, pitch=-104.4°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-122.3°, pitch=123.5°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 85.1 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 79.3 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=54-79cm → filtered=72cm → stable=72cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=72-76cm → filtered=74cm → stable=74cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=71-74cm → filtered=72cm → stable=72cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 61.4 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=38-73cm → filtered=58cm → stable=58cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=47.3°, pitch=53.3°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 50.9 cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=-175.7°, pitch=160.9°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 2041/900 (226.8% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 45.1 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=44-47cm → filtered=45cm → stable=45cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=44-46cm → filtered=45cm → stable=45cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=41-44cm → filtered=42cm → stable=42cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=41-44cm → filtered=42cm → stable=42cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=32-37cm → filtered=34cm → stable=34cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=25-30cm → filtered=28cm → stable=28cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=18-23cm → filtered=20cm → stable=20cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=18-23cm → filtered=20cm → stable=20cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 2041/950 (214.8% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 🚧 Obstacle detected while moving!
+[ros2_autonomous_pidog-1] [INFO]: 🎭 Random personality: look_around
+[ros2_autonomous_pidog-1] [INFO]: ➡️ look_around
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=3-10cm → filtered=5cm → stable=5cm
+[ros2_autonomous_pidog-1] [INFO]: ➡️ forward
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=4-10cm → filtered=5cm → stable=5cm
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=164.2°, pitch=177.9°, yaw=0.0°
+[ros2_autonomous_pidog-1] [INFO]: 📊 IMU: roll=172.5°, pitch=-132.9°, yaw=0.0°
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=4-61cm → filtered=59cm → stable=59cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=57-92cm → filtered=64cm → stable=64cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=56-57cm → filtered=56cm → stable=56cm
+[pidog_distance_node-3] [INFO]: 📊 Filter stats: 2049/1000 (204.9% rejected)
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 52.5 cm
+[ros2_autonomous_pidog-1] [INFO]: 📏 Distance: 52.4 cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=48-126cm → filtered=65cm → stable=65cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=48-126cm → filtered=65cm → stable=65cm
+[pidog_distance_node-3] [INFO]: 📏 Distance: raw=48-106cm → filtered=49cm → stable=49cm

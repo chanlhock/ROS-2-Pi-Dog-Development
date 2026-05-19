@@ -4,7 +4,7 @@ from launch.actions import SetEnvironmentVariable
 
 def generate_launch_description():
     return LaunchDescription([
-        SetEnvironmentVariable('RCUTILS_CONSOLE_OUTPUT_FORMAT', '[{severity}] [{name}]: {message}'),
+        SetEnvironmentVariable('RCUTILS_CONSOLE_OUTPUT_FORMAT', '[{severity}]: {message}'),
         # Suppress Python warnings and broken pipe errors
         SetEnvironmentVariable('PYTHONWARNINGS', 'ignore'),
         Node(

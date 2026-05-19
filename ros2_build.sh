@@ -24,8 +24,9 @@ ln -sf $(realpath bin/pidog_battery_monitor_node) lib/pidog_ros2/
 # Now the launch file should work
 cd /ros2_ws
 source install/setup.bash
-cp log.txt log.bak
 rm log.txt
 rm core*
 clear
 ros2 launch pidog_ros2 pidog_autonomous.launch.py | tee log.txt
+sed -i.bak '/ALSA lib pcm/d' log.txt
+
