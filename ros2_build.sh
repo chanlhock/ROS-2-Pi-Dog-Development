@@ -27,12 +27,6 @@ source install/setup.bash
 rm log.txt
 rm core*
 clear
-#ros2 launch pidog_ros2 pidog_autonomous.launch.py | tee log.txt
-#ros2 launch pidog_ros2 pidog_autonomous.launch.py \
-#    autonomous_log_level:=INFO \
-#    distance_log_level:=INFO \
-#    enable_wandering:=False \
-#    enable_obstacle_avoidance:=False | tee log.txt
 
 #!/bin/bash
 
