@@ -541,9 +541,9 @@ class Ros2AutonomousPiDog(Node):
             elif command in ['scratch']:
                 self.dog.do_action('sit', speed=speed)
                 self.dog.wait_all_done()        
-                scratch(self.dog)
-                head_angs = [ [0, 0, 0], [0, 0, 0] ]
-                self.dog.head_move_raw(head_angs, immediately=False, speed=80)
+                #scratch(self.dog)
+                #head_angs = [ [0, 0, 0], [0, 0, 0] ]
+                #self.dog.head_move_raw(head_angs, immediately=False, speed=80)
                 time.sleep(2)
             else:
                 steps = max(1, step_count) if step_count > 0 else 1

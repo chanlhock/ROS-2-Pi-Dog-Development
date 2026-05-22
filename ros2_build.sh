@@ -27,6 +27,27 @@ source install/setup.bash
 rm log.txt
 rm core*
 clear
-ros2 launch pidog_ros2 pidog_autonomous.launch.py | tee log.txt
+#ros2 launch pidog_ros2 pidog_autonomous.launch.py | tee log.txt
+#ros2 launch pidog_ros2 pidog_autonomous.launch.py \
+#    autonomous_log_level:=INFO \
+#    distance_log_level:=INFO \
+#    enable_wandering:=False \
+#    enable_obstacle_avoidance:=False | tee log.txt
+
+#!/bin/bash
+
+if [ "$1" = "-off" ]; then
+    # Off mode - with parameters
+    ros2 launch pidog_ros2 pidog_autonomous.launch.py \
+        autonomous_log_level:=INFO \
+        distance_log_level:=INFO \
+        enable_wandering:=False \
+        enable_obstacle_avoidance:=False | tee log.txt
+else
+    # Normal mode - without parameters
+    ros2 launch pidog_ros2 pidog_autonomous.launch.py | tee log.txt
+fi
+
+
 sed -i.bak '/ALSA lib pcm/d' log.txt
 
