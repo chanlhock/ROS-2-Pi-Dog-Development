@@ -17,6 +17,7 @@ they'll do wonderful things with them.</i><br><br>
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ― STEVE JOBS
 </p> 
 
+If you're interested in purchasing Sunfounder products please use my referral link below:
 https://www.sunfounder.com/?ref=lbsberjr
 
 ## Table of Contents
