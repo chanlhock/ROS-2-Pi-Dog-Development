@@ -487,6 +487,18 @@ ros2 launch pidog_ros2 pidog_autonomous.launch.py
 # or Run with debug output
 ros2 launch pidog_ros2 pidog_autonomous.launch.py debug:=true
 ```
+
+### Rebuild with Clean Slate Automatically with Bash script
+```bash
+cd /ros2_ws
+
+# Automatically build and run launch file
+./ros_build.sh
+
+# or automatically build and run launch file turning off autonomous wandering and obstacle avoidance for debug purposes 
+./ros_build.sh -off
+```
+
 ### Check Logs if Issues Occur
 
 ```bash
