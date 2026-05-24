@@ -26,6 +26,8 @@
 ##########################################################################
 """
 
+from numpy import roll
+
 import rclpy
 from rclpy.node import Node
 from rclpy.executors import MultiThreadedExecutor
@@ -114,6 +116,9 @@ class Ros2AutonomousPiDog(Node):
             self.dog = None
             self.get_logger().error("✗ PiDog hardware NOT available!")
             return
+        
+        self.imu_offset = self.calibrate_imu() # Calibrate IMU at startup for better accuracy at standing position
+
         self.sound_disabled = True  # ADD THIS STATE TRACKING
         self.sound_direction_client = self.create_client(SetBool, '/pidog/enable_sound_direction')
         # Wait for service (don't block startup)
@@ -165,6 +170,12 @@ class Ros2AutonomousPiDog(Node):
         self.enable_face_interaction = True
         self.personality_actions = True
         
+        self.is_picked_up = False
+        self.pickup_debounce_time = 0
+        self.pickup_cooldown = 3.0  # Prevent multiple triggers
+        self.pickup_detection_enabled = True
+        self.is_moving = False
+
         # ============================================================
         # ROS 2 PUBLISHERS & SUBSCRIBERS
         # ============================================================
@@ -237,7 +248,6 @@ class Ros2AutonomousPiDog(Node):
         self.last_sound_reaction_time = 0
         self.sound_reaction_cooldown = 2.0  # Don't react to sound more than once per 2 seconds
 
-        self.imu_offset = self.calibrate_imu()
 
         # ============================================================
         # START THREADS
@@ -257,29 +267,36 @@ class Ros2AutonomousPiDog(Node):
         self.get_logger().info("=" * 60)
     
     def calibrate_imu(self):
-        """Calibrate IMU by averaging readinfoings while stationary"""
-        self.get_logger().info("Calibrating IMU - keep dog still...")
-        samples_ax = []
-        samples_ay = []
-        samples_az = []
+        """Calibrate IMU gyroscope only - collect bias while stationary"""
+        self.get_logger().info("Calibrating IMU gyroscope - keep dog still...")
+        samples_gx, samples_gy, samples_gz = [], [], []
     
         for _ in range(100):
             try:
-                ax, ay, az = self.dog.accData
-                samples_ax.append(ax / 16384.0)
-                samples_ay.append(ay / 16384.0)
-                samples_az.append(az / 16384.0)
+                # Use the correct method to get gyro data
+                gx, gy, gz = self.dog.gyroData  # This returns gyroscope data
+                samples_gx.append(gx)
+                samples_gy.append(gy)
+                samples_gz.append(gz)
                 time.sleep(0.01)
-            except:
-                pass
+            except Exception as e:
+                self.get_logger().debug(f"Calibration sample error: {e}")
     
-        # Calculate averages (offset)
-        offset_ax = sum(samples_ax) / len(samples_ax)
-        offset_ay = sum(samples_ay) / len(samples_ay)
-        offset_az = sum(samples_az) / len(samples_az)
+        # Check if we have samples
+        if len(samples_gx) == 0:
+            self.get_logger().warning("No gyro samples collected, using zero offsets")
+            return (0, 0, 0, 0, 0, 0)
     
-        self.get_logger().info(f"IMU calibration complete: offsets (ax={offset_ax:.3f}, ay={offset_ay:.3f}, az={offset_az:.3f})")
-        return (offset_ax, offset_ay, offset_az)
+        # Calculate gyro offsets only
+        offset_gx = sum(samples_gx) / len(samples_gx)
+        offset_gy = sum(samples_gy) / len(samples_gy)
+        offset_gz = sum(samples_gz) / len(samples_gz)
+    
+        self.get_logger().info(f"IMU gyro calibration complete:")
+        self.get_logger().info(f"  Gyro offsets: gx={offset_gx:.1f}, gy={offset_gy:.1f}, gz={offset_gz:.1f}")
+    
+        # Return zeros for accelerometer offsets (not used)
+        return (0, 0, 0, offset_gx, offset_gy, offset_gz)
 
     # ============================================================
     # SENSOR READING LOOP (Direct hardware access)
@@ -331,60 +348,70 @@ class Ros2AutonomousPiDog(Node):
                 
                 # Read IMU data - Publish to /imu topic for other nodes
                 try:
-                    # Read raw sensor data
-                    ax, ay, az = self.dog.accData
-                    gx, gy, gz = self.dog.gyroData
-    
-                    # For logging
-                    self.get_logger().debug(f"IMU (accData): {ax/16384:.2f} g, {ay/16384:.2f} g, {az/16384:.2f} g")
-                    self.get_logger().debug(f"IMU (gyroData): {gx} °/s, {gy} °/s, {gz} °/s")
-    
-                    # Publish to /imu topic in format: roll,pitch,yaw,accel_x,accel_y,accel_z,gyro_x,gyro_y,gyro_z
-                    # Note: PiDog accData doesn't provide roll/pitch/yaw directly.
-                    # We can calculate approximate roll/pitch from accelerometer data
-                    # or just publish zeros for now if not needed.
-    
-                    # Calculate approximate roll and pitch from accelerometer data
-                    # Convert raw accelerometer values (range ~ +/-16384) to g force
-                    ax_g = ax / 16384.0
-                    ay_g = ay / 16384.0
-                    az_g = az / 16384.0
-    
-                    # Apply calibration offsets (subtract the stationary offset)
-                    if hasattr(self, 'imu_offset'):
-                        ax_g -= self.imu_offset[0]
-                        ay_g -= self.imu_offset[1]
-                        az_g -= self.imu_offset[2]
-                    
-                    # Calculate roll (X-axis rotation) and pitch (Y-axis rotation)
-                    roll = math.atan2(ay_g, az_g) * 180.0 / math.pi
-                    pitch = math.atan2(ax_g, az_g) * 180.0 / math.pi 
-                    yaw = 0.0  # Yaw requires magnetometer or gyro integration
-    
-                    # Create IMU message with all data
+                    # Get raw values and convert to G-force (1G = 16384)
+                    ax_raw, ay_raw, az_raw = self.dog.accData
+                    gx_raw, gy_raw, gz_raw = self.dog.gyroData
+                
+                    # Convert to G-force
+                    ax = ax_raw / 16384.0
+                    ay = ay_raw / 16384.0
+                    az = az_raw / 16384.0
+                
+                    # Remap axes for dog's orientation:
+                    # - Vertical (gravity) = -ax (points up, 1.0g when standing)
+                    # - Forward/Backward = az (tilt detection)
+                    # - Left/Right = ay (roll detection)
+                
+                    vertical_g = -ax  # Upward direction (gravity when standing)
+                    forward_g = az    # Forward/backward tilt
+                    right_g = ay      # Left/right tilt
+                
+                    # Calculate pitch (forward/back tilt) using forward and vertical
+                    # When dog tilts forward, forward_g increases, vertical_g decreases
+                    pitch = math.atan2(forward_g, vertical_g) * 180.0 / math.pi
+                
+                    # Calculate roll (left/right tilt) using right and vertical
+                    roll = math.atan2(right_g, vertical_g) * 180.0 / math.pi
+                
+                    # Yaw would need magnetometer
+                    yaw = 0.0
+                
+                    # Remap gyroscopes similarly (assuming same orientation)
+                    # Gyro axes: X up/down, Y right/left, Z forward/back
+                    gyro_vertical = -gx_raw  # Yaw rate (rotate around vertical)
+                    gyro_forward = gz_raw    # Pitch rate (forward/back)
+                    gyro_right = gy_raw      # Roll rate (left/right)
+                
+                    # Log occasionally
+                    if random.randint(1, 20) == 1:
+                        self.get_logger().info(f"📊 IMU: fwd={forward_g:.3f}g, right={right_g:.3f}g, up={vertical_g:.3f}g")
+                        self.get_logger().info(f"   Angles: roll={roll:.1f}°, pitch={pitch:.1f}°")
+                        self.get_logger().info(f"   Magnitude: {math.sqrt(forward_g*forward_g + right_g*right_g + vertical_g*vertical_g):.3f}g")
+                
+                    # Create IMU message with RAW values included
                     imu_msg = String()
-                    imu_msg.data = f"{roll:.2f},{pitch:.2f},{yaw:.2f},{ax_g:.3f},{ay_g:.3f},{az_g:.3f},{gx:.1f},{gy:.1f},{gz:.1f}"
+                    # Format: roll,pitch,yaw,accel_g,accel_g,accel_g,accel_raw,accel_raw,accel_raw,gyro,gyro,gyro
+                    imu_msg.data = f"{roll:.2f},{pitch:.2f},{yaw:.2f},{forward_g:.3f},{right_g:.3f},{vertical_g:.3f},{ax_raw:.1f},{ay_raw:.1f},{az_raw:.1f},{gyro_forward:.1f},{gyro_right:.1f},{gyro_vertical:.1f}"
                     self.imu_pub.publish(imu_msg)
+                
                     self.current_imu = {
                         'roll': roll,
                         'pitch': pitch,
                         'yaw': yaw,
-                        'accel_x': ax_g,
-                        'accel_y': ay_g,
-                        'accel_z': az_g,
-                        'gyro_x': gx,
-                        'gyro_y': gy,
-                        'gyro_z': gz
+                        'accel_x': forward_g,      # G-force for other uses
+                        'accel_y': right_g,
+                        'accel_z': vertical_g,
+                        'accel_x_raw': ax_raw,     # RAW ADC values for pickup detection
+                        'accel_y_raw': ay_raw,
+                        'accel_z_raw': az_raw,
+                        'gyro_x': gyro_forward,
+                        'gyro_y': gyro_right,
+                        'gyro_z': gyro_vertical
                     }
-
-                    # Log occasionally (every 50 cycles ~5 seconds)
-                    if random.randint(1, 50) == 1:
-                        self.get_logger().info(f"📊 IMU: roll={roll:.1f}°, pitch={pitch:.1f}°, yaw={yaw:.1f}°")
-
+                
                 except Exception as e:
                     self.get_logger().debug(f"IMU read error: {e}")
-
-                # Read touch sensors
+            
                 # Read touch sensors - Corrected based on official documentation
                 if hasattr(self.dog, 'dual_touch'):
                     try:
@@ -451,14 +478,38 @@ class Ros2AutonomousPiDog(Node):
     def imu_callback(self, msg):
         try:
             parts = msg.data.split(',')
-            if len(parts) >= 3:
+            if len(parts) >= 12:  # Extended format with raw values
                 self.current_imu = {
                     'roll': float(parts[0]),
                     'pitch': float(parts[1]),
                     'yaw': float(parts[2]),
+                    'accel_x': float(parts[3]),
+                    'accel_y': float(parts[4]),
+                    'accel_z': float(parts[5]),
+                    'accel_x_raw': float(parts[6]),   # RAW ADC
+                    'accel_y_raw': float(parts[7]),
+                    'accel_z_raw': float(parts[8]),
+                    'gyro_x': float(parts[9]),
+                    'gyro_y': float(parts[10]),
+                    'gyro_z': float(parts[11])
                 }
-        except:
-            pass
+                self.handle_pickup_detection()
+            elif len(parts) >= 9:
+                # Old format without raw
+                self.current_imu = {
+                    'roll': float(parts[0]),
+                    'pitch': float(parts[1]),
+                    'yaw': float(parts[2]),
+                    'accel_x': float(parts[3]),
+                    'accel_y': float(parts[4]),
+                    'accel_z': float(parts[5]),
+                    'gyro_x': float(parts[6]),
+                    'gyro_y': float(parts[7]),
+                    'gyro_z': float(parts[8])
+                }
+        except Exception as e:
+            self.get_logger().debug(f"IMU callback error: {e}")
+    
     
     def touch_callback(self, msg):
         """Handle touch messages from other nodes or from our own publisher"""
@@ -505,6 +556,8 @@ class Ros2AutonomousPiDog(Node):
         if self.dog is None:
             return False
         
+        self.is_moving = True  # Set moving flag
+
         with self.command_lock:
             self.command_active = True
         
@@ -557,6 +610,7 @@ class Ros2AutonomousPiDog(Node):
             time.sleep(0.2)
             with self.command_lock:
                 self.command_active = False
+            self.is_moving = False  # Clear moving flag
     
     # ============================================================
     # MOVEMENT COMMANDS (for internal use)
@@ -641,7 +695,7 @@ class Ros2AutonomousPiDog(Node):
                 self.execute_movement('stop')
                 self.speak("Stopping")
                 self.state = RobotState.INTERACTING
-                threading.Timer(2.0, self.return_to_wandering).start()
+                #threading.Timer(2.0, self.return_to_wandering).start()
             
             elif 'left' in text and (len(text) < 10 or 'turn left' in text):
                 self.get_logger().info("📢 TURN LEFT")
@@ -842,7 +896,124 @@ class Ros2AutonomousPiDog(Node):
             self.speak(f"Hi there! I see {self.face_count} of you!", use_emotion=True)
             self.execute_movement("wag_tail", step_count=5, speed=90)
             threading.Timer(3.0, self.return_to_wandering).start()
+
+    def handle_pickup_detection(self):
+        """Detect when dog is picked up using RAW accelerometer values - only when stationary"""
+        if not self.pickup_detection_enabled or self.current_imu is None:
+            return
     
+        # ===== CHECK IF DOG IS MOVING =====
+        is_moving = self.command_active or self.state == RobotState.WANDERING
+    
+        # If moving and not already picked up, skip detection
+        if is_moving and not self.is_picked_up:
+            if hasattr(self, 'pickup_debounce_counter'):
+                self.pickup_debounce_counter = 0
+            return
+        # ==================================
+    
+        current_time = time.time()
+    
+        # Check cooldown
+        if current_time - self.pickup_debounce_time < self.pickup_cooldown:
+            return
+    
+        # Get RAW accelerometer values
+        ax_raw = self.current_imu.get('accel_x_raw', 0)
+        ay_raw = self.current_imu.get('accel_y_raw', 0)
+        az_raw = self.current_imu.get('accel_z_raw', 0)
+    
+        # Debounce counter
+        if not hasattr(self, 'pickup_debounce_counter'):
+            self.pickup_debounce_counter = 0
+    
+        # LOG RAW VALUES EVERY SECOND for debugging
+        if int(current_time) % 1 == 0 and int(current_time * 10) % 10 == 0:
+            self.get_logger().info(f"🔍 RAW: ax={ax_raw:.0f}, ay={ay_raw:.0f}, az={az_raw:.0f}, moving={is_moving}, picked={self.is_picked_up}")
+    
+        # ADJUSTED THRESHOLDS - Use values from your test
+        # When standing: ax ≈ -16000 to -17500
+        # When picked up: ax > -14000 (less negative)
+        PICKUP_THRESHOLD = -13000  # Changed from -13000
+        GROUND_THRESHOLD = -15000   # Changed from -15000 (or use -16000)
+
+        # Detection logic using RAW values
+        if not self.is_picked_up:
+            # Check if picked up (ax > PICKUP_THRESHOLD)
+            if ax_raw > PICKUP_THRESHOLD:
+                self.pickup_debounce_counter += 1
+                self.get_logger().info(f"📊 Debounce: {self.pickup_debounce_counter}/3, ax_raw={ax_raw:.0f}")
+                if self.pickup_debounce_counter >= 2:
+                    self.get_logger().info(f"🚀 PICKUP DETECTED! ax_raw={ax_raw:.0f} (stationary)")
+                    self.is_picked_up = True
+                    self.pickup_debounce_counter = 0
+                    self.pickup_debounce_time = current_time
+                    self.execute_fly_action()
+            else:
+                self.pickup_debounce_counter = 0
+    
+        # Update the return to ground section in handle_pickup_detection:
+        elif self.is_picked_up:
+            # Check if returned to ground (ax < GROUND_THRESHOLD)
+            if ax_raw < GROUND_THRESHOLD:
+                self.pickup_debounce_counter += 1
+                if self.pickup_debounce_counter >= 2:
+                    self.get_logger().info(f"📍 RETURNED TO GROUND! ax_raw={ax_raw:.0f}")
+                    self.is_picked_up = False
+                    self.pickup_debounce_counter = 0
+                    self.pickup_debounce_time = current_time
+        
+                    try:
+                        self.dog.body_stop()
+                        self.dog.wait_all_done()
+                        self.execute_movement('stand', speed=60)
+                        self.dog.wait_legs_done()
+                        self.dog.rgb_strip.set_mode('breath', color='green', bps=1)
+                        self.state = RobotState.WANDERING  # Reset to wandering
+                        self.command_active = False  # Clear command flag
+                        self.voice_command_waiting = False  # Clear voice flag
+                        self.get_logger().info("✅ Dog returned to ground and standing - ready for commands")
+                    except Exception as e:
+                        self.get_logger().error(f"Error returning to stand: {e}")
+            else:
+                self.pickup_debounce_counter = 0
+
+    def execute_fly_action(self):
+        """Execute the fly action when dog is picked up - from 6_be_picked_up.py"""
+        self.get_logger().info("🐕 Flying action triggered!")
+    
+        # Interrupt current actions
+        with self.command_lock:
+            if self.command_active:
+                self.dog.body_stop()
+                self.dog.wait_all_done()
+                self.command_active = False
+    
+        try:
+            # Fly action sequence from 6_be_picked_up.py
+            # 1. RGB effect
+            self.dog.rgb_strip.set_mode('boom', color='red', bps=3)
+        
+            # 2. Leg movement - specific pose for flying
+            self.dog.legs.servo_move([45, -45, 90, -80, 90, 90, -90, -90], speed=60)
+        
+            # 3. Wag tail
+            self.dog.do_action('wag_tail', step_count=10, speed=100)
+        
+            # 4. Speak
+            self.speak("Woo hoo! I'm flying!", use_emotion=True)
+        
+            # Wait for legs to complete
+            self.dog.wait_legs_done()
+            time.sleep(1)
+        
+            # Store state to prevent wandering while in air
+            self.original_state = self.state
+            self.state = RobotState.INTERACTING
+        
+        except Exception as e:
+            self.get_logger().error(f"Error in fly action: {e}")
+
     def smart_turn(self):
         """Intelligent turning based on turn history"""
         with self.command_lock:
@@ -947,9 +1118,9 @@ class Ros2AutonomousPiDog(Node):
             if emotion == Emotion.HAPPY:
                 self.execute_movement("wag_tail", step_count=3, speed=90)
             elif emotion == Emotion.CURIOUS:
-                self.execute_movement("head_tilt", step_count=0, speed=50)
+                self.execute_movement("wag_tail", step_count=0, speed=50) # head_tilt
             elif emotion == Emotion.STARTLED:
-                self.execute_movement("startle", step_count=0, speed=80)
+                self.execute_movement("wag_tail", step_count=0, speed=80) # startle
     
     def random_personality_action(self):
         """Perform random action for personality"""
@@ -995,6 +1166,13 @@ class Ros2AutonomousPiDog(Node):
                     time.sleep(0.5)
                     continue
                 
+                # ===== ADD PICKUP CHECK =====
+                # Don't wander if picked up
+                if self.is_picked_up:
+                    time.sleep(0.2)  # Short sleep while in air
+                    continue
+                # ===========================
+
                 # Check if voice command is active
                 with self.command_lock:
                     if self.command_active:
@@ -1014,8 +1192,10 @@ class Ros2AutonomousPiDog(Node):
                             self.obstacle_avoidance()
                         else:
                             if self.enable_wandering:
+                                self.is_moving = True
                                 # Move forward normally
                                 self.execute_movement("forward", step_count=8, speed=FORWARD_SPEED)  # Increased step_count
+                                self.is_moving = False
                     
                             # Check obstacle during movement (most critical part)
                             # Poll distance sensor while moving
