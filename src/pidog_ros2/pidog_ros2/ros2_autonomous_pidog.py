@@ -695,7 +695,12 @@ class Ros2AutonomousPiDog(Node):
                 self.execute_movement('stop')
                 self.speak("Stopping")
                 self.state = RobotState.INTERACTING
-                #threading.Timer(2.0, self.return_to_wandering).start()
+                
+            elif 'resume' in text and len(text) < 10:
+                self.get_logger().info("📢 RESUME WANDERING")
+                self.speak("Resuming wandering")
+                self.state = RobotState.WANDERING
+                threading.Timer(2.0, self.return_to_wandering).start()
             
             elif 'left' in text and (len(text) < 10 or 'turn left' in text):
                 self.get_logger().info("📢 TURN LEFT")
@@ -715,10 +720,10 @@ class Ros2AutonomousPiDog(Node):
                 self.dog.body_stop()
                 self.dog.wait_all_done()
                 time.sleep(0.1)
-                self.execute_movement('hand_shake', step_count=0, speed=60)  
+                self.execute_movement('hand_shake', step_count=0, speed=80)  
                 self.speak("Hand Shake")
                 self.state = RobotState.INTERACTING
-                threading.Timer(5.0, self.return_to_wandering).start()
+                #threading.Timer(5.0, self.return_to_wandering).start()
             elif "scratch" in text:
                 self.get_logger().info("📢 Scratch")
                 # Clear any pending commands first
@@ -728,17 +733,17 @@ class Ros2AutonomousPiDog(Node):
                 self.execute_movement('scratch')  
                 self.speak("Scratch")
                 self.state = RobotState.INTERACTING
-                threading.Timer(5.0, self.return_to_wandering).start()
+                #threading.Timer(5.0, self.return_to_wandering).start()
             elif "high" in text or "five" in text or "high five" in text:
                 self.get_logger().info("📢 High Five")
                 # Clear any pending commands first
                 self.dog.body_stop()
                 self.dog.wait_all_done()
                 time.sleep(0.1)
-                self.execute_movement('high_five')  
+                self.execute_movement('high_five',step_count=0, speed=80)  
                 self.speak("High Five")
                 self.state = RobotState.INTERACTING
-                threading.Timer(5.0, self.return_to_wandering).start()
+                #threading.Timer(5.0, self.return_to_wandering).start()
             else:
                 self.get_logger().info(f"Unknown command: '{text}'")
             
