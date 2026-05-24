@@ -1,70 +1,110 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-24-09-59-09-884501-raspberrypi-2934
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-05-24-10-45-59-270679-raspberrypi-5832
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [ros2_autonomous_pidog-1]: process started with pid [2936]
-[INFO] [pidog_movement_node-2]: process started with pid [2938]
-[INFO] [pidog_distance_node-3]: process started with pid [2940]
-[INFO] [pidog_camera_node-4]: process started with pid [2942]
-[INFO] [pidog_imu_node-5]: process started with pid [2944]
-[INFO] [pidog_dual_touch_node-6]: process started with pid [2946]
-[INFO] [pidog_direction_sensor_node-7]: process started with pid [2948]
-[INFO] [pidog_tts_speaks_node-8]: process started with pid [2950]
-[INFO] [pidog_stt_voice_command_node-9]: process started with pid [2952]
-[INFO] [pidog_battery_monitor_node-10]: process started with pid [2954]
-[pidog_dual_touch_node-6] [0m[INFO]: Touch node starting - listening for touch events[0m
-[pidog_dual_touch_node-6] [0m[INFO]: Touch node ready - waiting for touch data[0m
+[INFO] [ros2_autonomous_pidog-1]: process started with pid [5834]
+[INFO] [pidog_movement_node-2]: process started with pid [5836]
+[INFO] [pidog_distance_node-3]: process started with pid [5838]
+[INFO] [pidog_camera_node-4]: process started with pid [5840]
+[INFO] [pidog_imu_node-5]: process started with pid [5842]
+[INFO] [pidog_dual_touch_node-6]: process started with pid [5844]
+[INFO] [pidog_direction_sensor_node-7]: process started with pid [5846]
+[INFO] [pidog_tts_speaks_node-8]: process started with pid [5848]
+[INFO] [pidog_stt_voice_command_node-9]: process started with pid [5850]
+[INFO] [pidog_battery_monitor_node-10]: process started with pid [5852]
 [pidog_movement_node-2] [0m[INFO]: PiDog Movement Node Ready (forwarding commands to main node)[0m
 [pidog_movement_node-2] [0m[INFO]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Initializing PiDog hardware...[0m
+[ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction node starting - listening for data from main node[0m
-[pidog_imu_node-5] [0m[INFO]: IMU node starting (NO hardware initialization)[0m
 [pidog_direction_sensor_node-7] [0m[INFO]: PiDog Sound Direction Node Ready[0m
-[pidog_imu_node-5] [0m[INFO]: IMU node ready (publishing at 10.0 Hz)[0m
-[pidog_distance_node-3] [0m[INFO]: Distance node starting with advanced filtering[0m
+[ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
+[ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
+[pidog_dual_touch_node-6] [0m[INFO]: Touch node starting - listening for touch events[0m
+[pidog_dual_touch_node-6] [0m[INFO]: Touch node ready - waiting for touch data[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ============================================================[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Initializing Battery Monitor Node...[0m
-[pidog_distance_node-3] [0m[INFO]: Distance node ready with advanced filtering:[0m
-[pidog_distance_node-3] [0m[INFO]:   - Window size: 5[0m
-[pidog_distance_node-3] [0m[INFO]:   - Outlier threshold: 50.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]:   - Max change per reading: 100.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]:   - Publishing at 10.0 Hz[0m
+[pidog_imu_node-5] [0m[INFO]: IMU node starting (NO hardware initialization)[0m
+[pidog_imu_node-5] [0m[INFO]: IMU node ready (publishing at 10.0 Hz)[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ✓ Battery ADC initialized on channel A4[0m
-[pidog_battery_monitor_node-10] [0m[INFO]: ✓ Initial battery voltage: 8.45V[0m
+[pidog_battery_monitor_node-10] [0m[INFO]: ✓ Initial battery voltage: 11.15V[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ============================================================[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Battery Monitor Node Ready![0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Battery check interval: 60s[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Warning threshold: 7.0V[0m
-[pidog_tts_speaks_node-8] [0;93m2026-05-24 09:59:11.578806788 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
-[pidog_battery_monitor_node-10] [0m[INFO]: Battery monitoring thread started[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Critical threshold: 6.5V[0m
+[pidog_battery_monitor_node-10] [0m[INFO]: Battery monitoring thread started[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ============================================================[0m
+[pidog_distance_node-3] [0m[INFO]: Distance node starting with advanced filtering[0m
+[pidog_distance_node-3] [0m[INFO]: Distance node ready with advanced filtering:[0m
+[pidog_distance_node-3] [0m[INFO]:   - Window size: 5[0m
+[pidog_distance_node-3] [0m[INFO]:   - Outlier threshold: 50.0 cm[0m
+[pidog_tts_speaks_node-8] [0;93m2026-05-24 10:46:01.345498445 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
+[pidog_distance_node-3] [0m[INFO]:   - Max change per reading: 100.0 cm[0m
+[pidog_distance_node-3] [0m[INFO]:   - Publishing at 10.0 Hz[0m
 [pidog_camera_node-4] [0m[INFO]: Face cascade classifier loaded successfully[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Initializing PiDog hardware...[0m
-[ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
 [pidog_camera_node-4] vilib 0.3.18 launching ...
 [pidog_camera_node-4] picamera2 0.3.35
-[ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
-[ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: STT node starting...[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...[0m
+[ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
 [pidog_camera_node-4] 
 [pidog_camera_node-4] Web display on:
+[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.442197802197802V[0m
 [pidog_camera_node-4]       http://192.168.0.23:9000/mjpg
 [pidog_camera_node-4] 
 [pidog_camera_node-4] Starting web streaming ...
 [pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
 [pidog_camera_node-4]  * Debug mode: off
-[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.466373626373626V[0m
+[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[0;31mfail[0m
+[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[0;31mfail[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: STT node starting...[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...[0m
 [pidog_camera_node-4] [0m[INFO]: Camera initialized with Vilib[0m
-[pidog_camera_node-4] [0m[INFO]: PiDog Camera Node Ready[0m
 [pidog_camera_node-4] [0m[INFO]: Camera capture loop started[0m
+[pidog_camera_node-4] [0m[INFO]: PiDog Camera Node Ready[0m
 [pidog_camera_node-4] [0m[INFO]: Publishing to: camera/image_raw and face_detection[0m
+[ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30multrasonic init ... [0m[0;31mfail[0m
+[ros2_autonomous_pidog-1] Exception in thread sensory_thread:
+[ros2_autonomous_pidog-1] Traceback (most recent call last):
+[ros2_autonomous_pidog-1]   File "/usr/local/lib/python3.10/dist-packages/pidog/pidog.py", line 593, in sensory_process_work
+[ros2_autonomous_pidog-1]     echo = Pin('D0')
+[ros2_autonomous_pidog-1]   File "/usr/local/lib/python3.10/dist-packages/robot_hat/pin.py", line 77, in __init__
+[ros2_autonomous_pidog-1]     self.setup(mode, pull, active_state)
+[ros2_autonomous_pidog-1]   File "/usr/local/lib/python3.10/dist-packages/robot_hat/pin.py", line 123, in setup
+[ros2_autonomous_pidog-1]     lgpio.gpio_claim_output(Pin._chip, self._pin_num, 0, pull_mode)
+[ros2_autonomous_pidog-1]   File "/usr/local/lib/python3.10/dist-packages/lgpio.py", line 781, in gpio_claim_output
+[ros2_autonomous_pidog-1]     return _u2i(_lgpio._gpio_claim_output(handle&0xffff, lFlags, gpio, level))
+[ros2_autonomous_pidog-1]   File "/usr/local/lib/python3.10/dist-packages/lgpio.py", line 458, in _u2i
+[ros2_autonomous_pidog-1]     raise error(error_text(v))
+[ros2_autonomous_pidog-1] lgpio.error: 'GPIO busy'
+[ros2_autonomous_pidog-1] 
+[ros2_autonomous_pidog-1] During handling of the above exception, another exception occurred:
+[ros2_autonomous_pidog-1] 
+[ros2_autonomous_pidog-1] Traceback (most recent call last):
+[ros2_autonomous_pidog-1]   File "/usr/lib/python3.10/threading.py", line 1016, in _bootstrap_inner
+[ros2_autonomous_pidog-1]     self.run()
+[ros2_autonomous_pidog-1]   File "/usr/lib/python3.10/threading.py", line 953, in run
+[ros2_autonomous_pidog-1]     self._target(*self._args, **self._kwargs)
+[ros2_autonomous_pidog-1]   File "/usr/local/lib/python3.10/dist-packages/pidog/pidog.py", line 601, in sensory_process_work
+[ros2_autonomous_pidog-1]     raise ValueError(e)
+[ros2_autonomous_pidog-1] ValueError: 'GPIO busy'
+[ros2_autonomous_pidog-1] [PiDogManager] PiDog hardware initialized successfully
+[ros2_autonomous_pidog-1] [0m[INFO]: ✓ PiDog hardware available[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Testing hardware...[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Piper TTS initialized successfully with model: en_US-ryan-low[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: eSpeak found and ready[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: PiDog TTS Node Ready (piper=True, espeak=True)[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Or publish to /speak_text topic[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ✓ Hardware test passed[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Calibrating IMU gyroscope - keep dog still...[0m
 [pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
 [pidog_stt_voice_command_node-9] 
 [pidog_stt_voice_command_node-9] ALSA lib pulse.c:242:(pulse_connect) PulseAudio: Unable to connect: Connection refused
 [pidog_stt_voice_command_node-9] 
 [pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
 [pidog_stt_voice_command_node-9] ALSA lib confmisc.c:160:(snd_config_get_card) Invalid field card
-[ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Using audio device: default[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Listening for voice commands with audio filtering...[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Vosk initialized successfully - listening for commands[0m
@@ -72,405 +112,197 @@
 [pidog_stt_voice_command_node-9] [0m[INFO]: Will ignore speech while TTS is speaking + 0.5s delay[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Audio filter: low-pass at 4000 Hz (reduces servo noise)[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Try saying: sit, stand, walk, stop, turn left, turn right[0m
-[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Piper TTS initialized successfully with model: en_US-ryan-low[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: eSpeak found and ready[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: PiDog TTS Node Ready (piper=True, espeak=True)[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Or publish to /speak_text topic[0m
-[ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30multrasonic init ... [0m[PiDogManager] PiDog hardware initialized successfully
-[ros2_autonomous_pidog-1] [1;30mdone[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ✓ PiDog hardware available[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Testing hardware...[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ✓ Hardware test passed[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Calibrating IMU gyroscope - keep dog still...[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: IMU gyro calibration complete:[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:   Gyro offsets: gx=21.1, gy=29.7, gz=469.1[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:   Gyro offsets: gx=-64.9, gy=40.8, gz=657.5[0m
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: OFF[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔇 Sound disabled for 15.7s[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble:0[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🔇 Sound disabled for 15.7s[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Sensor reading thread started[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ROS 2 Autonomous PiDog Node Ready![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Autonomous behavior loop started[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ROS 2 Autonomous PiDog Node Ready![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Say: sit, stand, walk, stop, turn left, turn right[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Say: sit, stand, walk, stop, turn left, turn right, resume, hand shake, high five, scratch[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stand[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ forward[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=26-79cm → filtered=54cm → stable=54cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=26-79cm → filtered=54cm → stable=54cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.073g, right=0.220g, up=1.093g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=11.4°, pitch=3.8°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.006g, right=0.336g, up=1.065g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=17.5°, pitch=0.3°[0m
 [ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.117g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.061g, right=0.200g, up=1.160g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=9.8°, pitch=-3.0°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.179g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.022g, right=0.275g, up=1.047g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.7°, pitch=1.2°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.082g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 171.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.1 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-153cm → filtered=67cm → stable=67cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 60.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.111g, right=0.228g, up=1.052g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=12.2°, pitch=-6.0°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.082g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.039g, right=0.256g, up=1.025g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.0°, pitch=-2.2°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.058g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.008g, right=0.332g, up=1.063g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=17.3°, pitch=0.4°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.114g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ forward[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.133g, right=0.338g, up=0.879g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=21.1°, pitch=-8.6°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.951g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.071g, right=0.460g, up=1.006g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=24.6°, pitch=-4.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.108g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.073g, right=0.297g, up=0.943g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=17.5°, pitch=-4.4°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.992g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.001g, right=0.426g, up=1.021g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=22.7°, pitch=-0.1°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.106g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.120g, right=0.226g, up=0.742g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=17.0°, pitch=-9.2°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.785g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.061g, right=0.377g, up=1.000g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=20.6°, pitch=3.5°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.070g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.071g, right=0.379g, up=1.031g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=20.2°, pitch=-4.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.101g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.067g, right=0.218g, up=0.952g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=12.9°, pitch=-4.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.979g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.069g, right=0.359g, up=1.324g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=15.2°, pitch=3.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.373g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.019g, right=0.377g, up=1.100g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=18.9°, pitch=1.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.163g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ forward[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.130g, right=0.478g, up=1.112g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=23.3°, pitch=-6.7°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.217g[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'stop'[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🛑 Interrupting current action for voice command[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'stop'[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 📢 STOP[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 58.5 cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stop[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Stop command executed[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Stopping:0[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Stopping[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.037g, right=0.255g, up=1.025g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.0°, pitch=-2.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.057g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16797, ay=4184, az=-614, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 25.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.026g, right=0.244g, up=1.033g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.3°, pitch=-1.4°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.061g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16765, ay=4520, az=-702, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16754, ay=3985, az=-520, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=29-239cm → filtered=45cm → stable=45cm[0m
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 36.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16799, ay=4249, az=-571, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16799, ay=4249, az=-571, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=32-129cm → filtered=46cm → stable=46cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.033g, right=0.260g, up=1.029g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.2°, pitch=-1.8°[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=32-129cm → filtered=56cm → stable=56cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.062g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16889, ay=4032, az=-592, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 97/50 (194.0% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16818, ay=4227, az=-501, moving=False, picked=False[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'hendrick'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'hendrick'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Unknown command: 'hendrick'[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=54-99cm → filtered=65cm → stable=65cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=54-99cm → filtered=65cm → stable=65cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.032g, right=0.260g, up=1.026g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.2°, pitch=-1.8°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.059g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16857, ay=4174, az=-534, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.037g, right=0.255g, up=1.029g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.9°, pitch=-2.0°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.060g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-99cm → filtered=66cm → stable=66cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-99cm → filtered=66cm → stable=66cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16781, ay=4271, az=-609, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-81cm → filtered=65cm → stable=65cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.032g, right=0.254g, up=1.024g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.9°, pitch=-1.8°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.056g[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'hence shit'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'hence shit'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Unknown command: 'hence shit'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.038g, right=0.255g, up=1.026g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.0°, pitch=-2.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.058g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16791, ay=4151, az=-569, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.041g, right=0.247g, up=1.029g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.5°, pitch=-2.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.059g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16814, ay=4214, az=-554, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=51-165cm → filtered=55cm → stable=55cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.037g, right=0.257g, up=1.026g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.0°, pitch=-2.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.058g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16801, ay=4106, az=-645, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16801, ay=4106, az=-645, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 164/100 (164.0% rejected)[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=49-58cm → filtered=56cm → stable=56cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-178cm → filtered=100cm → stable=100cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16834, ay=4220, az=-604, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16836, ay=4143, az=-595, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.038g, right=0.258g, up=1.029g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.1°, pitch=-2.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.061g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16825, ay=4110, az=-635, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.038g, right=0.256g, up=1.026g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.0°, pitch=-2.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.058g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16768, ay=4251, az=-658, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16778, ay=4225, az=-656, moving=False, picked=False[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.007g, right=0.372g, up=1.071g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=19.1°, pitch=0.4°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.134g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.011g, right=0.368g, up=1.071g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=18.9°, pitch=0.6°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.132g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.011g, right=0.368g, up=1.067g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=19.0°, pitch=0.6°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.129g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.170g, right=0.415g, up=0.927g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=24.1°, pitch=10.4°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.030g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.568g, right=0.334g, up=0.897g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=20.4°, pitch=32.3°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.113g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 1/3, ax_raw=-12943[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 2/3, ax_raw=-12184[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚀 PICKUP DETECTED! ax_raw=-12184 (stationary)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🐕 Flying action triggered![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.643g, right=0.316g, up=0.754g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=22.7°, pitch=40.5°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.040g[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Woo hoo! I'm flying!:1[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Woo hoo! I'm flying![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.440g, right=0.530g, up=0.942g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=29.4°, pitch=25.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.167g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.036g, right=0.381g, up=1.032g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=20.2°, pitch=2.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.100g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.031g, right=0.390g, up=1.073g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=20.0°, pitch=1.6°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.142g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.036g, right=0.387g, up=1.087g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=19.6°, pitch=1.9°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.154g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.049g, right=0.376g, up=1.081g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=19.2°, pitch=2.6°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.146g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📍 RETURNED TO GROUND! ax_raw=-17719[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.029g, right=0.382g, up=1.081g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=19.4°, pitch=1.5°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.147g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stand[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ✅ Dog returned to ground and standing - ready for commands[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ forward[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.056g, right=0.481g, up=1.036g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=24.9°, pitch=3.1°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.144g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.005g, right=0.369g, up=1.058g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=19.2°, pitch=0.3°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.120g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.044g, right=0.358g, up=1.137g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=17.5°, pitch=2.2°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.193g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.018g, right=0.370g, up=1.120g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=18.3°, pitch=-0.9°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.179g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.006g, right=0.316g, up=1.135g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=15.6°, pitch=0.3°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.178g[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'stop'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🛑 Interrupting current action for voice command[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.072g, right=0.372g, up=1.040g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=19.7°, pitch=-4.0°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.107g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'stop'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📢 STOP[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stop[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Stop command executed[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Stopping:0[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Stopping[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.045g, right=0.347g, up=1.070g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=18.0°, pitch=-2.4°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.126g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.044g, right=0.347g, up=1.076g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=17.9°, pitch=-2.3°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.131g[0m
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'shake hands'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'shake hands'[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'handshake'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'handshake'[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 📢 Hand Shake[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ➡️ hand_shake[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-234cm → filtered=53cm → stable=53cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-234cm → filtered=53cm → stable=53cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-234cm → filtered=53cm → stable=53cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-234cm → filtered=53cm → stable=53cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.013g, right=-0.260g, up=0.866g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-16.7°, pitch=-0.8°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.904g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-234cm → filtered=53cm → stable=53cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-234cm → filtered=53cm → stable=53cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.086g, right=-0.225g, up=0.885g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-14.2°, pitch=5.6°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.917g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.042g, right=-0.243g, up=0.872g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-15.6°, pitch=2.8°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.907g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.016g, right=-0.249g, up=0.869g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-16.0°, pitch=1.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.904g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.017g, right=-0.264g, up=0.855g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-17.2°, pitch=1.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.895g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.077g, right=0.051g, up=0.960g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=3.0°, pitch=4.6°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.964g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.050g, right=-0.236g, up=1.122g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-11.9°, pitch=-2.6°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.147g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.052g, right=-0.086g, up=0.933g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-5.2°, pitch=3.2°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.939g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.085g, right=-0.109g, up=0.929g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-6.7°, pitch=5.2°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.939g[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Hand Shake:0[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Hand Shake[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=201-244cm → filtered=233cm → stable=233cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.004g, right=-0.263g, up=0.864g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-16.9°, pitch=-0.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.903g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14154, ay=-4313, az=-71, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 439/150 (292.7% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.004g, right=-0.258g, up=0.866g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-16.6°, pitch=0.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.904g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14146, ay=-4330, az=61, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=240-242cm → filtered=241cm → stable=241cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14132, ay=-4353, az=32, moving=False, picked=False[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=240-242cm → filtered=241cm → stable=241cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.058g, right=-0.160g, up=0.902g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-10.1°, pitch=3.7°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.918g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.055g, right=-0.166g, up=0.897g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-10.5°, pitch=3.5°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.914g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.058g, right=-0.160g, up=0.901g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-10.0°, pitch=3.7°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.917g[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'i have a'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'i have a'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Unknown command: 'i have a'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.059g, right=-0.164g, up=0.898g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-10.3°, pitch=3.8°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.915g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.055g, right=-0.170g, up=0.897g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-10.7°, pitch=3.5°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.914g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.061g, right=-0.172g, up=0.898g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-10.8°, pitch=3.9°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.916g[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'high five'[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'high five'[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 📢 High Five[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.002g, right=-0.263g, up=0.862g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-17.0°, pitch=0.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.901g[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ➡️ high_five[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=240-242cm → filtered=241cm → stable=241cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.020g, right=-0.244g, up=0.860g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-15.8°, pitch=-1.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.894g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.021g, right=-0.279g, up=0.843g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-18.3°, pitch=-1.5°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.888g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.021g, right=-0.261g, up=0.896g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=178-246cm → filtered=242cm → stable=242cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-16.2°, pitch=1.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.934g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.002g, right=-0.305g, up=0.862g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-19.5°, pitch=-0.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.914g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.066g, right=-0.235g, up=0.893g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-14.7°, pitch=4.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.926g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=178-246cm → filtered=242cm → stable=242cm[0m
-[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.463956043956044V[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: High Five:0[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-13825, ay=-5134, az=-1107, moving=False, picked=False[0m
 [pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: High Five[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 197.8 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-246cm → filtered=232cm → stable=232cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14131, ay=-4406, az=100, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14129, ay=-4394, az=92, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.006g, right=-0.260g, up=0.862g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-16.8°, pitch=0.4°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.901g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.008g, right=-0.271g, up=0.860g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-17.5°, pitch=0.5°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.901g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=238-245cm → filtered=240cm → stable=240cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14102, ay=-4345, az=113, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14139, ay=-4355, az=99, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14108, ay=-4354, az=35, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14138, ay=-4393, az=56, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=171-244cm → filtered=240cm → stable=240cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14085, ay=-4327, az=41, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14059, ay=-4316, az=32, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=167-239cm → filtered=239cm → stable=239cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=239-240cm → filtered=240cm → stable=240cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 240.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 541/200 (270.5% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14185, ay=-4366, az=-24, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.002g, right=-0.265g, up=0.860g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-17.1°, pitch=0.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.900g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-241cm → filtered=239cm → stable=239cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-241cm → filtered=240cm → stable=240cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.006g, right=-0.266g, up=0.861g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-17.2°, pitch=0.4°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.901g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-14112, ay=-4356, az=106, moving=False, picked=False[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'stand up'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'stand up'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📢 STAND[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stand[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.048g, right=0.067g, up=1.086g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=3.5°, pitch=-2.5°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.089g[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Standing up:0[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 1/3, ax_raw=-12399[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Standing up[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16809, ay=4271, az=96, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 234.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.006g, right=0.259g, up=1.027g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.2°, pitch=0.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.059g[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 233.7 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16840, ay=4212, az=47, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=226-254cm → filtered=237cm → stable=237cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 235.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16798, ay=4192, az=109, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16877, ay=4502, az=97, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=172-254cm → filtered=239cm → stable=239cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16852, ay=4273, az=138, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=172-236cm → filtered=235cm → stable=235cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=172-235cm → filtered=225cm → stable=225cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Returning to wandering mode[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ forward[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 173.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-239cm → filtered=20cm → stable=112cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.086g, right=0.266g, up=1.069g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.0°, pitch=-4.6°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.105g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=21-239cm → filtered=234cm → stable=158cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.002g, right=0.303g, up=1.065g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=15.9°, pitch=-0.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.108g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.033g, right=0.229g, up=1.018g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=12.7°, pitch=-1.9°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.044g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.016g, right=0.281g, up=1.071g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.7°, pitch=-0.8°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.108g[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 661/250 (264.4% rejected)[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=236-240cm → filtered=237cm → stable=237cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=236-240cm → filtered=237cm → stable=237cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 235.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 236.1 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=236-237cm → filtered=236cm → stable=236cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=146-239cm → filtered=237cm → stable=237cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=146-239cm → filtered=237cm → stable=237cm[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'stop'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🛑 Interrupting current action for voice command[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'stop'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📢 STOP[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stop[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Stop command executed[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.027g, right=0.222g, up=1.037g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=12.1°, pitch=-1.5°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.061g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ forward[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Stopping:0[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16946, ay=4003, az=-636, moving=False, picked=False[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Stopping[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-17153, ay=3510, az=-604, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16858, ay=3433, az=848, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.002g, right=0.237g, up=0.990g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.4°, pitch=-0.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.018g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.102g, right=0.251g, up=1.026g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.8°, pitch=-5.7°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.062g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.025g, right=0.263g, up=1.062g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.9°, pitch=-1.3°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.095g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=226-241cm → filtered=235cm → stable=235cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.043g, right=0.253g, up=0.985g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.4°, pitch=-2.5°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.018g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-17408, ay=3646, az=-952, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 1/3, ax_raw=-11853[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-17719, ay=4828, az=-270, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-17122, ay=3745, az=945, moving=False, picked=False[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16987, ay=3318, az=-476, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16711, ay=4118, az=-758, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=234-245cm → filtered=238cm → stable=238cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=234-245cm → filtered=238cm → stable=238cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.071g, right=0.264g, up=1.094g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.6°, pitch=3.7°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.128g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16158, ay=3854, az=1009, moving=False, picked=False[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'stop'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'stop'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📢 STOP[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stop[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Stop command executed[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.001g, right=0.243g, up=1.021g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=13.4°, pitch=0.0°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.049g[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Stopping:0[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Stopping[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-17006, ay=4421, az=84, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=144-239cm → filtered=238cm → stable=238cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 238.7 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=144-260cm → filtered=243cm → stable=243cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16814, ay=4481, az=-32, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16828, ay=4475, az=-55, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16810, ay=4488, az=-55, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16806, ay=4589, az=-85, moving=False, picked=False[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=237-238cm → filtered=238cm → stable=238cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.000g, right=0.275g, up=1.028g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=15.0°, pitch=-0.0°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.064g[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 738/300 (246.0% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 237.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16760, ay=4451, az=-102, moving=False, picked=False[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'resume'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'resume'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📢 RESUME WANDERING[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Resuming wandering:0[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.002g, right=0.272g, up=1.024g[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Resuming wandering[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.9°, pitch=-0.1°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.059g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ forward[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=134-250cm → filtered=241cm → stable=241cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.001g, right=0.262g, up=1.004g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.6°, pitch=-0.0°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.038g[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=144-284cm → filtered=248cm → stable=248cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Returning to wandering mode[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=67-248cm → filtered=240cm → stable=240cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=67-251cm → filtered=243cm → stable=243cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=-0.076g, right=0.343g, up=1.203g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=15.9°, pitch=-3.6°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.253g[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'stopped'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🛑 Interrupting current action for voice command[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'stopped'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📢 STOP[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stop[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Stop command executed[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 237.6 cm[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Stopping:0[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 1/3, ax_raw=-12982[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-23473, ay=5241, az=-2313, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16854, ay=4770, az=-1182, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16949, ay=4012, az=719, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16673, ay=4540, az=281, moving=False, picked=False[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Stopping[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16722, ay=4666, az=212, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16824, ay=4349, az=644, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16821, ay=4413, az=611, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16790, ay=4584, az=287, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.029g, right=0.274g, up=1.021g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=15.0°, pitch=1.6°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.058g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16735, ay=4633, az=509, moving=False, picked=False[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.018g, right=0.266g, up=1.025g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=14.5°, pitch=1.0°[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 1.059g[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🔍 RAW: ax=-16810, ay=4448, az=555, moving=False, picked=False[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.067g, right=-0.175g, up=0.875g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-11.3°, pitch=4.4°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.895g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 IMU: fwd=0.053g, right=-0.166g, up=0.902g[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Angles: roll=-10.5°, pitch=3.3°[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:    Magnitude: 0.919g[0m

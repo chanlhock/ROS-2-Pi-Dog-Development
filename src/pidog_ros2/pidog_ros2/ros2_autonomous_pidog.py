@@ -16,6 +16,7 @@
 # 08/05/2026     Bernard Chan    This version runs on Docker with
 #                                Ubuntu 22.04 and ROS 2 Humble
 # 15/05/2026     Bernard Chan    Added battery monitoring 
+# 24/05/2026     Bernard Chan    Added picked up detection using IMU raw data
 #
 # ros2_autonomous_pidog.py is licensed under the GNU General Public 
 # License v3.0 Permissions of this strong copyleft license are 
@@ -263,7 +264,7 @@ class Ros2AutonomousPiDog(Node):
         self.get_logger().info("=" * 60)
         self.get_logger().info("ROS 2 Autonomous PiDog Node Ready!")
         self.get_logger().info("Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands")
-        self.get_logger().info("Say: sit, stand, walk, stop, turn left, turn right")
+        self.get_logger().info("Say: sit, stand, walk, stop, turn left, turn right, resume, hand shake, high five, scratch")
         self.get_logger().info("=" * 60)
     
     def calibrate_imu(self):
@@ -934,7 +935,7 @@ class Ros2AutonomousPiDog(Node):
     
         # LOG RAW VALUES EVERY SECOND for debugging
         if int(current_time) % 1 == 0 and int(current_time * 10) % 10 == 0:
-            self.get_logger().info(f"🔍 RAW: ax={ax_raw:.0f}, ay={ay_raw:.0f}, az={az_raw:.0f}, moving={is_moving}, picked={self.is_picked_up}")
+            self.get_logger().debug(f"🔍 RAW: ax={ax_raw:.0f}, ay={ay_raw:.0f}, az={az_raw:.0f}, moving={is_moving}, picked={self.is_picked_up}")
     
         # ADJUSTED THRESHOLDS - Use values from your test
         # When standing: ax ≈ -16000 to -17500
