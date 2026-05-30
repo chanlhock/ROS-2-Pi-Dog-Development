@@ -27,7 +27,9 @@
 ##########################################################################
 """
 
+from flask import logging
 from numpy import roll
+import pidog
 
 import rclpy
 from rclpy.node import Node
@@ -38,6 +40,7 @@ from std_msgs.msg import String, Float32
 from geometry_msgs.msg import Twist
 from std_srvs.srv import SetBool
 from pidog.preset_actions import *
+import pygame
 
 import threading
 import time
@@ -53,6 +56,7 @@ from .pidog_manager import get_pidog_manager
 # Pi Dog's name
 NAME = "Woofer" # Name of the dog during my childhood
 GREETING_EN = f"Hi, I am {NAME}. Your obedient ROS2 Pi Dog"
+SOUNDS_PATH = "/pidog/sounds/"
 OBSTACLE_DISTANCE_CM = 35  # Increased from 30cm to 35cm for better obstacle avoidance
 FORWARD_SPEED = 100  # Was 80 very slow - range is 0-100
 TURN_STEPS = 8  # New constant for turn steps
@@ -78,6 +82,28 @@ class Emotion(Enum):
     BORED = "bored"
     LONELY = "lonely"
 
+#########################################################################
+# Initialize pygame mixer for playing mp3 sounds
+#########################################################################
+pygame.mixer.init()
+    
+def load_sound(filename):
+    return pygame.mixer.Sound(SOUNDS_PATH + filename)
+    
+
+########################################################################## Sounds dictionary for emotions 
+##########################################################################
+SOUNDS = {
+    Emotion.HAPPY: load_sound("single_bark_1.mp3"),
+    Emotion.CURIOUS: load_sound("woohoo.mp3"),
+    Emotion.STARTLED: load_sound("growl_1.mp3"),
+    Emotion.BORED: load_sound("snoring.mp3"),
+    Emotion.LONELY: load_sound("howling.mp3"),
+}
+
+def play_sound(sound):
+    if sound:
+        sound.play()
 
 class Ros2AutonomousPiDog(Node):
     def __init__(self):
@@ -1106,7 +1132,8 @@ class Ros2AutonomousPiDog(Node):
             self.play_emotion(Emotion.STARTLED)
     
         self.state = RobotState.WANDERING
-    
+
+
     def play_emotion(self, emotion):
         """Express an emotion through sound and movement"""
         emotion_sounds = {
@@ -1118,39 +1145,60 @@ class Ros2AutonomousPiDog(Node):
         }
         
         if emotion in emotion_sounds and not self.voice_command_waiting:
-            self.speak(emotion_sounds[emotion], use_emotion=True)
+        #    self.speak(emotion_sounds[emotion], use_emotion=True)
+            sound = SOUNDS.get(emotion)
             self.emotion = emotion
             
+            self.get_logger().info(f"Emotion triggered: {emotion}")
+            if sound:
+                play_sound(sound)
             if emotion == Emotion.HAPPY:
+                self.dog.head_move([(0, 0, 10)], immediately=True, speed=100)
                 self.execute_movement("wag_tail", step_count=3, speed=90)
             elif emotion == Emotion.CURIOUS:
-                self.execute_movement("wag_tail", step_count=0, speed=50) # head_tilt
+                self.dog.head_move([(-20, 0, 10)], immediately=True, speed=80)
+                time.sleep(0.5)
+                self.dog.head_move([(20, 0, 10)], immediately=True, speed=80)
+                time.sleep(0.5)
+                self.dog.head_move([(0, 0, 10)], immediately=True, speed=80)
+                #self.execute_movement("wag_tail", step_count=0, speed=50) # head_tilt
             elif emotion == Emotion.STARTLED:
+                self.dog.do_action("shake_head")
+                #self.execute_movement("wag_tail", step_count=0, speed=80) # startle
+            elif emotion == Emotion.BORED:
+                # maybe a slow nod ?
                 self.execute_movement("wag_tail", step_count=0, speed=80) # startle
-    
-    def random_personality_action(self):
-        """Perform random action for personality"""
-        with self.command_lock:
-            if self.command_active:
-                return
-        
-        actions = [
-            ("scratch", 3, 70),
-            ("shake_head", 3, 80),
-            ("wag_tail", 5, 90),
-            ("look_around", 0, 50),
-        ]
-        
-        action = random.choice(actions)
-        self.get_logger().info(f"🎭 Random personality: {action[0]}")
-        self.execute_movement(action[0], action[1], action[2])
+            elif emotion == Emotion.LONELY:
+                # maybe a slow wag tail or look around?
+                self.execute_movement("wag_tail", step_count=0, speed=80) # startle
+            
     
     def return_to_wandering(self):
         """Return to wandering state after interaction"""
         if not self.emergency_stop:
             self.state = RobotState.WANDERING
             self.get_logger().info("Returning to wandering mode")
+
     
+
+    def random_personality_action(self):
+        """Perform random action for personality"""
+        with self.command_lock:
+            if self.command_active:
+                return
+        
+        #actions = [
+        #    ("scratch", 3, 70),
+        #    ("shake_head", 3, 80),
+        #    ("wag_tail", 5, 90),
+        #    ("look_around", 0, 50),
+        #]
+        
+        #action = random.choice(actions)
+        #self.get_logger().info(f"🎭 Random personality: {action[0]}")
+        #self.execute_movement(action[0], action[1], action[2])
+        self.show_some_personality(random.randrange(1,100))
+        
     # ============================================================
     # AUTONOMOUS BEHAVIOR LOOP
     # ============================================================
@@ -1252,7 +1300,47 @@ class Ros2AutonomousPiDog(Node):
                 self.pidog_manager.shutdown()
             except:
                 pass
-
+    
+    def show_some_personality(self, RanAction):
+        if   RanAction==1 : pidog.preset_actions.pant(self.dog)
+        #if   RanAction==1 : pidog.preset_actions.scratch(self.dog)
+        #elif RanAction==2 : preset_actions.hand_shake(self.dog)
+        elif RanAction==3 : pidog.preset_actions.high_five(self.dog)
+        elif RanAction==4 : pidog.preset_actions.pant(self.dog)
+        elif RanAction==5 : pidog.preset_actions.body_twisting(self.dog)
+        elif RanAction==6 : pidog.preset_actions.bark_action(self.dog)
+        elif RanAction==7 : pidog.preset_actions.shake_head(self.dog)
+        elif RanAction==8 : pidog.preset_actions.shake_head_smooth(self.dog)
+        #elif RanAction==1 : bark(self.dog)
+        #elif RanAction==1 : push_up(self.dog)
+        elif RanAction==9 : pidog.preset_actions.howling(self.dog)
+        elif RanAction==10: pidog.preset_actions.attack_posture(self.dog)
+        elif RanAction==11: pidog.preset_actions.lick_hand(self.dog)
+        elif RanAction==12: pidog.preset_actions.waiting(self.dog,0)#no def pitch for some reason
+        elif RanAction==13: pidog.preset_actions.feet_shake(self.dog)
+        elif RanAction==14: pidog.preset_actions.sit_2_stand(self.dog)
+        elif RanAction==15: pidog.preset_actions.relax_neck(self.dog)
+        elif RanAction==16: pidog.preset_actions.nod(self.dog)
+        elif RanAction==17: pidog.preset_actions.think(self.dog)
+        elif RanAction==18: pidog.preset_actions.recall(self.dog)
+        elif RanAction==19: pidog.preset_actions.head_down_left(self.dog)
+        elif RanAction==20: pidog.preset_actions.head_down_right(self.dog)
+        elif RanAction==21: pidog.preset_actions.fluster(self.dog)
+        elif RanAction==22: pidog.preset_actions.alert(self.dog)
+        elif RanAction==23: pidog.preset_actions.surprise(self.dog)
+        elif RanAction==24: pidog.preset_actions.stretch(self.dog)
+        #Several likelihoods for turning, as it helps reduce the long straight walk
+        #until it sees a wall
+        elif RanAction==27: self.dog.do_action("turn_left", speed=98)
+        elif RanAction==28: self.dog.do_action("turn_left", speed=98)
+        elif RanAction==29: self.dog.do_action("turn_right", speed=98)
+        elif RanAction==30: self.dog.do_action("turn_right", speed=98)
+        print("Action is",RanAction)
+    
+        #put head back after any actions such that ultrasonic is pointing straight ahead
+        #head_angs = [ [0, 0, 0], [0, 0, 0] ]
+        #self.dog.head_move_raw(head_angs, immediately=False, speed=80)
+        self.dog.wait_all_done()
 
 def main(args=None):
     rclpy.init(args=args)
