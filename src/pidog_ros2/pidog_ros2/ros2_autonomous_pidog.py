@@ -411,9 +411,9 @@ class Ros2AutonomousPiDog(Node):
                 
                     # Log occasionally
                     if random.randint(1, 20) == 1:
-                        self.get_logger().info(f"📊 IMU: fwd={forward_g:.3f}g, right={right_g:.3f}g, up={vertical_g:.3f}g")
-                        self.get_logger().info(f"   Angles: roll={roll:.1f}°, pitch={pitch:.1f}°")
-                        self.get_logger().info(f"   Magnitude: {math.sqrt(forward_g*forward_g + right_g*right_g + vertical_g*vertical_g):.3f}g")
+                        self.get_logger().debug(f"📊 IMU: fwd={forward_g:.3f}g, right={right_g:.3f}g, up={vertical_g:.3f}g")
+                        self.get_logger().debug(f"   Angles: roll={roll:.1f}°, pitch={pitch:.1f}°")
+                        self.get_logger().debug(f"   Magnitude: {math.sqrt(forward_g*forward_g + right_g*right_g + vertical_g*vertical_g):.3f}g")
                 
                     # Create IMU message with RAW values included
                     imu_msg = String()
@@ -607,11 +607,16 @@ class Ros2AutonomousPiDog(Node):
                 self.dog.do_action('sit', speed=speed)
                 self.dog.wait_all_done()
                 hand_shake(self.dog)
-                self.dog.wait_all_done()  
+                self.dog.wait_all_done()
             elif command in ['high_five']:
                 self.dog.do_action('sit', speed=speed)
                 self.dog.wait_all_done()
                 high_five(self.dog)
+                self.dog.wait_all_done()
+            elif command in ['push_up']:
+                self.dog.do_action(command, step_count=5, speed=speed)
+                self.dog.wait_all_done()
+                self.dog.do_action('sit', speed=speed)
                 self.dog.wait_all_done()
             elif command in ['stretch']:
                 self.dog.do_action(command, speed=speed)
@@ -739,8 +744,6 @@ class Ros2AutonomousPiDog(Node):
             elif "stretch" in text:
                 self.get_logger().info("📢 STRETCH")
                 self.execute_movement('stretch', step_count=0, speed=60)
-            #elif "push up" in cmd_lower or "push-up" in cmd_lower:
-            #    indiv_commands('push_up')
             elif "hand" in text or "shake" in text or "handshake" in text:
                 self.get_logger().info("📢 Hand Shake")
                 # Clear any pending commands first
@@ -771,6 +774,15 @@ class Ros2AutonomousPiDog(Node):
                 self.speak("High Five")
                 self.state = RobotState.INTERACTING
                 #threading.Timer(5.0, self.return_to_wandering).start()
+            elif "push" in text or "up" in text or "push up" in text:
+                self.get_logger().info("📢 Push Up")
+                # Clear any pending commands first
+                self.dog.body_stop()
+                self.dog.wait_all_done()
+                time.sleep(0.1)
+                self.execute_movement('push_up',step_count=0, speed=80)  
+                self.speak("Push Up")
+                self.state = RobotState.INTERACTING
             else:
                 self.get_logger().info(f"Unknown command: '{text}'")
             
