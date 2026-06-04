@@ -1,59 +1,54 @@
-[INFO] [launch]: All log files can be found below /root/.ros/log/2026-06-02-16-04-27-590570-raspberrypi-6418
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-06-03-10-29-34-126351-raspberrypi-260
 [INFO] [launch]: Default logging verbosity is set to INFO
-[INFO] [ros2_autonomous_pidog-1]: process started with pid [6420]
-[INFO] [pidog_movement_node-2]: process started with pid [6422]
-[INFO] [pidog_distance_node-3]: process started with pid [6424]
-[INFO] [pidog_camera_node-4]: process started with pid [6426]
-[INFO] [pidog_imu_node-5]: process started with pid [6428]
-[INFO] [pidog_dual_touch_node-6]: process started with pid [6430]
-[INFO] [pidog_direction_sensor_node-7]: process started with pid [6432]
-[INFO] [pidog_tts_speaks_node-8]: process started with pid [6434]
-[INFO] [pidog_stt_voice_command_node-9]: process started with pid [6436]
-[INFO] [pidog_battery_monitor_node-10]: process started with pid [6438]
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction node starting - listening for data from main node[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: PiDog Sound Direction Node Ready[0m
+[INFO] [ros2_autonomous_pidog-1]: process started with pid [262]
+[INFO] [pidog_movement_node-2]: process started with pid [264]
+[INFO] [pidog_distance_node-3]: process started with pid [266]
+[INFO] [pidog_camera_node-4]: process started with pid [268]
+[INFO] [pidog_imu_node-5]: process started with pid [270]
+[INFO] [pidog_dual_touch_node-6]: process started with pid [272]
+[INFO] [pidog_direction_sensor_node-7]: process started with pid [274]
+[INFO] [pidog_tts_speaks_node-8]: process started with pid [276]
+[INFO] [pidog_stt_voice_command_node-9]: process started with pid [278]
+[INFO] [pidog_battery_monitor_node-10]: process started with pid [280]
 [pidog_movement_node-2] [0m[INFO]: PiDog Movement Node Ready (forwarding commands to main node)[0m
 [pidog_movement_node-2] [0m[INFO]: Available actions: sit, stand, forward, backward, turn_left, turn_right, stretch, push_up, hand_shake, scratch, high_five, shake_head, wag_tail, head_tilt, look_around, bark, howling, startle, stop[0m
 [pidog_dual_touch_node-6] [0m[INFO]: Touch node starting - listening for touch events[0m
 [pidog_dual_touch_node-6] [0m[INFO]: Touch node ready - waiting for touch data[0m
-[pidog_imu_node-5] [0m[INFO]: IMU node starting (NO hardware initialization)[0m
-[pidog_imu_node-5] [0m[INFO]: IMU node ready (publishing at 10.0 Hz)[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction node starting - listening for data from main node[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: PiDog Sound Direction Node Ready[0m
+[pidog_distance_node-3] [0m[INFO]: Distance node starting with advanced filtering[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ============================================================[0m
+[pidog_distance_node-3] [0m[INFO]: Distance node ready with advanced filtering:[0m
+[pidog_distance_node-3] [0m[INFO]:   - Window size: 5[0m
+[pidog_distance_node-3] [0m[INFO]:   - Outlier threshold: 50.0 cm[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Initializing Battery Monitor Node...[0m
-[pidog_tts_speaks_node-8] [0;93m2026-06-02 16:04:30.140104112 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
+[pidog_distance_node-3] [0m[INFO]:   - Max change per reading: 100.0 cm[0m
+[pidog_distance_node-3] [0m[INFO]:   - Publishing at 10.0 Hz[0m
+[pidog_imu_node-5] [0m[INFO]: IMU node starting (NO hardware initialization)[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ✓ Battery ADC initialized on channel A4[0m
-[pidog_battery_monitor_node-10] [0m[INFO]: ✓ Initial battery voltage: 8.47V[0m
+[pidog_battery_monitor_node-10] [0m[INFO]: ✓ Initial battery voltage: 8.42V[0m
+[pidog_battery_monitor_node-10] [0m[INFO]: Battery monitoring thread started[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ============================================================[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Battery Monitor Node Ready![0m
-[pidog_battery_monitor_node-10] [0m[INFO]: Battery monitoring thread started[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Battery check interval: 60s[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Warning threshold: 7.0V[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: Critical threshold: 6.5V[0m
 [pidog_battery_monitor_node-10] [0m[INFO]: ============================================================[0m
-[pidog_distance_node-3] [0m[INFO]: Distance node starting with advanced filtering[0m
-[pidog_distance_node-3] [0m[INFO]: Distance node ready with advanced filtering:[0m
-[pidog_distance_node-3] [0m[INFO]:   - Window size: 5[0m
-[pidog_distance_node-3] [0m[INFO]:   - Outlier threshold: 50.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]:   - Max change per reading: 100.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]:   - Publishing at 10.0 Hz[0m
-[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.43010989010989V[0m
+[pidog_imu_node-5] [0m[INFO]: IMU node ready (publishing at 10.0 Hz)[0m
+[pidog_tts_speaks_node-8] [0;93m2026-06-03 10:29:36.589698479 [W:onnxruntime:Default, device_discovery.cc:164 DiscoverDevicesForPlatform] GPU device discovery failed: device_discovery.cc:89 ReadFileContents Failed to open file: "/sys/class/drm/card1/device/vendor"[m
+[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.43978021978022V[0m
 [pidog_camera_node-4] [0m[INFO]: Face cascade classifier loaded successfully[0m
 [ros2_autonomous_pidog-1] pygame 2.6.1 (SDL 2.28.4, Python 3.10.12)
 [ros2_autonomous_pidog-1] Hello from the pygame community. https://www.pygame.org/contribute.html
-[ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
-[ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
-[ros2_autonomous_pidog-1] [0m[INFO]: Initializing PiDog hardware...[0m
-[ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
-[ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
 [pidog_camera_node-4] vilib 0.3.18 launching ...
 [pidog_camera_node-4] picamera2 0.3.35
+[ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Initializing PiDog hardware...[0m
+[ros2_autonomous_pidog-1] [PiDogManager] Initializing PiDog hardware...
+[ros2_autonomous_pidog-1] [1;30mconfig_file: /root/.config/pidog/pidog.conf[0m
+[ros2_autonomous_pidog-1] [1;30mpidog sound path: /root[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: STT node starting...[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Loading Vosk model from /pidog/woofer/vosk-model-small-en-us-0.15...[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Piper TTS initialized successfully with model: en_US-ryan-low[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: eSpeak found and ready[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: PiDog TTS Node Ready (piper=True, espeak=True)[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Or publish to /speak_text topic[0m
 [pidog_camera_node-4] 
 [pidog_camera_node-4] Web display on:
 [pidog_camera_node-4]       http://192.168.0.23:9000/mjpg
@@ -61,20 +56,15 @@
 [pidog_camera_node-4] Starting web streaming ...
 [pidog_camera_node-4]  * Serving Flask app 'vilib.vilib'
 [pidog_camera_node-4]  * Debug mode: off
-[ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Piper TTS initialized successfully with model: en_US-ryan-low[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: eSpeak found and ready[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: PiDog TTS Node Ready (piper=True, espeak=True)[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Use: ros2 service call /speak std_srvs/srv/Trigger '{data: "Hello"}'[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Or publish to /speak_text topic[0m
 [pidog_camera_node-4] [0m[INFO]: Camera initialized with Vilib[0m
-[pidog_camera_node-4] [0m[INFO]: Camera capture loop started[0m
 [pidog_camera_node-4] [0m[INFO]: PiDog Camera Node Ready[0m
 [pidog_camera_node-4] [0m[INFO]: Publishing to: camera/image_raw and face_detection[0m
-[ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [1;30multrasonic init ... [0m[1;30mdone[0m
-[ros2_autonomous_pidog-1] [PiDogManager] PiDog hardware initialized successfully
-[ros2_autonomous_pidog-1] [0m[INFO]: ✓ PiDog hardware available[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Testing hardware...[0m
+[pidog_camera_node-4] [0m[INFO]: Camera capture loop started[0m
 [pidog_stt_voice_command_node-9] ALSA lib confmisc.c:1369:(snd_func_refer) Unable to find definition 'cards.0.pcm.front.0:CARD=0'
 [pidog_stt_voice_command_node-9] ALSA lib conf.c:5178:(_snd_config_evaluate) function snd_func_refer returned error: No such file or directory
 [pidog_stt_voice_command_node-9] ALSA lib conf.c:5701:(snd_config_expand) Evaluate error: No such file or directory
@@ -100,14 +90,23 @@
 [pidog_stt_voice_command_node-9] [0m[INFO]: Will ignore speech while TTS is speaking + 0.5s delay[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Audio filter: low-pass at 4000 Hz (reduces servo noise)[0m
 [pidog_stt_voice_command_node-9] [0m[INFO]: Try saying: sit, stand, walk, stop, turn left, turn right[0m
+[ros2_autonomous_pidog-1] [1;30mrobot_hat init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mimu_sh3001 init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mrgb_strip init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30mdual_touch init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30msound_direction init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30msound_effect init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [1;30multrasonic init ... [0m[1;30mdone[0m
+[ros2_autonomous_pidog-1] [PiDogManager] PiDog hardware initialized successfully
+[ros2_autonomous_pidog-1] [0m[INFO]: ✓ PiDog hardware available[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Testing hardware...[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ✓ Hardware test passed[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Calibrating IMU gyroscope - keep dog still...[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: IMU gyro calibration complete:[0m
-[ros2_autonomous_pidog-1] [0m[INFO]:   Gyro offsets: gx=-23.0, gy=43.0, gz=624.8[0m
+[ros2_autonomous_pidog-1] [0m[INFO]:   Gyro offsets: gx=-59.0, gy=-0.3, gz=537.5[0m
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: OFF[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble:0[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🔇 Sound disabled for 15.7s[0m
-[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble:0[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Sensor reading thread started[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Autonomous behavior loop started[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
@@ -115,553 +114,763 @@
 [ros2_autonomous_pidog-1] [0m[INFO]: Features: Autonomous Wandering | Obstacle Avoidance | Voice Commands[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Say: sit, stand, walk, stop, turn left, turn right, resume, hand shake, high five, scratch[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ============================================================[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Hi, I am Woofer. Your obedient ROS2 Pi DogI am running on Ubuntu 22.04 with ROS 2 Humble[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stand[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 141.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 42.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 68.1 cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=10-103cm → filtered=59cm → stable=59cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 30.4 cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=3-194cm → filtered=70cm → stable=70cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 68.0 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=54-241cm → filtered=65cm → stable=65cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 49/50 (98.0% rejected)[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=48-54cm → filtered=53cm → stable=53cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 66.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=46-127cm → filtered=65cm → stable=65cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-120cm → filtered=44cm → stable=44cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 47/50 (94.0% rejected)[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=7-54cm → filtered=43cm → stable=43cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=7-54cm → filtered=36cm → stable=36cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 29.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 53.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=27-54cm → filtered=44cm → stable=44cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 74.0 cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 105/100 (105.0% rejected)[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=11-120cm → filtered=50cm → stable=50cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 14.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.8cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 82/100 (82.0% rejected)[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 79.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=7-124cm → filtered=88cm → stable=88cm[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'french'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'french'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Unknown command: 'french'[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=29-79cm → filtered=56cm → stable=56cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-94cm → filtered=63cm → stable=63cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=28-94cm → filtered=60cm → stable=60cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 54.6 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 118/150 (78.7% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=41-61cm → filtered=51cm → stable=51cm[0m
+[ros2_autonomous_pidog-1] Action is 93
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 54.5 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=46-106cm → filtered=58cm → stable=58cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-67cm → filtered=45cm → stable=45cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=54-124cm → filtered=78cm → stable=78cm[0m
-[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'stretch'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'stretch'[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📢 STRETCH[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stretch[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 45.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 30.5 cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 31.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 161/150 (107.3% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 26.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 27.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 27.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 25.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 25.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 26.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=25-26cm → filtered=26cm → stable=26cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 25.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 25.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-17cm → filtered=16cm → stable=16cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 26.8 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=37-119cm → filtered=54cm → stable=54cm[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'push up'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'push up'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📢 Push Up[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ push_up[0m
 [pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 161/200 (80.5% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 15.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.1 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=20-72cm → filtered=45cm → stable=45cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=55-88cm → filtered=67cm → stable=67cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 98.1 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 62.7 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=60-98cm → filtered=69cm → stable=69cm[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Push Up:0[0m
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 14.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 14.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-16cm → filtered=15cm → stable=15cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.6 cm[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Push Up[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-68cm → filtered=62cm → stable=62cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-68cm → filtered=62cm → stable=62cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-68cm → filtered=62cm → stable=62cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-68cm → filtered=62cm → stable=62cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-68cm → filtered=62cm → stable=62cm[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'sit down'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'sit down'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📢 SIT[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ sit[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Sitting down:0[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Sitting down[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-68cm → filtered=62cm → stable=62cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-68cm → filtered=62cm → stable=62cm[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Returning to wandering mode[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'them up'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'them up'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📢 Push Up[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ push_up[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-178cm → filtered=73cm → stable=73cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=37-217cm → filtered=52cm → stable=52cm[0m
+[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.473626373626374V[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 205/250 (82.0% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-136cm → filtered=69cm → stable=69cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=100cm → stable=100cm[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Push Up:0[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Push Up[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 1/3, ax_raw=-11018[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-249cm → filtered=106cm → stable=106cm[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'that up'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'that up'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📢 Push Up[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ push_up[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 64.5 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 63.7 cm[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Push Up:0[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 1/3, ax_raw=-12746[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Push Up[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📊 Debounce: 1/3, ax_raw=-6597[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'spam'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'spam'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Unknown command: 'spam'[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[pidog_stt_voice_command_node-9] [0m[INFO]: 🎤 Recognized: 'standing'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🎤 Voice command: 'standing'[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📢 STAND[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=64-195cm → filtered=77cm → stable=77cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ stand[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: Speak topic received: Standing up:0[0m
+[pidog_tts_speaks_node-8] [0m[INFO]: 🔊 Speaking: Standing up[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-87cm → filtered=58cm → stable=58cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-47cm → filtered=46cm → stable=46cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 747/300 (249.0% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-46cm → filtered=45cm → stable=45cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-67cm → filtered=50cm → stable=50cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 45.7 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-67cm → filtered=50cm → stable=50cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-46cm → filtered=46cm → stable=46cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 68.2 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=45-68cm → filtered=50cm → stable=50cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Returning to wandering mode[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Emotion triggered: Emotion.LONELY[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ wag_tail[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] Action is 98
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=18-98cm → filtered=27cm → stable=27cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 31.7 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 44.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 776/350 (221.7% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 44.4 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 66.7 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 814/400 (203.5% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-44cm → filtered=34cm → stable=34cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=44-130cm → filtered=54cm → stable=54cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=44-59cm → filtered=47cm → stable=47cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-66cm → filtered=40cm → stable=40cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=44-64cm → filtered=48cm → stable=48cm[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 826/450 (183.6% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=41-78cm → filtered=50cm → stable=50cm[0m
+[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.427692307692308V[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=41-78cm → filtered=50cm → stable=50cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 127.7 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 29.7cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 29.7 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-94cm → filtered=46cm → stable=46cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 69.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=42-155cm → filtered=42cm → stable=42cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] Action is 17
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 881/500 (176.2% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 87.5 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-95cm → filtered=55cm → stable=55cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 29.7cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 921/550 (167.5% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 55.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Emotion triggered: Emotion.LONELY[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ wag_tail[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.4 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=26-57cm → filtered=47cm → stable=47cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=28-86cm → filtered=52cm → stable=52cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-86cm → filtered=58cm → stable=58cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=56-86cm → filtered=63cm → stable=63cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.4 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=53-130cm → filtered=56cm → stable=56cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=53-130cm → filtered=75cm → stable=75cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-130cm → filtered=81cm → stable=81cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-100cm → filtered=57cm → stable=57cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=44-100cm → filtered=64cm → stable=64cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=44-100cm → filtered=61cm → stable=61cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 942/600 (157.0% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 55.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=40-95cm → filtered=61cm → stable=61cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=23-88cm → filtered=55cm → stable=55cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=43-135cm → filtered=83cm → stable=83cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 963/650 (148.2% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-135cm → filtered=52cm → stable=52cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-92cm → filtered=53cm → stable=53cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] Action is 17
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-57cm → filtered=38cm → stable=38cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 58.1 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-139cm → filtered=57cm → stable=57cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=38-67cm → filtered=54cm → stable=54cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=22-188cm → filtered=48cm → stable=48cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-68cm → filtered=59cm → stable=59cm[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=35-121cm → filtered=48cm → stable=48cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 102.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1004/700 (143.4% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=10-86cm → filtered=71cm → stable=71cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 190.1 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=54-251cm → filtered=56cm → stable=56cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 58.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-220cm → filtered=60cm → stable=60cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 67.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 67.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1066/750 (142.1% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-57cm → filtered=44cm → stable=44cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-121cm → filtered=44cm → stable=44cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-201cm → filtered=63cm → stable=63cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=52-114cm → filtered=60cm → stable=60cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 49.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Emotion triggered: Emotion.BORED[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: ➡️ wag_tail[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1094/800 (136.8% rejected)[0m
+[ros2_autonomous_pidog-1] Action is 91
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=36-98cm → filtered=61cm → stable=61cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 123.6 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=51-107cm → filtered=69cm → stable=69cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=51-107cm → filtered=69cm → stable=69cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1159/850 (136.4% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=20-57cm → filtered=49cm → stable=49cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=4-57cm → filtered=55cm → stable=55cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1186/900 (131.8% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=36-181cm → filtered=54cm → stable=54cm[0m
+[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.463956043956044V[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=11-37cm → filtered=20cm → stable=20cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 11.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 11.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 167/250 (66.8% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 15.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-36cm → filtered=19cm → stable=19cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-16cm → filtered=15cm → stable=15cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 15.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-20cm → filtered=17cm → stable=17cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-38cm → filtered=21cm → stable=21cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 15.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 13.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 13.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.7 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 174/300 (58.0% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 13.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 14.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-23cm → filtered=16cm → stable=16cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 15.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 15.3 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-16cm → filtered=14cm → stable=14cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-21cm → filtered=15cm → stable=15cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 15.3 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-57cm → filtered=29cm → stable=29cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 29.2cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-57cm → filtered=29cm → stable=29cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 29.2 cm[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-38cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-38cm → filtered=22cm → stable=22cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 19.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 19.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 17.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 21.7 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=6-38cm → filtered=18cm → stable=18cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 13.6 cm[0m
-[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.497802197802198V[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=9-25cm → filtered=16cm → stable=16cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 174/350 (49.7% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.1 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 28.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 28.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 51.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=40-57cm → filtered=52cm → stable=52cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 50.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-135cm → filtered=47cm → stable=47cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1249/950 (131.5% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] Action is 37
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 127.2 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=18-241cm → filtered=31cm → stable=31cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 30.6 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=28-141cm → filtered=39cm → stable=39cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 31.4 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-137cm → filtered=53cm → stable=53cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-79cm → filtered=53cm → stable=53cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=4-63cm → filtered=59cm → stable=59cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 52.3 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1317/1000 (131.7% rejected)[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: Emotion triggered: Emotion.HAPPY[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ➡️ wag_tail[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 28.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 27.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 27.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 28.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 28.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-30cm → filtered=19cm → stable=19cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 174/400 (43.5% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 19.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 19.1 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-19cm → filtered=16cm → stable=16cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-19cm → filtered=16cm → stable=16cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.7 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 13.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=10-23cm → filtered=17cm → stable=17cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.1 cm[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 27.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 27.7 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 30.8 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-57cm → filtered=31cm → stable=31cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-57cm → filtered=31cm → stable=31cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-75cm → filtered=66cm → stable=66cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=35-75cm → filtered=63cm → stable=63cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 58.4 cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-18cm → filtered=15cm → stable=15cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-18cm → filtered=15cm → stable=15cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 13.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 13.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 13.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 174/450 (38.7% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 13.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 13.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-15cm → filtered=14cm → stable=14cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-26cm → filtered=17cm → stable=17cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 31.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 25.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 25.7 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=25-26cm → filtered=26cm → stable=26cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=26-31cm → filtered=28cm → stable=28cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-31cm → filtered=26cm → stable=26cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-30cm → filtered=17cm → stable=17cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-37cm → filtered=32cm → stable=32cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] Action is 51
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 31.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=18-37cm → filtered=24cm → stable=24cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 174/500 (34.8% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-18cm → filtered=17cm → stable=17cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 16.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.6 cm[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 16.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-18cm → filtered=17cm → stable=17cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-18cm → filtered=17cm → stable=17cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-18cm → filtered=17cm → stable=17cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 174/550 (31.6% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=18-19cm → filtered=18cm → stable=18cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 17.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=18-19cm → filtered=18cm → stable=18cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.8 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-23cm → filtered=17cm → stable=17cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-23cm → filtered=19cm → stable=19cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-24cm → filtered=16cm → stable=16cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-25cm → filtered=17cm → stable=17cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 174/600 (29.0% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-25cm → filtered=17cm → stable=17cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-17cm → filtered=15cm → stable=15cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 14.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.3 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-17cm → filtered=17cm → stable=17cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.7 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-68cm → filtered=31cm → stable=31cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 21.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=4-15cm → filtered=12cm → stable=12cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=4-15cm → filtered=12cm → stable=12cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=4-15cm → filtered=12cm → stable=12cm[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 25.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 25.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 182/650 (28.0% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=6-101cm → filtered=20cm → stable=20cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 12.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 12.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-49cm → filtered=23cm → stable=23cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-49cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 19.9 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.1 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 21.1 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 25.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-41cm → filtered=24cm → stable=24cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-41cm → filtered=24cm → stable=24cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-26cm → filtered=20cm → stable=20cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.7 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 194/700 (27.7% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 21.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.8 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-16cm → filtered=16cm → stable=16cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-16cm → filtered=15cm → stable=15cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 25.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 25.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.6 cm[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-57cm → filtered=26cm → stable=26cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-24cm → filtered=18cm → stable=18cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.6 cm[0m
-[pidog_battery_monitor_node-10] [0m[INFO]: 🔋 Battery: 8.39V (99.6%) - GOOD[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 28.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 28.1 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-246cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-30cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 27.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 27.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 201/750 (26.8% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 21.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 19.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 19.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 22.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.1 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-59cm → filtered=29cm → stable=29cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 201/800 (25.1% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 29.2 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-45cm → filtered=26cm → stable=26cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.1 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 20.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-23cm → filtered=22cm → stable=22cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.3 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-23cm → filtered=21cm → stable=21cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-19cm → filtered=19cm → stable=19cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.8 cm[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.3 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 201/850 (23.6% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 17.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-24cm → filtered=24cm → stable=24cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-25cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 209/900 (23.2% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-25cm → filtered=24cm → stable=24cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-24cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.8 cm[0m
-[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 209/950 (22.0% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.3 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-25cm → filtered=24cm → stable=24cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-27cm → filtered=25cm → stable=25cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-24cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-25cm → filtered=24cm → stable=24cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-25cm → filtered=24cm → stable=24cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 24.5cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 24.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.7 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 209/1000 (20.9% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 23.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 23.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-24cm → filtered=19cm → stable=19cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.3 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-36cm → filtered=21cm → stable=21cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.2cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 21.2 cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] [0m[INFO]: Emotion triggered: Emotion.BORED[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=51-57cm → filtered=52cm → stable=52cm[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 64.4 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=38-87cm → filtered=59cm → stable=59cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1339/1050 (127.5% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 69.1 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=29-151cm → filtered=58cm → stable=58cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.3 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=50-197cm → filtered=83cm → stable=83cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 58.8 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=5-177cm → filtered=61cm → stable=61cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1421/1100 (129.2% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 28.9cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 28.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.3 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 53.3 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.2 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=6-57cm → filtered=56cm → stable=56cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=53-180cm → filtered=56cm → stable=56cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 79.5 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.2 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-79cm → filtered=65cm → stable=65cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=3-83cm → filtered=64cm → stable=64cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=25-140cm → filtered=43cm → stable=43cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=22-55cm → filtered=40cm → stable=40cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 44.4 cm[0m
+[ros2_autonomous_pidog-1] Action is 21
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-100cm → filtered=57cm → stable=57cm[0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1478/1150 (128.5% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-44cm → filtered=34cm → stable=34cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-44cm → filtered=40cm → stable=40cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 43.4 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=40-88cm → filtered=56cm → stable=56cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=19-119cm → filtered=38cm → stable=38cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.9cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.9 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=18-96cm → filtered=36cm → stable=36cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1522/1200 (126.8% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=41-96cm → filtered=44cm → stable=44cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 43.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=21-184cm → filtered=38cm → stable=38cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=43-223cm → filtered=43cm → stable=43cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Emotion triggered: Emotion.CURIOUS[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=24-57cm → filtered=43cm → stable=43cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.7 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=35-157cm → filtered=50cm → stable=50cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-102cm → filtered=66cm → stable=66cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-102cm → filtered=73cm → stable=73cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=47-102cm → filtered=71cm → stable=71cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1562/1250 (125.0% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-58cm → filtered=47cm → stable=47cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] Action is 74
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1600/1300 (123.1% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 59.7 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=42-102cm → filtered=64cm → stable=64cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 27.0cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 27.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-118cm → filtered=88cm → stable=88cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.5 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.5 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-115cm → filtered=81cm → stable=81cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_battery_monitor_node-10] [33m[WARN]: Invalid battery reading: 8.456703296703296V[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1642/1350 (121.6% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=54-57cm → filtered=56cm → stable=56cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 67.7 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 101.1 cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1680/1400 (120.0% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 92.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 66.3 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-65cm → filtered=46cm → stable=46cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-65cm → filtered=46cm → stable=46cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 57.0 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] Action is 41
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 78.5 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: Emotion triggered: Emotion.LONELY[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: ➡️ wag_tail[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 14.5 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 15.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 15.1 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.8cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 26.8 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=17-34cm → filtered=27cm → stable=27cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-34cm → filtered=29cm → stable=29cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 31.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 209/1050 (19.9% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=33-146cm → filtered=66cm → stable=66cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1726/1450 (119.0% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-115cm → filtered=63cm → stable=63cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-115cm → filtered=57cm → stable=57cm[0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
-[ros2_autonomous_pidog-1] Action is 71
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 22.7cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 22.7 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=13-24cm → filtered=19cm → stable=19cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=29-129cm → filtered=58cm → stable=58cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=23-71cm → filtered=47cm → stable=47cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
 [pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.0 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-16cm → filtered=16cm → stable=16cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-16cm → filtered=16cm → stable=16cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 13.8 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=14-31cm → filtered=18cm → stable=18cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.4cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 18.9cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 18.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 209/1100 (19.0% rejected)[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 37.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 37.2 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 32.8 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 19.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.4 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-16cm → filtered=16cm → stable=16cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.3cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 17.6cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 17.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=18-18cm → filtered=18cm → stable=18cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 17.6 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 16.0cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 16.0 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 23.3 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 21.1cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 20.9 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=16-24cm → filtered=21cm → stable=21cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 25.4 cm[0m
-[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle confirmed! Distance: 31.6 cm[0m
-[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 215/1150 (18.7% rejected)[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=2-239cm → filtered=59cm → stable=59cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1766/1500 (117.7% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=34-139cm → filtered=58cm → stable=58cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 33.7 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-78cm → filtered=63cm → stable=63cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 81.2 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=8-226cm → filtered=43cm → stable=43cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1808/1550 (116.6% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=52-57cm → filtered=56cm → stable=56cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 56.9 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 66.3 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=31-165cm → filtered=53cm → stable=53cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=30-93cm → filtered=40cm → stable=40cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1834/1600 (114.6% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-225cm → filtered=63cm → stable=63cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=36-82cm → filtered=57cm → stable=57cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] Action is 59
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_direction_sensor_node-7] [0m[INFO]: Sound direction: ON[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-160cm → filtered=47cm → stable=47cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=9-58cm → filtered=48cm → stable=48cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 53.7 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚨 CRITICAL obstacle! Stable distance: 26.2cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=15-175cm → filtered=47cm → stable=47cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 📏 Distance: 32.4 cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=56-66cm → filtered=59cm → stable=59cm[0m
+[pidog_distance_node-3] [0m[INFO]: 📊 Filter stats: 1890/1650 (114.5% rejected)[0m
+[pidog_distance_node-3] [0m[INFO]: 📏 Distance: raw=57-105cm → filtered=79cm → stable=79cm[0m
+[ros2_autonomous_pidog-1] [0m[INFO]: 🚧 Obstacle detected while moving![0m

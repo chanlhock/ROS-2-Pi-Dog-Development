@@ -707,7 +707,7 @@ class Ros2AutonomousPiDog(Node):
                 self.state = RobotState.INTERACTING
                 threading.Timer(5.0, self.return_to_wandering).start()
             
-            elif 'stand' in text:
+            elif 'stand' in text or "standing" in text or "stand up" in text:
                 self.get_logger().info("📢 STAND")
                 self.execute_movement('stand')
                 self.speak("Standing up")
@@ -774,7 +774,7 @@ class Ros2AutonomousPiDog(Node):
                 self.speak("High Five")
                 self.state = RobotState.INTERACTING
                 #threading.Timer(5.0, self.return_to_wandering).start()
-            elif "push" in text or "up" in text or "push up" in text:
+            elif "push" in text or "push up" in text:
                 self.get_logger().info("📢 Push Up")
                 # Clear any pending commands first
                 self.dog.body_stop()

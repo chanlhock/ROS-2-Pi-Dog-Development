@@ -4,4 +4,4 @@ rm log.txt
 rm core*
 clear
 
-ros2 launch urdf_tutorial display.launch.py model:=/ros2_ws/urdf/pidog.urdf.xacro
+ros2 launch urdf_tutorial display.launch.py model:=/ros2_ws/src/pidog_ros2/resource/urdf/pidog.urdf.xacro

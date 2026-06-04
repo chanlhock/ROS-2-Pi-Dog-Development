@@ -1,3 +1,5 @@
+
+clear
 cd /ros2_ws
 
 # Complete cleanup
